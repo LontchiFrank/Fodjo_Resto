@@ -1,13 +1,13 @@
 import React from "react";
 import logo from "./logo.svg";
-import "./App.css";
-import Landing from "./Pages/Landing/Landing.page";
+import Navigation from "./Navigation/Navigation";
 
 function App() {
   return (
-    <div className="App">
-      <Landing />
-    </div>
+    <>
+      {/* <Navigation /> */}
+      <h1 className="text-7xl font-bold underline">Hello world!</h1>
+    </>
   );
 }
 
