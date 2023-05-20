@@ -13,7 +13,7 @@ function Landing() {
           <div className="flex pb-8">
             {" "}
             <h1 className={styles.landing_header_h1}>afrikan </h1>
-            <span className={styles.k}>food</span>
+            <span className={styles.k}>foods</span>
           </div>
           <h2 className={styles.h2__opensans}>
             Fresh and tasty afrikan food.A pinch of passion in every dish,
