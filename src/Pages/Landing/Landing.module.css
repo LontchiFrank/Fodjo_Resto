@@ -1,4 +1,53 @@
-* {
+.fullscreen {
   width: 100%;
   height: 100vh;
+}
+.shape {
+  clip-path: ellipse(130px 140px at 10% 20%);
+}
+.welcome {
+  /* width: 100%; */
+  height: 100%;
+  background-image: url("../../assets/fine.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.landing_header_h1 {
+  font-family: var(--font-base);
+  color: var(--color-orange);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  line-height: 124px;
+  font-size: 120px;
+}
+.k {
+  font-family: var(--font-base);
+  color: var(--color-black);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  line-height: 124px;
+  font-size: 120px;
+}
+.h2__opensans {
+  font-family: var(--font-alt);
+  color: var(--color-black);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  line-height: 28px;
+  font-size: 20px;
+  padding-bottom: 2em;
+}
+.button1 {
+  background-color: var(--color-green);
+}
+.h3_price {
+  font-family: var(--font-base);
+  color: var(--color-black);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-size: 53px;
 }
