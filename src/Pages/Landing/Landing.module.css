@@ -42,8 +42,8 @@
   letter-spacing: 0.02em;
   text-transform: capitalize;
   line-height: 28px;
-  font-size: 20px;
-  padding-bottom: 2em;
+  /* font-size: 20px; */
+  /* padding-bottom: 2em; */
 }
 .button1 {
   background-color: var(--color-green);
@@ -53,5 +53,5 @@
   color: var(--color-black);
   font-weight: 600;
   letter-spacing: 0.02em;
-  font-size: 53px;
+  /* font-size: 53px; */
 }
