@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar } from "../../Components";
 import styles from "./Landing.module.css";
 import welcome from "../../assets/salt.png";
+import meat from "../../assets/cj.png";
 import { Fade, Bounce } from "react-awesome-reveal";
 
 function Landing() {
@@ -49,13 +50,29 @@ function Landing() {
           </div>
         </div>
         {/* </Fade> */}
-        <Fade direction="down">
-          <div className={`w-3/5 xs:w-full sm:w-full `}>
-            <div className={styles.welcome}>
-              <img src={welcome} />
-            </div>
+        {/* <Fade direction="down"> */}
+        <div className={`w-3/5 xs:w-full sm:w-full `}>
+          <div className={styles.welcome}>
+            <img src={welcome} />
           </div>
-        </Fade>
+        </div>
+        {/* </Fade> */}
+      </div>
+      <div className={`${styles.second} flex`}>
+        <div className="w-3/5 h-full flex justify-content-end">
+          <div className="pt-72">
+            <img
+              src={meat}
+              className={styles.img_shad}
+              style={{ width: "100%", height: "55%" }}
+            />
+          </div>
+        </div>
+
+        <div className="w-2/5 h-full flex flex-col justify-center items-center px-24">
+          <h3 className="text-2xl text-orange-500">About</h3>
+          <h2>Food Is An Important part Of a Balance Diet</h2>
+        </div>
       </div>
     </div>
   );

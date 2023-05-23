@@ -1,6 +1,6 @@
 .fullscreen {
   width: 100%;
-  height: 100vh;
+  height: 200vh;
 }
 .full {
   display: flex;
@@ -54,4 +54,16 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   /* font-size: 53px; */
+}
+.second {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/bc.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.img_shad {
+  /* filter: drop-shadow(12px 10px 4px #817f7f); */
+  /* filter: drop-shadow(0 0 0.75rem #817f7f); */
 }
