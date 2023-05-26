@@ -36,12 +36,12 @@
   /* font-size: 120px; */
 }
 .h2__opensans {
-  font-family: var(--font-alt);
+  font-family: "Poppins", sans-serif;
   color: var(--color-black);
   font-weight: 500;
   letter-spacing: 0.02em;
   text-transform: capitalize;
-  line-height: 28px;
+  line-height: 32px;
   /* font-size: 20px; */
   /* padding-bottom: 2em; */
 }
@@ -63,7 +63,13 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
-.img_shad {
-  /* filter: drop-shadow(12px 10px 4px #817f7f); */
-  /* filter: drop-shadow(0 0 0.75rem #817f7f); */
+.fontSec {
+  font-family: "Poppins", sans-serif;
+}
+.work {
+  width: 20%;
+  height: 100%;
+  border-radius: 0px 24px 0px 24px;
+  background-color: none;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }

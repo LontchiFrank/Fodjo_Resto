@@ -3,7 +3,9 @@ import { Navbar } from "../../Components";
 import styles from "./Landing.module.css";
 import welcome from "../../assets/salt.png";
 import meat from "../../assets/cj.png";
-import { Fade, Bounce } from "react-awesome-reveal";
+import { FaPastafarianism } from "react-icons/fa";
+import { WorkCardData } from "../../Components/WorkCards/WorkCard";
+import WorkCard from "../../Components/WorkCards/WorkCard.component";
 
 function Landing() {
   return (
@@ -29,7 +31,7 @@ function Landing() {
             </span>
           </div>
           <h2
-            className={`${styles.h2__opensans} md:text-[16px] xs:pb-4 md:pb-4 lg:pb-8  lg:text-[20px]`}
+            className={`${styles.h2__opensans} md:text-[16px] xs:pb-4 md:pb-4 lg:pb-8  lg:text-[24px]`}
           >
             Fresh and tasty afrikan food.A pinch of passion in every dish,
             Relish, Savour, taste and enjoy every african ingredient in your
@@ -49,29 +51,97 @@ function Landing() {
             </h3>
           </div>
         </div>
-        {/* </Fade> */}
-        {/* <Fade direction="down"> */}
         <div className={`w-3/5 xs:w-full sm:w-full `}>
           <div className={styles.welcome}>
             <img src={welcome} />
           </div>
         </div>
-        {/* </Fade> */}
       </div>
-      <div className={`${styles.second} flex`}>
-        <div className="w-3/5 h-full flex justify-content-end">
-          <div className="pt-72">
+      <div
+        className={`${styles.second} h-full flex lg:flex-row md:flex-row sm:flex-col-reverse xs:flex-col-reverse `}
+      >
+        <div className="lg:w-3/5  sm:w-full xs:w-full lg:justify-content-end md:justify-content-end  sm:justify-content-center ">
+          <div className="lg:pt-72 lg:px-28 md:pt-56 md:px-16  ">
             <img
               src={meat}
               className={styles.img_shad}
-              style={{ width: "100%", height: "55%" }}
+              style={{ width: "100%", height: "40%" }}
             />
           </div>
         </div>
 
-        <div className="w-2/5 h-full flex flex-col justify-center items-center px-24">
-          <h3 className="text-2xl text-orange-500">About</h3>
-          <h2>Food Is An Important part Of a Balance Diet</h2>
+        <div className="lg:w-2/5  flex flex-col  sm:px-10 xs:px-12  lg:pt-[27rem] lg:pr-20 md:pt-[20rem] md:pr-12">
+          <h3
+            className={`${styles.fontSec} lg:text-3xl md:text-xl xs:text-xl text-orange-500 font-bold lg:pb-6 md:pb-4 sm:pb-4 xs:pb-3`}
+          >
+            About
+          </h3>
+          <h2
+            className={`${styles.fontSec} lg:text-4xl md:text-2xl font-bold lg:pb-8 md:pb-4 sm:pb-4 xs:pb-3`}
+          >
+            Food Is An Important Part Of A Balance Diet
+          </h2>
+          <p
+            className={`${styles.fontSec} md:text-[12px] sm:text-[12px] xs:pb-4 md:pb-4 lg:pb-8 text-stone-950 lg:text-[20px]`}
+          >
+            A healthy diet rich in fruits, vegetables, whole grains and low-fat
+            dairy can help to reduce your risk of heart disease by maintaining
+            blood pressure and cholesterol levels. <br />
+            <br /> High blood pressure and cholesterol can be a symptom of too
+            much salt and saturated fats in your diet.
+            <br />
+            <br /> Eating a portion of oily fish - such as salmon and trout -
+            each week can also help to lower your risk of developing heart
+            disease. The high levels of omega-3 fatty acids in oily fish are
+            good for heart health.
+          </p>
+          <div className="flex gap-4">
+            <button
+              className={`${styles.fontSec} bg-orange-400 text-white font-bold lg:py-4 lg:px-6 md:px-4 md:py-2 md:text-[16px] sm:text-[14px] xs:text-[9px] xs:px-4 xs:py-6 rounded-lg lg:text-[20px]`}
+            >
+              Learn More
+            </button>
+            <h3
+              className={`${styles.h3_price} text-5xl md:text-4xl xs:text-3xl`}
+            >
+              {" "}
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative w-full h-96 flex flex-col">
+        {/* <div> */}
+        {/* <h3
+          className={`${styles.fontSec} lg:text-3xl md:text-xl xs:text-xl text-orange-500 font-bold lg:pb-6 md:pb-4 sm:pb-4 xs:pb-3`}
+        >
+          Work
+        </h3> */}
+        <div className="absolute -left-4 -top-[28rem] h-full w-full flex-col flex justify-center items-center ">
+          <h3
+            className={`${styles.fontSec} lg:text-2xl md:text-xl xs:text-xl text-orange-500 font-bold lg:pb-6 md:pb-4 sm:pb-4 xs:pb-3`}
+          >
+            Work
+          </h3>
+          <h2
+            className={`${styles.fontSec} lg:text-4xl md:text-2xl font-bold lg:pb-8 md:pb-4 sm:pb-4 xs:pb-3`}
+          >
+            How It Works
+          </h2>
+          <div className="px-[38rem]">
+            <p
+              className={`${styles.fontSec} md:text-[12px] sm:text-[12px] xs:pb-4 md:pb-4 lg:pb-8 text-center text-stone-950 lg:text-[20px]`}
+            >
+              A healthy diet rich in fruits, vegetables, whole grains and
+              low-fat dairy can help to reduce your risk of heart disease by
+              maintaining blood pressure and cholesterol levels. <br />
+            </p>
+          </div>
+          <div className="w-full h-96 px-32 flex justify-center items-center gap-12">
+            {WorkCardData.map((item, index) => (
+              <WorkCard titles={item.titles} icon={item.icon} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
