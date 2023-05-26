@@ -9,10 +9,7 @@ export const WorkCardData = [
     titles: "Pick Meals",
     name: "home",
     icon: (
-      <GiChickenOven
-        style={{ fontSize: "100px" }}
-        className="text-orange-400"
-      />
+      <GiChickenOven className="text-orange-400 lg:text-[100px] md:text-[80px] xs:text-[80px]" />
     ),
     des: "Choose your meals, from our diverse weekly menu. Find gluten or diary free,low carb & vergie options.",
   },
@@ -20,7 +17,7 @@ export const WorkCardData = [
     titles: "Choose How Often",
     name: "notifications",
     icon: (
-      <MdFastfood style={{ fontSize: "100px" }} className="text-orange-400" />
+      <MdFastfood className="text-orange-400 lg:text-[100px] md:text-[80px]  xs:text-[80px]" />
     ),
     des: "Our teams or chef do the prep work no more chopping, measuring or sink full of dishes!",
   },
@@ -29,7 +26,7 @@ export const WorkCardData = [
     titles: "Fast Deliveries",
     name: "messages",
     icon: (
-      <RiEBike2Fill style={{ fontSize: "100px" }} className="text-orange-400" />
+      <RiEBike2Fill className="text-orange-400 lg:text-[100px] md:text-[80px] xs:text-[80px]" />
     ),
     des: "Your freshly prepped 15-min dinner kits arrive on your doorstep in a refrigerated box.",
   },

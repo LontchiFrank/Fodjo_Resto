@@ -59,7 +59,7 @@ function Landing() {
       </div>
       <div className={`${styles.carrySecond} flex flex-col`}>
         <div
-          className={`${styles.second} h-full flex lg:flex-row md:flex-row sm:flex-col-reverse xs:flex-col-reverse `}
+          className={`${styles.second} lg:h-full md:h-[40%] flex lg:flex-row md:flex-row sm:flex-col-reverse xs:flex-col-reverse `}
         >
           <div className="lg:w-3/5  lg:h-screen md:h-96 sm:w-full xs:w-full lg:justify-content-end md:justify-content-end  sm:justify-content-center ">
             <div className="lg:pt-72 lg:px-28 md:pt-56 md:px-16  ">
@@ -110,30 +110,51 @@ function Landing() {
             </div>
           </div>
         </div>
-        <div className="relative h-full w-full flex-col flex items-center ">
+        <div className="relative h-full w-full flex-col flex items-center xs:p-16 mb-48 ">
           <h3
             className={`${styles.fontSec} lg:text-2xl md:text-xl xs:text-xl text-orange-500 font-bold lg:pb-6 md:pb-4 sm:pb-4 xs:pb-3`}
           >
             Work
           </h3>
           <h2
-            className={`${styles.fontSec} lg:text-4xl md:text-2xl font-bold lg:pb-8 md:pb-4 sm:pb-4 xs:pb-3`}
+            className={`${styles.fontSec} lg:text-4xl md:text-2xl sm:text-2xl xs:text-2xl font-bold lg:pb-8 md:pb-4 sm:pb-4 xs:pb-3`}
           >
             How It Works
           </h2>
           <div className="lg:px-[38rem]md:px-[29rem]">
             <p
-              className={`${styles.fontSec} md:text-[12px] sm:text-[12px] xs:pb-4 md:pb-4 lg:pb-8 text-center text-stone-950 lg:text-[20px] `}
+              className={`${styles.fontSec} md:text-[12px] sm:text-[12px] xs:text-base xs:pb-4 md:pb-4 lg:pb-8 lg:text-center md:text-center sm:text-center xs:text-center lg:w-[50rem] md:w-[30rem]  text-stone-950 lg:text-[20px] `}
             >
               A healthy diet rich in fruits, vegetables, whole grains and
               low-fat dairy can help to reduce your risk of heart disease by
               maintaining blood pressure and cholesterol levels. <br />
             </p>
           </div>
-          <div className="w-full h-96 px-32 pt-16 flex justify-center items-center gap-12">
+          <div className="w-full h-96 px-32 pt-16 flex justify-center items-center gap-12 sm:flex-wrap xs:flex-wrap">
             {WorkCardData.map((item, index) => (
               <WorkCard titles={item.titles} icon={item.icon} des={item.des} />
             ))}
+          </div>
+        </div>
+        <div className="h-full w-full flex-col flex items-center xs:p-16">
+          <h3
+            className={`${styles.fontSec} lg:text-2xl md:text-xl xs:text-xl text-orange-500 font-bold lg:pb-6 md:pb-4 sm:pb-4 xs:pb-3`}
+          >
+            Menu
+          </h3>
+          <h2
+            className={`${styles.fontSec} lg:text-4xl md:text-2xl sm:text-2xl xs:text-2xl font-bold lg:pb-8 md:pb-4 sm:pb-4 xs:pb-3`}
+          >
+            Explore Our Menu
+          </h2>
+          <div className="lg:px-[38rem]md:px-[29rem]">
+            <p
+              className={`${styles.fontSec} md:text-[12px] sm:text-[12px] xs:text-base xs:pb-4 md:pb-4 lg:pb-8 lg:text-center md:text-center sm:text-center xs:text-center lg:w-[50rem] md:w-[30rem]  text-stone-950 lg:text-[20px] `}
+            >
+              A healthy diet rich in fruits, vegetables, whole grains and
+              low-fat dairy can help to reduce your risk of heart disease by
+              maintaining blood pressure and cholesterol levels. <br />
+            </p>
           </div>
         </div>
       </div>
