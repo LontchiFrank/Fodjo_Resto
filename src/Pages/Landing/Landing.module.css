@@ -6,9 +6,6 @@
   display: flex;
   height: 120vh;
 }
-.shape {
-  clip-path: ellipse(130px 140px at 10% 20%);
-}
 .welcome {
   height: 100%;
 }

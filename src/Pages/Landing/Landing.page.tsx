@@ -59,10 +59,10 @@ function Landing() {
       </div>
       <div className={`${styles.carrySecond} flex flex-col`}>
         <div
-          className={`${styles.second} lg:h-full md:h-[40%] flex lg:flex-row md:flex-row sm:flex-col-reverse xs:flex-col-reverse `}
+          className={`${styles.second} lg:h-full md:h-[40%] flex lg:flex-row md:flex-row sm:flex-col-reverse xs:flex-col-reverse`}
         >
           <div className="lg:w-3/5  lg:h-screen md:h-96 sm:w-full xs:w-full lg:justify-content-end md:justify-content-end  sm:justify-content-center ">
-            <div className="lg:pt-72 lg:px-28 md:pt-56 md:px-16  ">
+            <div className="lg:pt-28 lg:px-28 md:pt-56 md:px-16  ">
               <img
                 src={meat}
                 className={styles.img_shad}
@@ -71,7 +71,7 @@ function Landing() {
             </div>
           </div>
 
-          <div className="lg:w-2/5 lg:h-[25rem] md:h-96 flex flex-col  sm:px-10 xs:px-12  lg:pt-[27rem] lg:pr-20 md:pt-[20rem] md:pr-12">
+          <div className="lg:w-2/5 lg:h-[25rem] md:h-96 flex flex-col  sm:px-10 xs:px-12  lg:pt-[20rem] lg:pr-20 md:pt-[20rem] md:pr-12">
             <h3
               className={`${styles.fontSec} lg:text-3xl md:text-xl xs:text-xl text-orange-500 font-bold lg:pb-6 md:pb-4 sm:pb-4 xs:pb-3`}
             >
@@ -110,7 +110,7 @@ function Landing() {
             </div>
           </div>
         </div>
-        <div className="relative h-full w-full flex-col flex items-center xs:p-16 mb-48 ">
+        <div className="relative h-full w-full flex-col flex items-center lg:pb-32 lg:px-16 lg:pt-16 xs:p-16 ">
           <h3
             className={`${styles.fontSec} lg:text-2xl md:text-xl xs:text-xl text-orange-500 font-bold lg:pb-6 md:pb-4 sm:pb-4 xs:pb-3`}
           >
