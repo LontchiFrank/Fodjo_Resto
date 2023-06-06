@@ -11,7 +11,7 @@ interface WorkProps {
 function WorkCard({ titles, name, icon, des }: WorkProps) {
   return (
     <div
-      className={`${styles.work} lg:w-[20%] md:w-[40%] sm:w-full xs:w-full p-10 flex flex-col justify-center items-center`}
+      className={`${styles.work} lg:w-[20%] md:w-[35%]  sm:w-full xs:w-full p-10 flex flex-col justify-center items-center`}
     >
       <div className="pb-12"> {icon}</div>
       <div

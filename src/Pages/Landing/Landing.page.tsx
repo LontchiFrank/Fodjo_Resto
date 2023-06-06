@@ -58,9 +58,9 @@ function Landing() {
       </div>
       <div className={`${styles.carrySecond} flex flex-col`}>
         <div
-          className={`${styles.second} lg:h-full md:h-[40%] flex lg:flex-row md:flex-row sm:flex-col-reverse xs:flex-col-reverse`}
+          className={`${styles.second} lg:h-[130%] flex lg:flex-row md:flex-row  sm:flex-col-reverse xs:flex-col-reverse`}
         >
-          <div className="lg:w-3/5  lg:h-screen md:h-96 sm:w-full xs:w-full lg:justify-content-end md:justify-content-end  sm:justify-content-center ">
+          <div className="lg:w-3/5  lg:h-screen md:h-full sm:w-full xs:w-full lg:justify-content-end md:justify-content-end  sm:justify-content-center ">
             <div className="lg:pt-28 lg:px-28 md:pt-56 md:px-16  ">
               <img
                 src={meat}
@@ -70,7 +70,7 @@ function Landing() {
             </div>
           </div>
 
-          <div className="lg:w-2/5 lg:h-[25rem] md:h-96 flex flex-col  sm:px-10 xs:px-12  lg:pt-[20rem] lg:pr-20 md:pt-[20rem] md:pr-12">
+          <div className="lg:w-2/5 lg:h-screen md:h-full flex-col  sm:px-10 xs:px-12  lg:pt-[20rem] lg:pr-20 md:pt-[13rem] md:pr-12">
             <h3
               className={`${styles.fontSec} lg:text-3xl md:text-xl xs:text-xl text-orange-500 font-bold lg:pb-6 md:pb-4 sm:pb-4 xs:pb-3`}
             >
@@ -129,7 +129,7 @@ function Landing() {
               maintaining blood pressure and cholesterol levels. <br />
             </p>
           </div>
-          <div className="w-full h-96 px-32 pt-16 flex justify-center items-center gap-12 sm:flex-wrap xs:flex-wrap">
+          <div className="lg:px-32 lg:pt-16 md:px-28 md:pt-0 sm:px-32 sm:pt-16 xs:px-0 flex justify-center items-center gap-12 sm:flex-wrap xs:flex-wrap">
             {WorkCardData.map((item, index) => (
               <WorkCard titles={item.titles} icon={item.icon} des={item.des} />
             ))}
