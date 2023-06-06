@@ -15,7 +15,6 @@ function Landing() {
       <div
         className={`${styles.full} lg:flex-row md:flex-row sm:flex-col xs:flex-col`}
       >
-        {/* <Fade direction="up"> */}
         <div className="lg:w-2/5 flex flex-col sm:w-full xs:w-full xs:pt-20 xs:px-9 md:px-10 lg:pt-56 lg:px-24 ">
           <div className="flex lg:pb-8 md:pb-0 ">
             {" "}
