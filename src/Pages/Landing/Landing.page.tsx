@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "../../Components";
+import { FoodCards, Navbar } from "../../Components";
 import styles from "./Landing.module.css";
 import welcome from "../../assets/salt.png";
 import meat from "../../assets/cj.png";
@@ -154,6 +154,9 @@ function Landing() {
               low-fat dairy can help to reduce your risk of heart disease by
               maintaining blood pressure and cholesterol levels. <br />
             </p>
+          </div>
+          <div className="lg:px-32 lg:pt-16 md:px-28 md:pt-0 sm:px-32 sm:pt-16 xs:px-0 flex justify-center items-center gap-12 sm:flex-wrap xs:flex-wrap">
+            <FoodCards />
           </div>
         </div>
       </div>
