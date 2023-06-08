@@ -2,14 +2,21 @@ import React from "react";
 import meat from "../../assets/a.jpg";
 import styles from "./FoodCards.module.css";
 
-function FoodCards() {
+interface FoodProps {
+  img?: JSX.Element;
+  title?: string;
+}
+
+function FoodCards({ img, title }: FoodProps) {
   return (
     <div>
-      <div className={`${styles.foodCard} max-w-sm rounded-xl overflow-hidden`}>
-        <img className="w-full" src={meat} alt="Sunset in the mountains" />
+      <div
+        className={`${styles.foodCard} max-w-sm sm:w-full xs:w-full rounded-xl overflow-hidden`}
+      >
+        {img}
         <div className="px-6 py-4">
           <div className={`${styles.fontSec} font-bold text-xl mb-2`}>
-            Fried Rice
+            {title}
           </div>
           <p className="text-gray-700 text-base">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.

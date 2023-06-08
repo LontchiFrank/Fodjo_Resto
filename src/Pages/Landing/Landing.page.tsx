@@ -6,6 +6,7 @@ import meat from "../../assets/cj.png";
 import { FaPastafarianism } from "react-icons/fa";
 import { WorkCardData } from "../../Components/WorkCards/WorkCard";
 import WorkCard from "../../Components/WorkCards/WorkCard.component";
+import { FoodCardData } from "../../Components/FoodCards/FoodCard";
 
 function Landing() {
   return (
@@ -156,16 +157,12 @@ function Landing() {
             </p>
           </div>
           <div className="lg:px-32 lg:pt-16 md:px-28 md:pt-0 sm:px-32 sm:pt-16 xs:px-0 flex justify-center items-center gap-12 sm:flex-wrap xs:flex-wrap">
-            <FoodCards />
+            {FoodCardData.map((item, index) => (
+              <FoodCards img={item.image} title={item.title} />
+            ))}
           </div>
         </div>
       </div>
-      {/* <div> */}
-      {/* <h3
-          className={`${styles.fontSec} lg:text-3xl md:text-xl xs:text-xl text-orange-500 font-bold lg:pb-6 md:pb-4 sm:pb-4 xs:pb-3`}
-        >
-          Work
-        </h3> */}
     </div>
   );
 }
