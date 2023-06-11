@@ -13,7 +13,7 @@ function FoodCards({ img, title, icon, icon2 }: FoodProps) {
   return (
     <div>
       <div
-        className={`${styles.foodCard} max-w-sm sm:w-full xs:w-full rounded-xl overflow-hidden`}
+        className={`${styles.foodCard} max-w-sm sm:w-full xs:w-full rounded-xl overflow-hidden hover:translate-y-2 transition duration-300`}
       >
         {img}
         <div className="px-6 py-4">

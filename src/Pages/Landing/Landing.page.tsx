@@ -166,6 +166,32 @@ function Landing() {
               />
             ))}
           </div>
+          <div className="pt-10 flex justify-center items-center">
+            <button className="bg-orange-400  hover:bg-orange-500 text-white font-bold py-2 px-4 rounded">
+              Load More
+            </button>
+          </div>
+        </div>
+        <div className="h-full w-full flex-col flex items-center xs:p-16">
+          <h3
+            className={`${styles.fontSec} lg:text-2xl md:text-xl xs:text-xl text-orange-500 font-bold lg:pb-6 md:pb-4 sm:pb-4 xs:pb-3`}
+          >
+            Testimonial
+          </h3>
+          <h2
+            className={`${styles.fontSec} lg:text-4xl md:text-2xl sm:text-2xl xs:text-2xl font-bold lg:pb-8 md:pb-4 sm:pb-4 xs:pb-3`}
+          >
+            What They Are Saying
+          </h2>
+          <div className="lg:px-[38rem]md:px-[29rem]">
+            <p
+              className={`${styles.fontSec} md:text-[12px] sm:text-[12px] xs:text-base xs:pb-4 md:pb-4 lg:pb-8 lg:text-center md:text-center sm:text-center xs:text-center lg:w-[50rem] md:w-[30rem]  text-stone-950 lg:text-[20px] `}
+            >
+              It's throught mistakes that you actually grow you get rid
+              ofeverything that is not essential to make it have to get bad.{" "}
+              <br />
+            </p>
+          </div>
         </div>
       </div>
     </div>
