@@ -1,6 +1,7 @@
 import React from "react";
 import meat from "../../assets/a.jpg";
-import f from "../../assets/a.jpg";
+import i from "../../assets/i.jpg";
+
 import b from "../../assets/b.jpg";
 import c from "../../assets/meats.png";
 import e from "../../assets/e.jpg";
@@ -16,7 +17,7 @@ export const FoodCardData = [
     ),
   },
   {
-    image: <img className="w-full" src={f} alt="Sunset in the mountains" />,
+    image: <img className="w-full" src={i} alt="Sunset in the mountains" />,
     title: "Hot Pot",
     icon: (
       <FaCartArrowDown className="text-orange-400 lg:text-[100px] md:text-[80px] xs:text-[80px]" />
