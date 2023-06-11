@@ -158,7 +158,12 @@ function Landing() {
           </div>
           <div className="lg:px-32 lg:pt-16 md:px-28 md:pt-0 sm:px-32 sm:pt-16 xs:px-0 flex justify-center items-center gap-12 sm:flex-wrap xs:flex-wrap">
             {FoodCardData.map((item, index) => (
-              <FoodCards img={item.image} title={item.title} />
+              <FoodCards
+                img={item.image}
+                title={item.title}
+                icon={item.icon}
+                icon2={item.icon2}
+              />
             ))}
           </div>
         </div>

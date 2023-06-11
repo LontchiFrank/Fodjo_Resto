@@ -5,9 +5,11 @@ import styles from "./FoodCards.module.css";
 interface FoodProps {
   img?: JSX.Element;
   title?: string;
+  icon?: any;
+  icon2: any;
 }
 
-function FoodCards({ img, title }: FoodProps) {
+function FoodCards({ img, title, icon, icon2 }: FoodProps) {
   return (
     <div>
       <div
@@ -24,16 +26,18 @@ function FoodCards({ img, title }: FoodProps) {
             exercitationem praesentium nihil.
           </p>
         </div>
-        <div className="px-6 pt-4 pb-2">
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #photography
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #travel
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #winter
-          </span>
+        <div className="px-6 pt-4 pb-6 flex justify-between">
+          <div>
+            <button className="bg-orange-400  hover:bg-orange-500 text-white font-bold py-2 px-4 rounded">
+              {icon}
+            </button>
+          </div>
+          <div className="flex">
+            <p>{icon2} </p>
+            <p>{icon2} </p>
+            <p>{icon2} </p>
+            <p>{icon2} </p>
+          </div>
         </div>
       </div>
     </div>
