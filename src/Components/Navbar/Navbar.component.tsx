@@ -76,25 +76,25 @@ function Navbar() {
                     className="bg-orange-400 text-white rounded-md px-3 py-2 text-sm font-medium"
                     aria-current="page"
                   >
-                    Dashboard
+                    SignUp
                   </a>
                   <a
                     href="#"
-                    className="text-black-300 text-black hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    className="text-black-300 text-black hover:bg-orange-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                  >
+                    Sign In
+                  </a>
+                  <a
+                    href="#"
+                    className="text-black-300 text-black hover:bg-orange-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                  >
+                    Contact
+                  </a>
+                  <a
+                    href="#"
+                    className="text-black-300 text-black hover:bg-orange-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     Team
-                  </a>
-                  <a
-                    href="#"
-                    className="text-black-300 text-black hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                  >
-                    Projects
-                  </a>
-                  <a
-                    href="#"
-                    className="text-black-300 text-black hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                  >
-                    Calendar
                   </a>
                 </div>
               </div>
@@ -147,7 +147,7 @@ function Navbar() {
                 >
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700"
+                    className="block px-4 py-2 text-sm text-gray-300"
                     role="menuitem"
                     id="user-menu-item-0"
                   >
