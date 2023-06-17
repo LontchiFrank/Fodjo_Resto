@@ -7,6 +7,7 @@ import { FaPastafarianism } from "react-icons/fa";
 import { WorkCardData } from "../../Components/WorkCards/WorkCard";
 import WorkCard from "../../Components/WorkCards/WorkCard.component";
 import { FoodCardData } from "../../Components/FoodCards/FoodCard";
+import { Fade, AttentionSeeker } from "react-awesome-reveal";
 
 function Landing() {
   return (
@@ -19,21 +20,23 @@ function Landing() {
         <div className="lg:w-2/5 flex flex-col sm:w-full xs:w-full xs:pt-20 xs:px-9 md:px-10 lg:pt-56 lg:px-24 ">
           <div className="flex lg:pb-8 md:pb-0 ">
             {" "}
-            <h1
-              className={`${styles.landing_header_h1}  sm:text-[80px] xs:text-[60px] md:text-[60px]  lg:text-[120px] `}
-            >
-              afrikan{" "}
-            </h1>
-            <span
-              className={`${styles.k} sm:text-[80px] xs:text-[60px] md:text-[60px]  lg:text-[120px] `}
-            >
-              foods
-            </span>
+            <AttentionSeeker effect="rubberBand">
+              <h1
+                className={`${styles.landing_header_h1}  sm:text-[80px] xs:text-[60px] md:text-[60px]  lg:text-[120px] `}
+              >
+                afrikan{" "}
+              </h1>
+              <span
+                className={`${styles.k} sm:text-[80px] xs:text-[60px] md:text-[60px]  lg:text-[120px] `}
+              >
+                foods
+              </span>
+            </AttentionSeeker>
           </div>
           <h2
-            className={`${styles.h2__opensans} md:text-[16px] xs:pb-4 md:pb-4 lg:pb-8  lg:text-[24px]`}
+            className={`${styles.fontSec} md:text-[16px] xs:pb-4 md:pb-4 lg:pb-8  lg:text-[24px]`}
           >
-            Fresh and tasty afrikan food.A pinch of passion in every dish,
+            Fresh and tasty afrikan food. A pinch of passion in every dish,
             Relish, Savour, taste and enjoy every african ingredient in your
             meal.
           </h2>
@@ -52,9 +55,11 @@ function Landing() {
           </div>
         </div>
         <div className={`w-3/5 xs:w-full sm:w-full `}>
-          <div className={styles.welcome}>
-            <img src={welcome} />
-          </div>
+          <Fade direction="right" duration={2000}>
+            <div className={styles.welcome}>
+              <img src={welcome} />
+            </div>
+          </Fade>
         </div>
       </div>
       <div className={`${styles.carrySecond} flex flex-col mb-20`}>
@@ -62,13 +67,15 @@ function Landing() {
           className={`${styles.second} lg:h-[130%] flex lg:flex-row md:flex-row  sm:flex-col-reverse xs:flex-col-reverse`}
         >
           <div className="lg:w-3/5  lg:h-[122vh] md:h-full sm:w-full xs:w-full lg:justify-content-end md:justify-content-end  sm:justify-content-center ">
-            <div className="lg:pt-28 lg:px-28 md:pt-56 md:px-16  ">
-              <img
-                src={meat}
-                className={styles.img_shad}
-                style={{ width: "100%", height: "40%" }}
-              />
-            </div>
+            <Fade direction="left" duration={2000}>
+              <div className="lg:pt-28 lg:px-28 md:pt-56 md:px-16  ">
+                <img
+                  src={meat}
+                  className={styles.img_shad}
+                  style={{ width: "100%", height: "40%" }}
+                />
+              </div>
+            </Fade>
           </div>
 
           <div className="lg:w-2/5 lg:h-screen md:h-full flex-col  sm:px-10 xs:px-12  lg:pt-[20rem] lg:pr-20 md:pt-[13rem] md:pr-12">
