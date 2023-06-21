@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../../assets/g.png";
 
 function Navbar() {
   return (
@@ -57,16 +58,11 @@ function Navbar() {
             </div>
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
               <div className="flex flex-shrink-0 items-center">
-                {/* <img
-                  className="block h-8 w-auto lg:hidden"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                  alt="Your Company"
-                />
                 <img
                   className="hidden h-8 w-auto lg:block"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                  src={logo}
                   alt="Your Company"
-                /> */}
+                />
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
@@ -76,7 +72,7 @@ function Navbar() {
                     className="bg-orange-400 text-white rounded-md px-3 py-2 text-sm font-medium"
                     aria-current="page"
                   >
-                    SignUp
+                    Home
                   </a>
                   <a
                     href="/login"
@@ -88,7 +84,7 @@ function Navbar() {
                     href="#"
                     className="text-black-300 text-black hover:bg-orange-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
-                    Contact
+                    Sign Up
                   </a>
                   <a
                     href="#"
