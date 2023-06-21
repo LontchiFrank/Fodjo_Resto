@@ -7,9 +7,9 @@ function SignIn() {
     <div
       className={`${styles.view} w-full h-screen flex justify-center items-center `}
     >
-      <div className={`${styles.box}`}>
+      <div className={`${styles.box} xs:w-[100%]`}>
         <div
-          className={`${styles.back} w-[80%] h-[100%] bg-red-300 rounded-xl`}
+          className={`${styles.back} w-[90%] h-[100%] rounded-xl lg:block md:block xs:hidden`}
         >
           <div
             className="px-8 text-center font-bold"
@@ -34,7 +34,7 @@ function SignIn() {
           </div>
         </div>
         <div
-          className={`${styles.sec} w-[80%] h-[100%] bg-white-300 flex justify-center items-center `}
+          className={`${styles.sec} w-[80%] h-[100%] xs:w-[100%] bg-white-300 flex justify-center items-center `}
         >
           <div
             className={`${styles.shade} w-[100%] h-[85%] bg-white-300 rounded-r-xl`}
