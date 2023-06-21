@@ -1,15 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./SignUp.module.css";
 import logo from "../../assets/g.png";
 
+interface User {
+  fname: string;
+  lname: string;
+  email: string;
+  password: string;
+  password2: string;
+}
+
 function SignUp() {
+  const [formData, setFormData] = useState<User>({
+    fname: "",
+    lname: "",
+    email: "",
+    password: "",
+    password2: "",
+  } as User);
+  const { fname, lname, email, password, password2 } = formData;
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+    console.log(formData);
+  };
   return (
     <div
       className={`${styles.view} w-full h-screen flex justify-center items-center `}
     >
       <div className={`${styles.box} xs:w-[100%] flex-row-reverse`}>
         <div
-          className={`${styles.back} w-[90%] h-[100%] rounded-xl lg:block md:block xs:hidden`}
+          className={`${styles.back} w-[95%] h-[100%] rounded-xl lg:block md:block xs:hidden`}
         >
           <div
             className="px-8 text-center font-bold"
@@ -37,9 +57,9 @@ function SignUp() {
           className={`${styles.sec} w-[80%] h-[100%] xs:w-[100%] bg-white-300 flex justify-center items-center `}
         >
           <div
-            className={`${styles.shade} w-[100%] h-[85%] bg-white-300 rounded-r-xl`}
+            className={`${styles.shade} w-[100%] h-[85%] md:h-[100%] bg-white-300 rounded-r-xl`}
           >
-            <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+            <div className="flex min-h-full flex-col justify-center px-6 lg:py-12 md:py-6 md:px-16 sm:py-6 lg:px-8">
               <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <img
                   className="mx-auto h-10 w-auto"
@@ -51,7 +71,7 @@ function SignUp() {
                 </h2>
               </div>
 
-              <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+              <div className="mt-6 sm:mx-auto  sm:w-full sm:max-w-sm">
                 <form className="space-y-4" action="#" method="POST">
                   <div>
                     <label
@@ -64,6 +84,8 @@ function SignUp() {
                       <input
                         id="fname"
                         name="name"
+                        value={fname}
+                        onChange={(e) => handleInputChange(e)}
                         type="text"
                         required
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-400 pl-3 sm:text-sm sm:leading-6"
@@ -81,6 +103,8 @@ function SignUp() {
                       <input
                         id="lname"
                         name="lname"
+                        value={lname}
+                        onChange={(e) => handleInputChange(e)}
                         type="text"
                         required
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-400 pl-3 sm:text-sm sm:leading-6"
@@ -98,6 +122,8 @@ function SignUp() {
                       <input
                         id="email"
                         name="email"
+                        value={email}
+                        onChange={(e) => handleInputChange(e)}
                         type="email"
                         required
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-400 pl-3 sm:text-sm sm:leading-6"
@@ -113,9 +139,11 @@ function SignUp() {
                     </label>
                     <div className="mt-2">
                       <input
-                        id="email"
-                        name="email"
-                        type="email"
+                        id="password"
+                        name="password"
+                        onChange={(e) => handleInputChange(e)}
+                        type="password"
+                        value={password}
                         required
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-400 pl-3 sm:text-sm sm:leading-6"
                       />
@@ -133,8 +161,10 @@ function SignUp() {
                     </div>
                     <div className="mt-2">
                       <input
-                        id="password"
-                        name="password"
+                        id="password2"
+                        name="password2"
+                        value={password2}
+                        onChange={(e) => handleInputChange(e)}
                         type="password"
                         required
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset pl-3 focus:ring-orange-400 sm:text-sm sm:leading-6"

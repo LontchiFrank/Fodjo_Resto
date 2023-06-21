@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./SignIn.module.css";
 import logo from "../../assets/g.png";
 
+interface User {
+  email: string;
+  password: string;
+}
 function SignIn() {
+  const [formData, setFormData] = useState<User>({
+    email: "",
+    password: "",
+  } as User);
+  const { email, password } = formData;
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+    console.log(formData);
+  };
   return (
     <div
       className={`${styles.view} w-full h-screen flex justify-center items-center `}
@@ -64,6 +77,8 @@ function SignIn() {
                       <input
                         id="email"
                         name="email"
+                        value={email}
+                        onChange={(e) => handleInputChange(e)}
                         type="email"
                         required
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-400 pl-3 sm:text-sm sm:leading-6"
@@ -92,7 +107,9 @@ function SignIn() {
                       <input
                         id="password"
                         name="password"
+                        value={password}
                         type="password"
+                        onChange={(e) => handleInputChange(e)}
                         required
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset pl-3 focus:ring-orange-400 sm:text-sm sm:leading-6"
                       />
