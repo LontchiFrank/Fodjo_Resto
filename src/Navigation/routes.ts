@@ -12,8 +12,8 @@ export const routes: Array<RouteType> = [
     path: path.LOGIN,
     component: lazy(() => import("../Pages/SignIn/SignIn.page")),
   },
-  // {
-  //   path: path.REGISTER,
-  //   component: lazy(() => import("../Pages/SignUp")),
-  // },
+  {
+    path: path.REGISTER,
+    component: lazy(() => import("../Pages/SignUp/SignUp.page")),
+  },
 ];
