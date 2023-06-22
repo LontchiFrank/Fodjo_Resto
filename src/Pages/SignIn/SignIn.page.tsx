@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./SignIn.module.css";
 import logo from "../../assets/g.png";
+import { BiRestaurant } from "react-icons/bi";
 
 interface User {
   email: string;
@@ -18,11 +19,27 @@ function SignIn() {
   };
   return (
     <div
-      className={`${styles.view} w-full h-screen flex justify-center items-center `}
+      className={`${styles.view} w-full h-screen flex  flex-col justify-center items-center `}
     >
+      <div className="w-[100%] px-52 pb-6 flex justify-end">
+        <h3 className=" ">
+          <a
+            href="/login"
+            className="font-semibold leading-6 text-orange-400 hover:text-orange-500"
+          >
+            Sign In as Restaurant
+          </a>{" "}
+        </h3>
+        <div>
+          <BiRestaurant
+            style={{ fontSize: "16px" }}
+            className="text-orange-400 hover:text-orange-500"
+          />
+        </div>
+      </div>
       <div className={`${styles.box} xs:w-[100%]`}>
         <div
-          className={`${styles.back} w-[90%] h-[100%] rounded-xl lg:block md:block xs:hidden`}
+          className={`${styles.back} w-[95%] h-[100%] rounded-xl lg:block md:block xs:hidden`}
         >
           <div
             className="px-8 text-center font-bold"
