@@ -24,15 +24,15 @@ function SignIn() {
       <div className="w-[100%] px-52 pb-6 flex justify-end">
         <h3 className=" ">
           <a
-            href="/login"
-            className="font-semibold leading-6 text-orange-400 hover:text-orange-500"
+            href="/login-admin"
+            className="font-semibold text-xl  leading-6 text-orange-400 hover:text-orange-500"
           >
             Sign In as Restaurant
           </a>{" "}
         </h3>
         <div>
           <BiRestaurant
-            style={{ fontSize: "16px" }}
+            style={{ fontSize: "22px" }}
             className="text-orange-400 hover:text-orange-500"
           />
         </div>

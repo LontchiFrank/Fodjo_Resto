@@ -24,6 +24,7 @@ function SignUp() {
     setFormData({ ...formData, [event.target.name]: event.target.value });
     console.log(formData);
   };
+
   return (
     <div
       className={`${styles.view} w-full h-screen flex flex-col justify-center items-center `}
@@ -31,15 +32,15 @@ function SignUp() {
       <div className="w-[100%] px-52 pb-6 flex justify-end">
         <h3 className=" ">
           <a
-            href="/login"
-            className="font-semibold leading-6 text-orange-400 hover:text-orange-500"
+            href="/register-admin"
+            className="font-semibold text-xl  leading-6 text-orange-400 hover:text-orange-500"
           >
             Sign Up as Restaurant
           </a>{" "}
         </h3>
         <div>
           <BiRestaurant
-            style={{ fontSize: "16px" }}
+            style={{ fontSize: "22px" }}
             className="text-orange-400 hover:text-orange-500"
           />
         </div>

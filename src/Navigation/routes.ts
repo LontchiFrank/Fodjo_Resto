@@ -16,4 +16,12 @@ export const routes: Array<RouteType> = [
     path: path.REGISTER,
     component: lazy(() => import("../Pages/SignUp/SignUp.page")),
   },
+  {
+    path: path.REGISTER_ADMIN,
+    component: lazy(() => import("../Pages/AdminSignup/AdminSignup.page")),
+  },
+  {
+    path: path.LOGIN_ADMIN,
+    component: lazy(() => import("../Pages/AdminSignin/AdminSignin.page")),
+  },
 ];
