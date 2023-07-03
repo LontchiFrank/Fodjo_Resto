@@ -24,6 +24,16 @@ function SignUp() {
     setFormData({ ...formData, [event.target.name]: event.target.value });
     console.log(formData);
   };
+  const handleSubmitChange = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (password !== password2) {
+      console.log("Password do not match");
+    } else {
+      const newData = { fname, lname, email, password };
+      // const sign = dispatch(signUpUser(newData));
+      console.log(newData);
+    }
+  };
 
   return (
     <div
@@ -90,7 +100,12 @@ function SignUp() {
               </div>
 
               <div className="mt-6 sm:mx-auto  sm:w-full sm:max-w-sm">
-                <form className="space-y-4" action="#" method="POST">
+                <form
+                  className="space-y-4"
+                  action="#"
+                  method="POST"
+                  onSubmit={(e) => handleSubmitChange(e)}
+                >
                   <div>
                     <label
                       id="name"
@@ -101,7 +116,7 @@ function SignUp() {
                     <div className="mt-2">
                       <input
                         id="fname"
-                        name="name"
+                        name="fname"
                         value={fname}
                         onChange={(e) => handleInputChange(e)}
                         type="text"

@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
+import authSlide from "../features/authSlice";
+
 // ...
 
 export const store = configureStore({
   reducer: {
     // posts: postsReducer,
     // comments: commentsReducer,
-    // users: usersReducer,
+    users: authSlide.reducer,
   },
 });
 
