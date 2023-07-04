@@ -24,4 +24,8 @@ export const routes: Array<RouteType> = [
     path: path.LOGIN_ADMIN,
     component: lazy(() => import("../Pages/AdminSignin/AdminSignin.page")),
   },
+  {
+    path: path.DASHBOARD,
+    component: lazy(() => import("../Pages/Dashboard/Dashboard.page")),
+  },
 ];

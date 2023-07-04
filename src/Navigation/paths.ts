@@ -4,4 +4,5 @@ export const path = {
   LOGIN: "/login",
   REGISTER_ADMIN: "/register-admin",
   LOGIN_ADMIN: "/login-admin",
+  DASHBOARD: "/dashboard",
 };
