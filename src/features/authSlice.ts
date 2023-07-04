@@ -51,32 +51,57 @@ export const signUpUser: any = createAsyncThunk(
   }
 );
 
+export const signInUser: any = createAsyncThunk("auth/login", async (data) => {
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const body = JSON.stringify(data);
+    const res: any = await axios.post(`${API_URL}/login`, body, config);
+    console.log(res, "res");
+    const result = await res;
+    if (res.status == "200") {
+      myAlert(true, "Created successfully");
+    }
+    console.log(result);
+    return result;
+  } catch (error: any) {
+    if (error.response && error.response.data.message) {
+      return error.response.data.message;
+    } else {
+      return error.message;
+    }
+  }
+});
+
 export const authSlide: Slice<Customer> = createSlice({
   name: "user",
   initialState,
   reducers: {},
   extraReducers: {
     //*************Login**************/
-    // [signInUser.pending]: (state) => {
-    //   state.loading = true;
-    //   state.authenticate = false;
-    //   state.error = null;
-    //   localStorage.setItem("loading", state.loading);
-    // },
-    // [signInUser.fulfilled]: (state, { payload }) => {
-    //   state.loading = false;
-    //   state.authenticate = true;
-    //   state.userToken = payload.data.token;
-    //   state.userInfo = payload.data.user;
+    [signInUser.pending]: (state) => {
+      state.loading = true;
+      state.authenticate = false;
+      state.error = null;
+      // localStorage.setItem("loading", state.loading);
+    },
+    [signInUser.fulfilled]: (state, { payload }) => {
+      state.loading = false;
+      state.authenticate = true;
+      state.userToken = payload.data.token;
+      state.userInfo = payload.data.user;
 
-    //   // localStorage.setItem("msg", msg);
-    //   localStorage.setItem("user", JSON.stringify(state.userInfo));
-    //   localStorage.setItem("token", state.userToken);
-    // },
-    // [signInUser.rejected]: (state, { payload }) => {
-    //   state.loading = false;
-    //   state.error = payload;
-    // },
+      // localStorage.setItem("msg", msg);
+      localStorage.setItem("user", JSON.stringify(state.userInfo));
+      localStorage.setItem("token", state.userToken);
+    },
+    [signInUser.rejected]: (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    },
 
     //**************register***************** */
 
