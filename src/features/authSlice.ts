@@ -7,7 +7,7 @@ import {
 import axios from "axios";
 import { myAlert } from "../Components/Alert/myAlert";
 
-const API_URL = "https://localhost:8080/api/user/login";
+const API_URL = "http://localhost:8080/api/user";
 
 interface Customer {
   authenticate: boolean;
@@ -29,17 +29,18 @@ export const signUpUser: any = createAsyncThunk(
   "registeruser",
   async (data) => {
     try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
+      // const config = {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // };
       // const body = JSON.stringify(data);
-      const res: any = await axios.post(`${API_URL}/signup`, data, config);
+      const res: any = await axios.post(`${API_URL}/signup`, data);
       if (res.status == 200) {
         myAlert(true, "Created successfully");
       }
-      return res.json();
+      console.log(res);
+      return res;
     } catch (error: any) {
       if (error.response && error.response.data.message) {
         return error.response.data.message;
@@ -83,12 +84,14 @@ export const authSlide: Slice<Customer> = createSlice({
       state.loading = true;
     },
     [signUpUser.fulfilled]: (state, { payload }) => {
+      console.log(payload, "hey nigga");
       state.loading = false;
       state.authenticate = true;
-      state.userInfo = payload.data.user;
+      state.userInfo = payload.data;
     },
     [signUpUser.rejected]: (state, action) => {
       state.loading = true;
+      state.authenticate = false;
     },
   },
 });

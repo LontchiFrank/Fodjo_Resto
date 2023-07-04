@@ -3,9 +3,12 @@ import styles from "./SignUp.module.css";
 import logo from "../../assets/g.png";
 import { BiRestaurant } from "react-icons/bi";
 
+import { useDispatch, useSelector } from "react-redux";
+import { signUpUser } from "../../features/authSlice";
+
 interface User {
-  fname: string;
-  lname: string;
+  first_name: string;
+  last_name: string;
   email: string;
   password: string;
   password2: string;
@@ -13,25 +16,27 @@ interface User {
 
 function SignUp() {
   const [formData, setFormData] = useState<User>({
-    fname: "",
-    lname: "",
+    first_name: "",
+    last_name: "",
     email: "",
     password: "",
     password2: "",
   } as User);
-  const { fname, lname, email, password, password2 } = formData;
+  const { first_name, last_name, email, password, password2 } = formData;
+  const dispatch: any = useDispatch();
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
-    console.log(formData);
   };
   const handleSubmitChange = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (password !== password2) {
       console.log("Password do not match");
     } else {
-      const newData = { fname, lname, email, password };
+      const newData = { first_name, last_name, email, password };
       // const sign = dispatch(signUpUser(newData));
-      console.log(newData);
+      console.log(formData);
+      const sign: any = dispatch(signUpUser(newData));
+      console.log(sign);
     }
   };
 
@@ -116,8 +121,8 @@ function SignUp() {
                     <div className="mt-2">
                       <input
                         id="fname"
-                        name="fname"
-                        value={fname}
+                        name="first_name"
+                        value={first_name}
                         onChange={(e) => handleInputChange(e)}
                         type="text"
                         required
@@ -135,8 +140,8 @@ function SignUp() {
                     <div className="mt-2">
                       <input
                         id="lname"
-                        name="lname"
-                        value={lname}
+                        name="last_name"
+                        value={last_name}
                         onChange={(e) => handleInputChange(e)}
                         type="text"
                         required
