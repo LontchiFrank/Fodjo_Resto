@@ -91,8 +91,8 @@ export const authSlide: Slice<Customer> = createSlice({
     [signInUser.fulfilled]: (state, { payload }) => {
       state.loading = false;
       state.authenticate = true;
-      state.userToken = payload.data.token;
-      state.userInfo = payload.data.user;
+      state.userToken = payload.data?.token;
+      state.userInfo = payload.data?.user;
 
       // localStorage.setItem("msg", msg);
       localStorage.setItem("user", JSON.stringify(state.userInfo));
