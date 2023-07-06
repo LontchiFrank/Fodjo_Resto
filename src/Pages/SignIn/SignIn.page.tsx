@@ -4,6 +4,7 @@ import logo from "../../assets/g.png";
 import { BiRestaurant } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { signInUser } from "../../features/authSlice";
+import { GoogleLogin } from "react-google-login";
 
 interface User {
   email: string;
@@ -21,6 +22,17 @@ function SignIn() {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
     console.log(formData);
+  };
+  const clientId: string =
+    "102302105342-hkb4u532lnubs0vaep2atg6ioane2v74.apps.googleusercontent.com";
+
+  // client secret = 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
+
+  const onSuccess = (res: any) => {
+    console.log("Login successfull! current user:", res.profileObj);
+  };
+  const onFailure = (res: any) => {
+    console.log("Login Failure! res:", res);
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -181,7 +193,32 @@ function SignIn() {
                           ) : null}
                           Sign in
                         </button>
+                        <div className="mt-4 w-100 text-center ">
+                          <span className="text-center ">Or Sign In with</span>
+                        </div>
                       </div>
+                      {/* <div className="px-4 py-2 border flex gap-2 border-slate-200 rounded-lg text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
+                        <img
+                          className="w-6 h-6"
+                          src="https://www.svgrepo.com/show/475656/google-color.svg"
+                          loading="lazy"
+                          alt="google logo"
+                        /> */}
+                      {/* <span>Login with Google</span> */}
+                      <GoogleLogin
+                        clientId={clientId}
+                        buttonText="Google"
+                        onSuccess={onSuccess}
+                        onFailure={onFailure}
+                        cookiePolicy={"single_host_policy"}
+                        isSignedIn={true}
+                        disabledStyle={{
+                          width: "100%",
+                          boxShadow: "none",
+                          border: "2px solid #eee",
+                        }}
+                      />
+                      {/* </div> */}
                     </form>
 
                     <p className="mt-10 text-center text-sm text-gray-500">
