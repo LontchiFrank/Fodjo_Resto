@@ -4,8 +4,7 @@ import logo from "../../assets/g.png";
 import { BiUser } from "react-icons/bi";
 
 interface User {
-  fname: string;
-  lname: string;
+  restaurant_name: string;
   email: string;
   password: string;
   password2: string;
@@ -13,13 +12,12 @@ interface User {
 
 function AdminSignUp() {
   const [formData, setFormData] = useState<User>({
-    fname: "",
-    lname: "",
+    restaurant_name: "",
     email: "",
     password: "",
     password2: "",
   } as User);
-  const { fname, lname, email, password, password2 } = formData;
+  const { restaurant_name, email, password, password2 } = formData;
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
     console.log(formData);
@@ -101,8 +99,8 @@ function AdminSignUp() {
                     <div className="mt-2">
                       <input
                         id="fname"
-                        name="name"
-                        value={fname}
+                        name="restaurant_name"
+                        value={restaurant_name}
                         onChange={(e) => handleInputChange(e)}
                         type="text"
                         required
