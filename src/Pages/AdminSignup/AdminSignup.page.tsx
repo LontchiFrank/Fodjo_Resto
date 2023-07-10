@@ -22,6 +22,18 @@ function AdminSignUp() {
     setFormData({ ...formData, [event.target.name]: event.target.value });
     console.log(formData);
   };
+  const handleSubmitChange = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (password !== password2) {
+      console.log("Password do not match");
+    } else {
+      const newData = { restaurant_name, email, password };
+      // const sign = dispatch(signUpUser(newData));
+      console.log(formData);
+      // const sign: any = dispatch(signUpUser(newData));
+      // console.log(sign);
+    }
+  };
 
   return (
     <div
