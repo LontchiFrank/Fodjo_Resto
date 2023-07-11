@@ -7,20 +7,20 @@ import {
 import axios from "axios";
 import { myAlert } from "../Components/Alert/myAlert";
 
-const API_URL = "http://localhost:8080/api/user";
+const API_URL = "http://localhost:8080/api/admin";
 
 interface Admin {
   authenticate: boolean;
-  userInfo: string;
-  userToken: string;
+  adminInfo: string;
+  adminToken: string;
   loading: boolean;
   error: null;
 }
 
 const initialState: Admin = {
   authenticate: false,
-  userInfo: "",
-  userToken: "",
+  adminInfo: "",
+  adminToken: "",
   loading: false,
   error: null,
 };
@@ -29,12 +29,6 @@ export const signUpAdmin: any = createAsyncThunk(
   "registeruser",
   async (data) => {
     try {
-      // const config = {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      // };
-      // const body = JSON.stringify(data);
       const res: any = await axios.post(`${API_URL}/signup-admin`, data);
       if (res.status == 200) {
         myAlert(true, "Created successfully");
@@ -79,8 +73,8 @@ export const signInAdmin: any = createAsyncThunk(
   }
 );
 
-export const authSlide: Slice<Admin> = createSlice({
-  name: "user",
+export const adminAuthSlide: Slice<Admin> = createSlice({
+  name: "admin",
   initialState,
   reducers: {},
   extraReducers: {
@@ -93,13 +87,12 @@ export const authSlide: Slice<Admin> = createSlice({
     },
     [signInAdmin.fulfilled]: (state, { payload }) => {
       state.loading = false;
-      state.authenticate = true;
-      state.userToken = payload.data?.token;
-      state.userInfo = payload.data?.user;
+      state.adminToken = payload.data?.token;
+      state.adminInfo = payload.data?.user;
 
       // localStorage.setItem("msg", msg);
-      localStorage.setItem("user", JSON.stringify(state.userInfo));
-      localStorage.setItem("token", state.userToken);
+      localStorage.setItem("user", JSON.stringify(state.adminInfo));
+      localStorage.setItem("token", state.adminToken);
     },
     [signInAdmin.rejected]: (state, { payload }) => {
       state.loading = false;
@@ -114,8 +107,9 @@ export const authSlide: Slice<Admin> = createSlice({
     [signUpAdmin.fulfilled]: (state, { payload }) => {
       console.log(payload, "hey nigga");
       state.loading = false;
+
+      state.adminInfo = payload.data;
       state.authenticate = true;
-      state.userInfo = payload.data;
     },
     [signUpAdmin.rejected]: (state, action) => {
       state.loading = true;
@@ -126,4 +120,4 @@ export const authSlide: Slice<Admin> = createSlice({
 
 // export const { addToken, addUser, logout, addPoem } = authSlide.actions;
 
-export default authSlide;
+export default adminAuthSlide;

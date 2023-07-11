@@ -29,12 +29,6 @@ export const signUpUser: any = createAsyncThunk(
   "registeruser",
   async (data) => {
     try {
-      // const config = {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      // };
-      // const body = JSON.stringify(data);
       const res: any = await axios.post(`${API_URL}/signup`, data);
       if (res.status == 200) {
         myAlert(true, "Created successfully");
