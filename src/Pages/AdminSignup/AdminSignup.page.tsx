@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./AdminSignup.module.css";
-import logo from "../../assets/g.png";
+import logo from "../../assets/log.png";
 import { BiUser } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { signUpAdmin } from "../../features/adminAuthSlice";
@@ -103,6 +103,7 @@ function AdminSignUp() {
                       className="mx-auto h-10 w-auto"
                       src={logo}
                       alt="Your Company"
+                      style={{ width: "50%", height: "80%" }}
                     />
                     <h2 className="mt-7 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                       Create a Restaurant Account

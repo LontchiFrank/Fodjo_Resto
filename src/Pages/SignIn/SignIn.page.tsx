@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./SignIn.module.css";
-import logo from "../../assets/g.png";
+import logo from "../../assets/log.png";
 import { BiRestaurant } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { signInUser } from "../../features/authSlice";
@@ -104,6 +104,7 @@ function SignIn() {
                       className="mx-auto h-10 w-auto"
                       src={logo}
                       alt="Your Company"
+                      style={{ width: "50%", height: "80%" }}
                     />
                     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                       Sign in to your account
