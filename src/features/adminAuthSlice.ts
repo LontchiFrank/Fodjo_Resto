@@ -45,33 +45,30 @@ export const signUpAdmin: any = createAsyncThunk(
   }
 );
 
-export const signInAdmin: any = createAsyncThunk(
-  "auth/login-admin",
-  async (data) => {
-    try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-      const body = JSON.stringify(data);
-      const res: any = await axios.post(`${API_URL}/login`, body, config);
-      console.log(res, "res");
-      const result = await res;
-      if (res.status == "200") {
-        myAlert(true, "Created successfully");
-      }
-      console.log(result);
-      return result;
-    } catch (error: any) {
-      if (error.response && error.response.data.message) {
-        return error.response.data.message;
-      } else {
-        return error.message;
-      }
+export const signInAdmin: any = createAsyncThunk("LoginUser", async (data) => {
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const body = JSON.stringify(data);
+    const res: any = await axios.post(`${API_URL}/signin-admin`, body, config);
+    console.log(res, "res");
+    const result = await res;
+    if (res.status == "200") {
+      myAlert(true, "Created successfully");
+    }
+    console.log(result);
+    return result;
+  } catch (error: any) {
+    if (error.response && error.response.data.message) {
+      return error.response.data.message;
+    } else {
+      return error.message;
     }
   }
-);
+});
 
 export const adminAuthSlide: Slice<Admin> = createSlice({
   name: "admin",
