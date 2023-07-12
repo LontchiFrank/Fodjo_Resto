@@ -19,7 +19,7 @@ function AdminSignin() {
   const dispatch: any = useDispatch();
   const auth = useSelector((data: any) => data.admins?.authenticate);
   const loader = useSelector((data: any) => data.admins?.loading);
-  const token = localStorage.getItem("token");
+  const token: any = localStorage.getItem("token");
   const navigate: any = useNavigate();
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -33,10 +33,10 @@ function AdminSignin() {
 
   return (
     <>
-      {auth === true && loader === false ? (
-        // window.location.replace("/admin-dashboard")
-        navigate("/admin-dashboard")
+      {token ? (
+        window.location.replace("/admin-dashboard")
       ) : (
+        // navigate("/admin-dashboard")
         <div
           className={`${styles.view} w-full h-screen flex  flex-col justify-center items-center `}
         >
@@ -190,7 +190,7 @@ function AdminSignin() {
                     <p className="mt-10 text-center text-sm text-gray-500">
                       Don't hve an Account?
                       <a
-                        href="/register"
+                        href="/register-admin"
                         className="font-semibold leading-6 text-orange-400 hover:text-orange-500"
                       >
                         Signup

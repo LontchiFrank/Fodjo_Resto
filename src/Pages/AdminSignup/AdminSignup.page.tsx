@@ -229,7 +229,7 @@ function AdminSignUp() {
                     <p className="mt-10 text-center text-sm text-gray-500">
                       Already have an Account?
                       <a
-                        href="/login"
+                        href="/login-admin"
                         className="font-semibold leading-6 text-orange-400 hover:text-orange-500"
                       >
                         SignIn
