@@ -5,10 +5,10 @@ import styles from "./Navbar.module.css";
 function Navbar() {
   return (
     <header
-      className={`${styles.all} flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800`}
+      className={`${styles.all}  flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800`}
     >
       <nav
-        className="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between"
+        className="max-w-[95rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between"
         aria-label="Global"
       >
         <div className="flex items-center justify-between">
@@ -17,10 +17,10 @@ function Navbar() {
             href="#"
           >
             <img
-              className="mx-auto h-10 w-auto"
+              className=" h-10 w-auto"
               src={logo}
               alt="Your Company"
-              style={{ width: "40%", height: "35%" }}
+              style={{ width: "30%", height: "25%" }}
             />
           </a>
           <div className="sm:hidden">
