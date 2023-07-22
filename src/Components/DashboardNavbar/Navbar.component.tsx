@@ -5,7 +5,7 @@ import styles from "./Navbar.module.css";
 function Navbar() {
   return (
     <header
-      className={`${styles.all}  flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800`}
+      className={`${styles.all}  flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-4 `}
     >
       <nav
         className="max-w-[95rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between"
