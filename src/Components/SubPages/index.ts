@@ -1,7 +1,7 @@
 export const subComponentNames = {
-  HOME: "home",
-  NOTIFICATIONS: "notifications",
-  MESSAGES: "messages",
-  PROFILE: "profile",
-  ADDCARD: "addcard",
+  HOME: "Home",
+  SEARCH: "Search",
+  ORDERS: "Orders",
+  PROFILE: "Profile",
+  ANALYTICS: "Analytics",
 };

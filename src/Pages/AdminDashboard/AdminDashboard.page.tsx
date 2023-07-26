@@ -15,34 +15,34 @@ import { subComponentNames } from "../../Components/SubPages/index";
 
 function AdminDashboard() {
   const [currentComponent, setCurrentComponent] = useState(
-    subComponentNames.PROFILE
+    subComponentNames.HOME
   );
   const [open, setOpen] = useState(true);
   const Menus: Object[] = [
-    { title: "Dashboard", src: <MdDashboard /> },
+    { title: "Home", src: <MdDashboard /> },
     { title: "Search", src: <BsSearch /> },
-    { title: "Orders ", src: <BsFolder /> },
-    // { title: "Inbox", src: <BsFillChatSquareFill /> },
+    { title: "Orders", src: <BsFolder /> },
     { title: "Profile", src: <AiOutlineUser /> },
     { title: "Analytics", src: <GrAnalytics /> },
-    // { title: "Setting", src: <AiOutlineSetting /> },
   ];
   const renderCurrentComponent = () => {
     switch (currentComponent) {
       case subComponentNames.HOME:
         return <Home />;
-      case subComponentNames.NOTIFICATIONS:
+      case subComponentNames.SEARCH:
         return <Search />;
-      case subComponentNames.PROFILE:
-        return <Profile />;
-      case subComponentNames.PROFILE:
+      case subComponentNames.ORDERS:
+        console.log(currentComponent, "hello");
         return <Orders />;
       case subComponentNames.PROFILE:
+        return <Profile />;
+      case subComponentNames.ANALYTICS:
         return <Analytics />;
     }
   };
 
   const subPageChangeHandler = (item: string) => {
+    console.log(item);
     setCurrentComponent(item);
   };
 
@@ -82,13 +82,12 @@ function AdminDashboard() {
               {Menus.map((Menu: any, index: any) => (
                 <li
                   key={index}
-                  onClick={() => subPageChangeHandler(Menu.item)}
+                  onClick={() => subPageChangeHandler(Menu.title)}
                   className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-black text-sm items-center gap-x-4 
               ${Menu.gap ? "mt-9" : "mt-2"} ${
                     index === 0 && "bg-light-white"
                   } `}
                 >
-                  {/* <img src={`${Menu.src}`} /> */}
                   {Menu.src}
                   <span
                     className={`${!open && "hidden"} origin-left duration-200`}
