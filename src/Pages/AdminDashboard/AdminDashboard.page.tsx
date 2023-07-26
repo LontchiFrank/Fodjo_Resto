@@ -1,16 +1,6 @@
 import React, { useState } from "react";
 import Wrapper from "../../Components/Wrapper/Wrapper.component";
-import styles from "./AdminDashboard.module.css";
-import control from "../../assets/control.png";
-import Chart_fill from "../../assets/Chart_fill.png";
-import Chat from "../../assets/Chat.png";
-import User from "../../assets/User.png";
-import Calendar from "../../assets/Calendar.png";
-import Search from "../../assets/Search.png";
-import Folder from "../../assets/Folder.png";
-import Setting from "../../assets/Setting.png";
 import logo from "../../assets/Calendar.png";
-import Chart from "../../assets/Chart.png";
 import Navbar from "../../Components/DashboardNavbar/Navbar.component";
 import { MdDashboard } from "react-icons/md";
 import { BsFillChatSquareFill } from "react-icons/bs";
@@ -20,18 +10,42 @@ import { GrAnalytics } from "react-icons/gr";
 import { BsFolder } from "react-icons/bs";
 import { AiOutlineSetting } from "react-icons/ai";
 import { FaChevronRight } from "react-icons/fa";
+import { Home, Profile, Search, Analytics, Orders } from "../../Components";
+import { subComponentNames } from "../../Components/SubPages/index";
 
 function AdminDashboard() {
+  const [currentComponent, setCurrentComponent] = useState(
+    subComponentNames.PROFILE
+  );
   const [open, setOpen] = useState(true);
   const Menus: Object[] = [
     { title: "Dashboard", src: <MdDashboard /> },
-    { title: "Inbox", src: <BsFillChatSquareFill /> },
-    { title: "Accounts", src: <AiOutlineUser /> },
     { title: "Search", src: <BsSearch /> },
-    { title: "Analytics", src: <GrAnalytics /> },
     { title: "Orders ", src: <BsFolder /> },
-    { title: "Setting", src: <AiOutlineSetting /> },
+    // { title: "Inbox", src: <BsFillChatSquareFill /> },
+    { title: "Profile", src: <AiOutlineUser /> },
+    { title: "Analytics", src: <GrAnalytics /> },
+    // { title: "Setting", src: <AiOutlineSetting /> },
   ];
+  const renderCurrentComponent = () => {
+    switch (currentComponent) {
+      case subComponentNames.HOME:
+        return <Home />;
+      case subComponentNames.NOTIFICATIONS:
+        return <Search />;
+      case subComponentNames.PROFILE:
+        return <Profile />;
+      case subComponentNames.PROFILE:
+        return <Orders />;
+      case subComponentNames.PROFILE:
+        return <Analytics />;
+    }
+  };
+
+  const subPageChangeHandler = (item: string) => {
+    setCurrentComponent(item);
+  };
+
   return (
     <div>
       <Wrapper>
@@ -68,6 +82,7 @@ function AdminDashboard() {
               {Menus.map((Menu: any, index: any) => (
                 <li
                   key={index}
+                  onClick={() => subPageChangeHandler(Menu.item)}
                   className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-black text-sm items-center gap-x-4 
               ${Menu.gap ? "mt-9" : "mt-2"} ${
                     index === 0 && "bg-light-white"
@@ -90,7 +105,7 @@ function AdminDashboard() {
           >
             <h1 className="text-2xl font-semibold ">
               <Navbar />
-              Home Page
+              {renderCurrentComponent()}
             </h1>
           </div>
         </div>
