@@ -54,7 +54,7 @@ function AdminDashboard() {
           <div
             className={` ${
               open ? "w-72" : "w-20 "
-            } bg-slate-100 h-screen p-5  pt-8 relative duration-300`}
+            } bg-orange-100 h-screen p-5  pt-8 relative duration-300 `}
           >
             <div
               className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
