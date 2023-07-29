@@ -51,61 +51,62 @@ function AdminDashboard() {
       <Wrapper>
         {/* <Navbar /> */}
         <div className="flex">
-          <div
-            className={` ${
-              open ? "w-72" : "w-20 "
-            } bg-orange-100 h-screen p-5  pt-8 relative duration-300 `}
-          >
+          <div className="fixed">
             <div
-              className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
-           border-2 rounded-full  ${!open && "rotate-180"}`}
-              onClick={() => setOpen(!open)}
+              className={` ${
+                open ? "w-72" : "w-20 "
+              } bg-orange-100 h-screen p-5  pt-8 relative  duration-300 `}
             >
-              <FaChevronRight />
-            </div>
-            <div className="flex gap-x-4 items-center">
-              <img
-                src={logo}
-                className={`cursor-pointer duration-500 ${
-                  open && "rotate-[360deg]"
-                }`}
-              />
-              <h1
-                className={`text-black origin-left font-medium text-xl duration-200 ${
-                  !open && "scale-0"
-                }`}
+              <div
+                className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple 
+           border-2 rounded-full fixed ${!open && "rotate-180"}`}
+                onClick={() => setOpen(!open)}
               >
-                Designer
-              </h1>
-            </div>
-            <ul className="pt-6">
-              {Menus.map((Menu: any, index: any) => (
-                <li
-                  key={index}
-                  onClick={() => subPageChangeHandler(Menu.title)}
-                  className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-black text-sm items-center gap-x-4 
-              ${Menu.gap ? "mt-9" : "mt-2"} ${
-                    index === 0 && "bg-light-white"
-                  } `}
+                <FaChevronRight />
+              </div>
+              <div className="flex gap-x-4 items-center">
+                <img
+                  src={logo}
+                  className={`cursor-pointer duration-500 ${
+                    open && "rotate-[360deg]"
+                  }`}
+                />
+                <h1
+                  className={`text-black origin-left font-medium text-xl duration-200 ${
+                    !open && "scale-0"
+                  }`}
                 >
-                  {Menu.src}
-                  <span
-                    className={`${!open && "hidden"} origin-left duration-200`}
+                  Designer
+                </h1>
+              </div>
+              <ul className="pt-6">
+                {Menus.map((Menu: any, index: any) => (
+                  <li
+                    key={index}
+                    onClick={() => subPageChangeHandler(Menu.title)}
+                    className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-black text-sm items-center gap-x-4 
+              ${Menu.gap ? "mt-9" : "mt-2"} ${
+                      index === 0 && "bg-light-white"
+                    } `}
                   >
-                    {Menu.title}
-                  </span>
-                </li>
-              ))}
-            </ul>
+                    {Menu.src}
+                    <span
+                      className={`${
+                        !open && "hidden"
+                      } origin-left duration-200`}
+                    >
+                      {Menu.title}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div
-            className="h-screen flex-1 
-          "
-          >
-            <h1 className="text-2xl font-semibold ">
+          <div className="h-screen flex-1">
+            <div className="overflow-auto">
               <Navbar />
-              {renderCurrentComponent()}
-            </h1>
+              <div>{renderCurrentComponent()}</div>
+            </div>
           </div>
         </div>
       </Wrapper>
