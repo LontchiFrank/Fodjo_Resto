@@ -28,7 +28,7 @@ function AdminDashboard() {
   const renderCurrentComponent = () => {
     switch (currentComponent) {
       case subComponentNames.HOME:
-        return <Home />;
+        return <Home open={open} />;
       case subComponentNames.SEARCH:
         return <Search />;
       case subComponentNames.ORDERS:
@@ -54,12 +54,12 @@ function AdminDashboard() {
           <div className="fixed">
             <div
               className={` ${
-                open ? "w-72" : "w-20 "
+                open ? "w-64" : "w-20 "
               } bg-orange-100 h-screen p-5  pt-8 relative  duration-300 `}
             >
               <div
                 className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple 
-           border-2 rounded-full fixed ${!open && "rotate-180"}`}
+           border-2 rounded-full  ${!open && "rotate-180"}`}
                 onClick={() => setOpen(!open)}
               >
                 <FaChevronRight />
@@ -102,9 +102,9 @@ function AdminDashboard() {
               </ul>
             </div>
           </div>
-          <div className="h-screen flex-1">
-            <div className="overflow-auto">
-              <Navbar />
+          <div className=" w-[100%]">
+            <div className="">
+              <Navbar open={open} />
               <div>{renderCurrentComponent()}</div>
             </div>
           </div>
