@@ -4,10 +4,20 @@ type FillProps = {
 };
 
 function Home(props: FillProps) {
+  const windowSidebar: any = window.innerWidth;
+  console.log(windowSidebar);
   return (
-    <div className={props.open ? "ml-64" : "ml-20"}>
+    <div
+      className={`${
+        windowSidebar > 450 ? (props.open ? "ml-64 " : "ml-20") : "ml-0"
+      } `}
+    >
       <div className=" flex gap-4">
-        <div className={`${props.open ? "w-[65%]" : "w-[69%]"} p-4 h-screen `}>
+        <div
+          className={`${
+            props.open ? "lg:w-[65%]" : " lg:w-[69%]"
+          } p-4 h-screen md:w-[100%] sm:w-[100%] xs:w-[100%] `}
+        >
           <div className=" rounded-lg dark:border-gray-700">
             <div className="grid grid-cols-3 gap-4 mb-4">
               <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-orange-800">
@@ -265,8 +275,8 @@ function Home(props: FillProps) {
             </div>
           </div>
         </div>
-        <div className="h-screen w-[30%]  fixed left-[84rem]">
-          <div className="flex items-center justify-center h-screen rounded bg-gray-50 dark:bg-orange-800 "></div>
+        <div className="h-screen lg:w-[30%] lg:block md:hidden sm:hidden fixed left-[84rem]  dark:bg-orange-800">
+          <div className="flex items-center justify-center h-screen rounded "></div>
         </div>
       </div>
     </div>

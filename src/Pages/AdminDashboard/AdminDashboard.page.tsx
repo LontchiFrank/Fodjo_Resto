@@ -8,7 +8,7 @@ import { AiOutlineUser } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 import { GrAnalytics } from "react-icons/gr";
 import { BsFolder } from "react-icons/bs";
-import { AiOutlineSetting } from "react-icons/ai";
+import { BiMenu } from "react-icons/bi";
 import { FaChevronRight } from "react-icons/fa";
 import { Home, Profile, Search, Analytics, Orders } from "../../Components";
 import { subComponentNames } from "../../Components/SubPages/index";
@@ -46,62 +46,66 @@ function AdminDashboard() {
     setCurrentComponent(item);
   };
 
+  const windowSidebar: any = window.innerWidth;
+  console.log(windowSidebar);
   return (
     <div>
       <Wrapper>
         {/* <Navbar /> */}
-        <div className="flex">
-          <div className="fixed">
-            <div
-              className={` ${
-                open ? "w-64" : "w-20 "
-              } bg-orange-100 h-screen p-5  pt-8 relative  duration-300 `}
-            >
+        <div className={`${windowSidebar < 450 ? "flex flex-col" : "flex"} `}>
+          {windowSidebar < 450 ? (
+            <BiMenu />
+          ) : (
+            <div className="fixed">
               <div
-                className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple 
-           border-2 rounded-full  ${!open && "rotate-180"}`}
-                onClick={() => setOpen(!open)}
+                className={` ${
+                  open ? "w-64" : "w-20 "
+                }  bg-orange-100 h-screen p-5  pt-8 relative  duration-300 `}
               >
-                <FaChevronRight />
-              </div>
-              <div className="flex gap-x-4 items-center">
-                <img
-                  src={logo}
-                  className={`cursor-pointer duration-500 ${
-                    open && "rotate-[360deg]"
-                  }`}
-                />
-                <h1
-                  className={`text-black origin-left font-medium text-xl duration-200 ${
-                    !open && "scale-0"
-                  }`}
+                <div
+                  className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple 
+       border-2 rounded-full  ${!open && "rotate-180"}`}
+                  onClick={() => setOpen(!open)}
                 >
-                  Designer
-                </h1>
-              </div>
-              <ul className="pt-6">
-                {Menus.map((Menu: any, index: any) => (
-                  <li
-                    key={index}
-                    onClick={() => subPageChangeHandler(Menu.title)}
-                    className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-black text-sm items-center gap-x-4 
-              ${Menu.gap ? "mt-9" : "mt-2"} ${
-                      index === 0 && "bg-light-white"
-                    } `}
+                  <FaChevronRight />
+                </div>
+                <div className="flex gap-x-4 items-center">
+                  <img
+                    src={logo}
+                    className={`cursor-pointer duration-500 ${
+                      open && "rotate-[360deg]"
+                    }`}
+                  />
+                  <h1
+                    className={`text-black origin-left font-medium text-xl duration-200 ${
+                      !open && "scale-0"
+                    }`}
                   >
-                    {Menu.src}
-                    <span
-                      className={`${
-                        !open && "hidden"
-                      } origin-left duration-200`}
+                    Designer
+                  </h1>
+                </div>
+                <ul className="pt-6">
+                  {Menus.map((Menu: any, index: any) => (
+                    <li
+                      key={index}
+                      onClick={() => subPageChangeHandler(Menu.title)}
+                      className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-black text-sm items-center gap-x-4 
+          ${Menu.gap ? "mt-9" : "mt-2"} ${index === 0 && "bg-light-white"} `}
                     >
-                      {Menu.title}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+                      {Menu.src}
+                      <span
+                        className={`${
+                          !open && "hidden"
+                        } origin-left duration-200`}
+                      >
+                        {Menu.title}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          )}
           <div className=" w-[100%]">
             <div className="">
               {/* <Navbar open={open} /> */}
