@@ -104,7 +104,7 @@ function AdminDashboard() {
           </div>
           <div className=" w-[100%]">
             <div className="">
-              <Navbar open={open} />
+              {/* <Navbar open={open} /> */}
               <div>{renderCurrentComponent()}</div>
             </div>
           </div>
