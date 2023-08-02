@@ -12,13 +12,13 @@ function Home(props: FillProps) {
         windowSidebar > 450 ? (props.open ? "ml-64 " : "ml-20") : "ml-0"
       } `}
     >
-      <div className=" flex gap-4">
+      <div className=" flex gap-4 bg-gray-200">
         <div
           className={`${
             props.open ? "lg:w-[65%]" : " lg:w-[69%]"
           } p-4 h-screen md:w-[100%] sm:w-[100%] xs:w-[100%] `}
         >
-          <div className=" rounded-lg dark:border-gray-700">
+          <div className=" rounded-lg dark:border-gray-700 bg-gray-200">
             <div className="grid grid-cols-3 gap-4 mb-4">
               <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-orange-800">
                 <p className="text-2xl text-gray-400 dark:text-gray-500">
