@@ -2,6 +2,7 @@ import React from "react";
 
 type FillProps = {
   open: boolean;
+  color: boolean;
 };
 
 function Search(props: FillProps) {

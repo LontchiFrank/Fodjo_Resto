@@ -18,7 +18,7 @@ function AdminDashboard() {
     subComponentNames.HOME
   );
   const [open, setOpen] = useState(true);
-  const [color, setColor] = useState(true);
+  const [color, setColor] = useState(false);
   const Menus: Object[] = [
     {
       title: "Home",
@@ -26,18 +26,43 @@ function AdminDashboard() {
     },
     {
       title: "Search",
-      src: <BsSearch style={{ fontSize: "22px" }} />,
+      src: (
+        <BsSearch
+          style={{ color: `${color ? "#d9401f" : "#000"}`, fontSize: "22px" }}
+        />
+      ),
     },
-    { title: "Orders", src: <BsFolder style={{ fontSize: "22px" }} /> },
-    { title: "Profile", src: <AiOutlineUser style={{ fontSize: "22px" }} /> },
-    { title: "Analytics", src: <GrAnalytics style={{ fontSize: "22px" }} /> },
+    {
+      title: "Orders",
+      src: (
+        <BsFolder
+          style={{ color: `${color ? "#d9401f" : "#000"}`, fontSize: "22px" }}
+        />
+      ),
+    },
+    {
+      title: "Profile",
+      src: (
+        <AiOutlineUser
+          style={{ color: `${color ? "#d9401f" : "#000"}`, fontSize: "22px" }}
+        />
+      ),
+    },
+    {
+      title: "Analytics",
+      src: (
+        <GrAnalytics
+          style={{ color: `${color ? "#d9401f" : "#000"}`, fontSize: "22px" }}
+        />
+      ),
+    },
   ];
   const renderCurrentComponent = () => {
     switch (currentComponent) {
       case subComponentNames.HOME:
         return <Home open={open} />;
       case subComponentNames.SEARCH:
-        return <Search open={open} />;
+        return <Search open={open} color={color} />;
       case subComponentNames.ORDERS:
         console.log(currentComponent, "hello");
         return <Orders open={open} />;
@@ -51,6 +76,7 @@ function AdminDashboard() {
   const subPageChangeHandler = (item: string) => {
     console.log(item);
     setCurrentComponent(item);
+    setColor(!color);
   };
 
   const windowSidebar: any = window.innerWidth;
