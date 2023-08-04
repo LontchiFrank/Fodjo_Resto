@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 import Wrapper from "../../Components/Wrapper/Wrapper.component";
 import logo from "../../assets/Calendar.png";
 import Navbar from "../../Components/DashboardNavbar/Navbar.component";
@@ -18,7 +18,7 @@ function AdminDashboard() {
     subComponentNames.HOME
   );
   const [open, setOpen] = useState(true);
-  const [color, setColor] = useState(false);
+  const [color, setColor] = useState();
   const Menus: Object[] = [
     {
       title: "Home",
@@ -26,35 +26,19 @@ function AdminDashboard() {
     },
     {
       title: "Search",
-      src: (
-        <BsSearch
-          style={{ color: `${color ? "#d9401f" : "#000"}`, fontSize: "22px" }}
-        />
-      ),
+      src: <BsSearch style={{ color: "#000", fontSize: "22px" }} />,
     },
     {
       title: "Orders",
-      src: (
-        <BsFolder
-          style={{ color: `${color ? "#d9401f" : "#000"}`, fontSize: "22px" }}
-        />
-      ),
+      src: <BsFolder style={{ color: "#000", fontSize: "22px" }} />,
     },
     {
       title: "Profile",
-      src: (
-        <AiOutlineUser
-          style={{ color: `${color ? "#d9401f" : "#000"}`, fontSize: "22px" }}
-        />
-      ),
+      src: <AiOutlineUser style={{ color: "#000", fontSize: "22px" }} />,
     },
     {
       title: "Analytics",
-      src: (
-        <GrAnalytics
-          style={{ color: `${color ? "#d9401f" : "#000"}`, fontSize: "22px" }}
-        />
-      ),
+      src: <GrAnalytics style={{ color: "#000", fontSize: "22px" }} />,
     },
   ];
   const renderCurrentComponent = () => {
@@ -62,7 +46,7 @@ function AdminDashboard() {
       case subComponentNames.HOME:
         return <Home open={open} />;
       case subComponentNames.SEARCH:
-        return <Search open={open} color={color} />;
+        return <Search open={open} />;
       case subComponentNames.ORDERS:
         console.log(currentComponent, "hello");
         return <Orders open={open} />;
@@ -73,10 +57,17 @@ function AdminDashboard() {
     }
   };
 
-  const subPageChangeHandler = (item: string) => {
+  const subPageChangeHandler = (item: string, icon: JSX.Element) => {
     console.log(item);
     setCurrentComponent(item);
-    setColor(!color);
+    console.log(icon.props.style.color, "hey u boy");
+
+    // setColor(icon.props.style.color);
+    // if (icon.props.style.color == "#000") {
+    //   icon.props.style.color = "#d9401f";
+    // } else {
+    //   icon.props.style.color = "#000";
+    // }
   };
 
   const windowSidebar: any = window.innerWidth;
@@ -84,7 +75,6 @@ function AdminDashboard() {
   return (
     <div>
       <Wrapper>
-        {/* <Navbar /> */}
         <div className={`${windowSidebar < 450 ? " flex-col" : "flex"} `}>
           {windowSidebar < 450 ? (
             <BiMenu />
@@ -121,7 +111,7 @@ function AdminDashboard() {
                   {Menus.map((Menu: any, index: any) => (
                     <li
                       key={index}
-                      onClick={() => subPageChangeHandler(Menu.title)}
+                      onClick={() => subPageChangeHandler(Menu.title, Menu.src)}
                       className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-black text-sm items-center gap-x-4 
           ${Menu.gap ? "mt-9" : "mt-2"} ${index === 0 && "bg-light-white"} `}
                     >
