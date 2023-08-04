@@ -85,10 +85,10 @@ export const adminAuthSlide: Slice<Admin> = createSlice({
     [signInAdmin.fulfilled]: (state, { payload }) => {
       state.loading = false;
       state.adminToken = payload.data?.token;
-      state.adminInfo = payload.data?.user;
+      state.adminInfo = payload.data?.admin;
 
       // localStorage.setItem("msg", msg);
-      localStorage.setItem("user", JSON.stringify(state.adminInfo));
+      localStorage.setItem("admin", JSON.stringify(state.adminInfo));
       localStorage.setItem("token", state.adminToken);
     },
     [signInAdmin.rejected]: (state, { payload }) => {
