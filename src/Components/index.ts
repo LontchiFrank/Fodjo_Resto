@@ -1,6 +1,7 @@
 import RouterLoader from "./RouteLoader/RouterLoader.component";
 import Navbar from "./Navbar/Navbar.component";
 import FoodCards from "./FoodCards/FoodCards.component";
+import FoodCardDash from "./FoodCardDash/FoodCardDash.component";
 import Home from "./SubPages/Home/Home.screen";
 import Profile from "./SubPages/Profile/Profile.screen";
 import Search from "./SubPages/Search/Search.screen";
@@ -16,4 +17,5 @@ export {
   Search,
   Orders,
   Analytics,
+  FoodCardDash,
 };

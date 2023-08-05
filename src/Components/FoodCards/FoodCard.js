@@ -11,7 +11,9 @@ import { FaStar } from "react-icons/fa";
 
 export const FoodCardData = [
   {
-    image: <img className="w-full" src={meat} alt="Sunset in the mountains" />,
+    image: (
+      <img className="w-full h-48" src={meat} alt="Sunset in the mountains" />
+    ),
     title: "Fried Rice",
     icon: (
       <FaCartArrowDown className="text-white-400 lg:text-[25px] md:text-[25px] xs:text-[25px]" />
@@ -21,7 +23,14 @@ export const FoodCardData = [
     ),
   },
   {
-    image: <img className="w-full" src={i} alt="Sunset in the mountains" />,
+    image: (
+      <img
+        className="w-full h-48"
+        src={i}
+        alt="Sunset in the mountains"
+        // style={{ width: "100%", height: "30%" }}
+      />
+    ),
     title: "Hot Pot",
     icon: (
       <FaCartArrowDown className="text-white-400 lg:text-[25px] md:text-[25px] xs:text-[25px]" />
@@ -31,7 +40,9 @@ export const FoodCardData = [
     ),
   },
   {
-    image: <img className="w-full" src={b} alt="Sunset in the mountains" />,
+    image: (
+      <img className="w-full h-48" src={b} alt="Sunset in the mountains" />
+    ),
     title: "Flaked Rice",
     icon: (
       <FaCartArrowDown className="text-white-400 lg:text-[25px] md:text-[25px] xs:text-[25px]" />
@@ -41,7 +52,9 @@ export const FoodCardData = [
     ),
   },
   {
-    image: <img className="w-full" src={c} alt="Sunset in the mountains" />,
+    image: (
+      <img className="w-full h-48" src={c} alt="Sunset in the mountains" />
+    ),
     title: "Spirited Chicken ",
     icon: (
       <FaCartArrowDown className="text-white-400 lg:text-[25px] md:text-[25px] xs:text-[25px]" />
@@ -51,7 +64,9 @@ export const FoodCardData = [
     ),
   },
   {
-    image: <img className="w-full" src={e} alt="Sunset in the mountains" />,
+    image: (
+      <img className="w-full h-48" src={e} alt="Sunset in the mountains" />
+    ),
     title: "Jollof Meat",
     icon: (
       <FaCartArrowDown className="text-white-400 lg:text-[25px] md:text-[25px] xs:text-[25px]" />
@@ -61,7 +76,9 @@ export const FoodCardData = [
     ),
   },
   {
-    image: <img className="w-full" src={g} alt="Sunset in the mountains" />,
+    image: (
+      <img className="w-full h-48" src={g} alt="Sunset in the mountains" />
+    ),
     title: "Roast Sate",
     icon: (
       <FaCartArrowDown className="text-white-400 lg:text-[25px] md:text-[25px] xs:text-[25px]" />

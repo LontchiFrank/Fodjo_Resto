@@ -6,7 +6,7 @@ interface FoodProps {
   img?: JSX.Element;
   title?: string;
   icon?: any;
-  icon2: any;
+  icon2?: any;
 }
 
 function FoodCards({ img, title, icon, icon2 }: FoodProps) {
