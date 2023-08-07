@@ -12,6 +12,7 @@ import { BiMenu } from "react-icons/bi";
 import { FaChevronRight } from "react-icons/fa";
 import { Home, Profile, Search, Analytics, Orders } from "../../Components";
 import { subComponentNames } from "../../Components/SubPages/index";
+import { Link } from "react-router-dom";
 
 function AdminDashboard() {
   const [currentComponent, setCurrentComponent] = useState(
@@ -23,22 +24,27 @@ function AdminDashboard() {
     {
       title: "Home",
       src: <GoHome style={{ fontSize: "22px" }} />,
+      link: <Link to="/:home">Home</Link>,
     },
     {
       title: "Search",
       src: <BsSearch style={{ fontSize: "22px" }} />,
+      link: <Link to="/:search">Search</Link>,
     },
     {
       title: "Orders",
       src: <BsFolder style={{ fontSize: "22px" }} />,
+      link: <Link to="/order">Orders</Link>,
     },
     {
       title: "Profile",
       src: <AiOutlineUser style={{ fontSize: "22px" }} />,
+      link: <Link to="/profile">Profile</Link>,
     },
     {
       title: "Analytics",
       src: <GrAnalytics style={{ fontSize: "22px" }} />,
+      link: <Link to="/analytics">Analytics</Link>,
     },
   ];
   const renderCurrentComponent = () => {
@@ -61,14 +67,8 @@ function AdminDashboard() {
     console.log(item);
     setCurrentComponent(item);
     console.log(icon.props.style.color, "hey u boy");
-
-    // setColor(icon.props.style.color);
-    // if (icon.props.style.color == "#000") {
-    //   icon.props.style.color = "#d9401f";
-    // } else {
-    //   icon.props.style.color = "#000";
-    // }
   };
+  const handleLink = () => {};
 
   const windowSidebar: any = window.innerWidth;
   console.log(windowSidebar);
@@ -113,7 +113,7 @@ function AdminDashboard() {
                       key={index}
                       style={{
                         color: currentComponent.includes(Menu.title)
-                          ? "red"
+                          ? "#df4120"
                           : "black",
                       }}
                       onClick={() => subPageChangeHandler(Menu.title, Menu.src)}
