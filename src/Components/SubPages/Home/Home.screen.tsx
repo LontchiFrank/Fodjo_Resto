@@ -89,173 +89,22 @@ function Home(props: FillProps) {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-4 p-5 items-center justify-center  mb-4 rounded bg-gray-50 dark:bg-white">
+            <div
+              className={`${
+                props.open ? "p-5" : "p-10"
+              } grid grid-cols-3   mb-4 rounded bg-gray-50 dark:bg-white`}
+            >
               {FoodCardData.map((item, index) => (
                 <FoodCardDash
                   img={item.image}
                   title={item.title}
                   icon={item.icon}
                   icon2={item.icon2}
+                  open={props.open}
                 />
               ))}
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mb-4">
-              <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
-              <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
-              <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
-              <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4 mb-4">
-              <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
-              <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
-              <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
-              <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
-            </div>
             <div className="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
               <p className="text-2xl text-gray-400 dark:text-gray-500">
                 <svg
@@ -277,7 +126,10 @@ function Home(props: FillProps) {
             </div>
           </div>
         </div>
-        <div className="h-screen lg:w-[30%] lg:block md:hidden sm:hidden fixed left-[84rem]  dark:bg-orange-800">
+        <div className="h-screen lg:w-[30%] lg:block md:hidden sm:hidden fixed left-[84rem]  dark:bg-white">
+          <div className="pt-10 px-5">
+            <h2 className="text-2xl font-bold">Current Order</h2>
+          </div>
           <div className="flex items-center justify-center h-screen rounded "></div>
         </div>
       </div>
