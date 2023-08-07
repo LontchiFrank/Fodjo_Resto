@@ -22,23 +22,23 @@ function AdminDashboard() {
   const Menus: Object[] = [
     {
       title: "Home",
-      src: <GoHome style={{ color: "#d9401f", fontSize: "22px" }} />,
+      src: <GoHome style={{ fontSize: "22px" }} />,
     },
     {
       title: "Search",
-      src: <BsSearch style={{ color: "#000", fontSize: "22px" }} />,
+      src: <BsSearch style={{ fontSize: "22px" }} />,
     },
     {
       title: "Orders",
-      src: <BsFolder style={{ color: "#000", fontSize: "22px" }} />,
+      src: <BsFolder style={{ fontSize: "22px" }} />,
     },
     {
       title: "Profile",
-      src: <AiOutlineUser style={{ color: "#000", fontSize: "22px" }} />,
+      src: <AiOutlineUser style={{ fontSize: "22px" }} />,
     },
     {
       title: "Analytics",
-      src: <GrAnalytics style={{ color: "#000", fontSize: "22px" }} />,
+      src: <GrAnalytics style={{ fontSize: "22px" }} />,
     },
   ];
   const renderCurrentComponent = () => {
@@ -111,8 +111,15 @@ function AdminDashboard() {
                   {Menus.map((Menu: any, index: any) => (
                     <li
                       key={index}
+                      style={{
+                        color: currentComponent.includes(Menu.title)
+                          ? "red"
+                          : "black",
+                      }}
                       onClick={() => subPageChangeHandler(Menu.title, Menu.src)}
-                      className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-black text-sm items-center gap-x-4 
+                      className={`flex
+                   
+                      rounded-md p-2 cursor-pointer hover:bg-light-white text-black text-sm items-center gap-x-4 
           ${Menu.gap ? "mt-9" : "mt-2"} ${index === 0 && "bg-light-white"} `}
                     >
                       {Menu.src}
