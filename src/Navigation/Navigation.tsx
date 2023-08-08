@@ -26,13 +26,6 @@ function Navigation() {
               element={<route.component />}
             />
           ))}
-          <Route path="/admin-dashboard" element={<AdminDashboard />}>
-            <Route path="home" element={<Home open={open} />} />
-            <Route path=":search" element={<Search open={open} />} />
-            <Route path=":orders" element={<Orders open={open} />} />
-            <Route path=":profile" element={<Profile open={open} />} />
-            <Route path=":analytics" element={<Analytics open={open} />} />
-          </Route>
         </Routes>
       </Suspense>
     </Router>

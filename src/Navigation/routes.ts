@@ -28,10 +28,10 @@ export const routes: Array<RouteType> = [
     path: path.DASHBOARD,
     component: lazy(() => import("../Pages/Dashboard/Dashboard.page")),
   },
-  // {
-  //   path: path.ADMINDASHBOARD,
-  //   component: lazy(
-  //     () => import("../Pages/AdminDashboard/AdminDashboard.page")
-  //   ),
-  // },
+  {
+    path: path.ADMINDASHBOARD,
+    component: lazy(
+      () => import("../Pages/AdminDashboard/AdminDashboard.page")
+    ),
+  },
 ];

@@ -24,27 +24,22 @@ function AdminDashboard() {
     {
       title: "Home",
       src: <GoHome style={{ fontSize: "22px" }} />,
-      link: <Link to="/:home">Home</Link>,
     },
     {
       title: "Search",
       src: <BsSearch style={{ fontSize: "22px" }} />,
-      link: <Link to="/:search">Search</Link>,
     },
     {
       title: "Orders",
       src: <BsFolder style={{ fontSize: "22px" }} />,
-      link: <Link to="/order">Orders</Link>,
     },
     {
       title: "Profile",
       src: <AiOutlineUser style={{ fontSize: "22px" }} />,
-      link: <Link to="/profile">Profile</Link>,
     },
     {
       title: "Analytics",
       src: <GrAnalytics style={{ fontSize: "22px" }} />,
-      link: <Link to="/analytics">Analytics</Link>,
     },
   ];
   const renderCurrentComponent = () => {
@@ -63,15 +58,12 @@ function AdminDashboard() {
     }
   };
 
-  const subPageChangeHandler = (item: string, icon: JSX.Element) => {
-    console.log(item);
+  const subPageChangeHandler = (item: string) => {
+    // console.log(item);
     setCurrentComponent(item);
-    console.log(icon.props.style.color, "hey u boy");
   };
-  const handleLink = () => {};
 
   const windowSidebar: any = window.innerWidth;
-  console.log(windowSidebar);
   return (
     <div>
       <Wrapper>
@@ -116,7 +108,7 @@ function AdminDashboard() {
                           ? "#df4120"
                           : "black",
                       }}
-                      onClick={() => subPageChangeHandler(Menu.title, Menu.src)}
+                      onClick={() => subPageChangeHandler(Menu.title)}
                       className={`flex
                    
                       rounded-md p-2 cursor-pointer hover:bg-light-white text-black text-sm items-center gap-x-4 
@@ -128,7 +120,7 @@ function AdminDashboard() {
                           !open && "hidden"
                         } origin-left duration-200`}
                       >
-                        {Menu.title}
+                        <h2 className="font-semibold"> {Menu.title}</h2>
                       </span>
                     </li>
                   ))}
