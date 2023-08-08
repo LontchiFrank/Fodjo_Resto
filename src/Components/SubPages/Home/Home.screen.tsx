@@ -3,6 +3,7 @@ import styles from "./Home.module.css";
 import { useSelector } from "react-redux";
 import FoodCardDash from "../../FoodCardDash/FoodCardDash.component";
 import { FoodCardData } from "../../../Components/FoodCards/FoodCard";
+import { BiPlus } from "react-icons/bi";
 type FillProps = {
   open: boolean;
 };
@@ -103,6 +104,11 @@ function Home(props: FillProps) {
                   open={props.open}
                 />
               ))}
+            </div>
+            <div
+              className={`${styles.plusColor} cursor-pointer fixed top-[85%] left-[65%] rounded-full bg-white w-[100px] h-[100px] flex justify-center items-center text-orange-400`}
+            >
+              <BiPlus style={{ fontSize: "50px" }} />
             </div>
 
             <div className="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
