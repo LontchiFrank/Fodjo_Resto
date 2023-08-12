@@ -4,22 +4,30 @@ import { useSelector } from "react-redux";
 import FoodCardDash from "../../FoodCardDash/FoodCardDash.component";
 import { FoodCardData } from "../../../Components/FoodCards/FoodCard";
 import { BiPlus } from "react-icons/bi";
+import Modal from "../../Modal/Modal.component";
 type FillProps = {
   open: boolean;
 };
 
 function Home(props: FillProps) {
   const windowSidebar: any = window.innerWidth;
+  const [openModal, setOpenModal] = useState(false);
   console.log(windowSidebar);
   const admin: any = JSON.parse(localStorage.getItem("user") || "");
   const adminName: string = admin.restaurant_name;
-
+  const onModal: any = () => {
+    setOpenModal(true);
+  };
+  const offModal: any = (num: boolean) => {
+    setOpenModal(num);
+  };
   return (
     <div
       className={`${
         windowSidebar > 450 ? (props.open ? "ml-64 " : "ml-20") : "ml-0"
       } `}
     >
+      <Modal open={openModal} offModal={offModal} />
       <div className={`${styles} flex gap-4 bg-gray-200`}>
         <div
           className={`${
@@ -107,6 +115,7 @@ function Home(props: FillProps) {
             </div>
             <div
               className={`${styles.plusColor} cursor-pointer fixed top-[85%] left-[65%] rounded-full bg-white w-[100px] h-[100px] flex justify-center items-center text-orange-400`}
+              onClick={onModal}
             >
               <BiPlus style={{ fontSize: "50px" }} />
             </div>

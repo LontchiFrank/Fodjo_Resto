@@ -7,6 +7,7 @@ import Profile from "./SubPages/Profile/Profile.screen";
 import Search from "./SubPages/Search/Search.screen";
 import Orders from "./SubPages/Orders/Orders.screen";
 import Analytics from "./SubPages/Analytics/Analytics.screen";
+import Modal from "./Modal/Modal.component";
 
 export {
   RouterLoader,
@@ -18,4 +19,5 @@ export {
   Orders,
   Analytics,
   FoodCardDash,
+  Modal,
 };
