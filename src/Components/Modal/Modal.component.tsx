@@ -1,14 +1,23 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+import CreatableSelect from "react-select/creatable";
+import CreatableSelectComponent from "../SelectOption/CreatableSelect.component";
+// import { colourOptions } from '../data';
+
 type FillProps = {
   open: boolean;
   offModal: any;
 };
+interface Food {
+  name: string;
+  desc: string;
+  category: string;
+}
 
 function Modal(props: FillProps) {
   const [formData, setFormData] = useState({
-    title: "",
+    name: "",
     category: "",
     desc: "",
   });
@@ -16,7 +25,7 @@ function Modal(props: FillProps) {
 
   //   const load = useSelector((state) => state.poems?.loading);
   const [image, setImage] = useState({ file: null });
-  const { title, desc, category } = formData;
+  const { name, desc, category } = formData;
   const Category = ["Romance", "Fantasy", "Comedy", "Story", "Horror"];
 
   // const listItems = category.map((item) => item);
@@ -73,15 +82,15 @@ function Modal(props: FillProps) {
                             // for="title"
                             className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                           >
-                            Title
+                            Name Of Food
                           </label>
                           <input
                             type="text"
                             id="text"
-                            name="title"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            name="name"
+                            className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-800 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Title"
-                            value={title}
+                            value={name}
                             // onChange={(event) => handleChange(event)}
                             required
                           />
@@ -93,21 +102,20 @@ function Modal(props: FillProps) {
                           >
                             Select your Category
                           </label>
-                          <select
+                          {/* <select
                             id="countries"
                             name="category"
                             // onClick={(e) => console.log(e, "select")}
                             // onChange={(e) => handleChange(e)}
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          >
-                            <option>Choose Category</option>
-                            {/* {Category.map((item) => (
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-200 dark:border-gray-200 dark:placeholder-gray-400 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          ></select> */}
+                          <CreatableSelectComponent />
+                          {/* {Category.map((item) => (
                   // console.log(first)
                   <option name={item} key={item} value={item}>
                     {item}{" "}
                   </option>
                 ))} */}
-                          </select>
                         </div>
                         <div className="flex flex-col mb-6">
                           <label
@@ -121,7 +129,7 @@ function Modal(props: FillProps) {
                             id="img"
                             name="image"
                             accept="image/*"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-800 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             // onChange={(e) => handleImageChange(e)}
                           />
                         </div>
@@ -136,7 +144,7 @@ function Modal(props: FillProps) {
                             id="message"
                             rows={4}
                             name="desc"
-                            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Leave a comment..."
                             value={desc}
                             // onChange={(e) => handleChange(e)}
