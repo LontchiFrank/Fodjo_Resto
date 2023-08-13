@@ -31,14 +31,19 @@ function Modal(props: FillProps) {
   // const listItems = category.map((item) => item);
   // console.log(listItems);
 
-  //   function handleImageChange = (event: React.FormEvent<HTMLFormElement>)=> {
-  //     setImage(event.target.files[0]);
-  //   }
+    function handleImageChange = (e: React.ChangeEvent<HTMLInputElement>)=> {
+      setImage(e.target.files[0]);
+    }
 
-  const handleChange = (event: React.FormEvent<HTMLFormElement>) => {
-    // setFormData({ ...formData,  [event.target.name]: event.target.value});
-    console.log(event);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData,  [e.target.name]: e.target.value});
+    // console.log(event);
   };
+  
+  const handleTextAreaChange=(e:React.ChangeEvent<HTMLTextAreaElement>)=>{
+    setFormData({ ...formData,  [e.target.name]: e.target.value});
+  }
+
   const { file } = image;
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -91,7 +96,7 @@ function Modal(props: FillProps) {
                             className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-800 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Title"
                             value={name}
-                            // onChange={(event) => handleChange(event)}
+                            onChange={(e) => handleChange(e)}
                             required
                           />
                         </div>
@@ -130,7 +135,7 @@ function Modal(props: FillProps) {
                             name="image"
                             accept="image/*"
                             className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-800 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            // onChange={(e) => handleImageChange(e)}
+                            onChange={(e) => handleImageChange(e)}
                           />
                         </div>
                         <div className="mb-6">
@@ -147,7 +152,7 @@ function Modal(props: FillProps) {
                             className="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Leave a comment..."
                             value={desc}
-                            // onChange={(e) => handleChange(e)}
+                            onChange={(e) => handleTextAreaChange(e)}
                           ></textarea>
                         </div>
                         <div className="flex items-start mb-6"></div>

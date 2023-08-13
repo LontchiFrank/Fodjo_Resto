@@ -13,9 +13,9 @@ const createOption = (label: string) => ({
 });
 
 const defaultOptions = [
-  createOption("One"),
-  createOption("Two"),
-  createOption("Three"),
+  createOption("Meal"),
+  createOption("Grill"),
+  createOption("Fries"),
 ];
 
 export default () => {
