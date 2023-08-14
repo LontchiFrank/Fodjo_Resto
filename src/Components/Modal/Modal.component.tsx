@@ -58,6 +58,8 @@ function Modal(props: FillProps) {
   };
 
   const load = useSelector((state: any) => state.food?.loading);
+  // const data = useSelector((state: any) => state.food?.data);
+  // console.log(data);
   const [image, setImage] = useState<File>();
   const { name, desc, price, category } = formData;
   const Category = ["Romance", "Fantasy", "Comedy", "Story", "Horror"];

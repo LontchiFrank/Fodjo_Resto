@@ -86,15 +86,15 @@ export const foodSlide: Slice<Food> = createSlice({
   name: "food",
   initialState,
   reducers: {
-    getPoem: (state, action) => {
+    getFood: (state, action) => {
       state.data = action.payload;
     },
     createPoem: (state, { payload }) => {
       state.data = [{ ...payload }, ...state.data];
     },
-    // getPrivatePoem: (state, action) => {
-    //   state.data = action.payload;
-    // },
+    getPrivateFood: (state, action) => {
+      state.data = action.payload;
+    },
     // editPoem: (state, action) => {
     //   state.data = data.map((item) =>
     //     item.id === action.payload.id ? action.payload : item
@@ -153,28 +153,28 @@ export const foodSlide: Slice<Food> = createSlice({
 //   }
 // );
 
-// export const getPrivatePoemAsync = (data) => async (dispatch) => {
+// export const getPrivateFoodAsync:any = (data:any) => async (dispatch:any) => {
 //   try {
 //     const response = await axios.get(`${API_URL}userpoem`, config);
-//     dispatch(getPrivatePoem(response.data));
+//     dispatch(getPrivateFood(response.data));
 //     // console.log(response.data);
 //   } catch (error) {
 //     throw new Error(error);
 //   }
 // };
 
-// export const getPrivatePoemAsync = createAsyncThunk(
-//   "poem/getPrivatePoem",
-//   (data) => async (dispatch) => {
-//     try {
-//       const response = await axios.get(`${API_URL}userpoem`, config);
-//       dispatch(getPrivatePoem(response.data));
-//       // console.log(response.data);
-//     } catch (error) {
-//       throw new Error(error);
-//     }
-//   }
-// );
+export const getPrivatePoemAsync: any = createAsyncThunk(
+  "food/getPrivateFood",
+  (data) => async (dispatch: any) => {
+    try {
+      const response = await axios.get(`${API_URL}userfood`, config);
+      dispatch(getPrivateFood(response.data));
+      // console.log(response.data);
+    } catch (error: any) {
+      throw new Error(error);
+    }
+  }
+);
 
 // export const signUpUser = createAsyncThunk("registeruser",
 // export const createPoemAsync = (data) => async (dispatch) => {
@@ -222,6 +222,7 @@ export const foodSlide: Slice<Food> = createSlice({
 export const {
   getPoem,
   createPoem,
-  // getPrivatePoem, editPoem, deletePoem
+  //  editPoem, deletePoem
+  getPrivateFood,
 } = foodSlide.actions;
 export default foodSlide;
