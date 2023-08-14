@@ -24,27 +24,29 @@ function Modal(props: FillProps) {
   const dispatch = useDispatch();
 
   //   const load = useSelector((state) => state.poems?.loading);
-  const [image, setImage] = useState({ file: null });
+  const [image, setImage] = useState<File>();
   const { name, desc, category } = formData;
   const Category = ["Romance", "Fantasy", "Comedy", "Story", "Horror"];
 
   // const listItems = category.map((item) => item);
   // console.log(listItems);
 
-    function handleImageChange = (e: React.ChangeEvent<HTMLInputElement>)=> {
-      setImage(e.target.files[0]);
-    }
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { files } = e.target;
+    const selectedFiles = files as FileList;
+    setImage(selectedFiles?.[0]);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData,  [e.target.name]: e.target.value});
+    setFormData({ ...formData, [e.target.name]: e.target.value });
     // console.log(event);
   };
-  
-  const handleTextAreaChange=(e:React.ChangeEvent<HTMLTextAreaElement>)=>{
-    setFormData({ ...formData,  [e.target.name]: e.target.value});
-  }
 
-  const { file } = image;
+  const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  //   const { file } = image;
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
