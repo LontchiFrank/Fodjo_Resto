@@ -1,10 +1,10 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, Slice } from "@reduxjs/toolkit";
 import { data } from "autoprefixer";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { myAlert } from "../Components/Alert/myAlert";
 
-const API_URL = "https://localhost:8080/api/food/";
+const API_URL = "http://localhost:8080/api/food/";
 const token = localStorage.getItem("token");
 const config = {
   headers: {
@@ -28,8 +28,7 @@ export const createFoodAsync: any = createAsyncThunk(
   async (data) => {
     try {
       const token = localStorage.getItem("token");
-      console.log(localStorage.getItem("token"));
-      const res: any = await axios.post(`${API_URL}new-poem`, data, {
+      const res: any = await axios.post(`${API_URL}new-food`, data, {
         headers: {
           "Content-Type": "multipart/form-data",
           "auth-token": token,
@@ -83,7 +82,7 @@ export const createFoodAsync: any = createAsyncThunk(
 //   }
 // );
 
-export const foodSlide = createSlice({
+export const foodSlide: Slice<Food> = createSlice({
   name: "food",
   initialState,
   reducers: {
@@ -225,4 +224,4 @@ export const {
   createPoem,
   // getPrivatePoem, editPoem, deletePoem
 } = foodSlide.actions;
-export default foodSlide.reducer;
+export default foodSlide;
