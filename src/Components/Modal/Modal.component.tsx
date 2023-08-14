@@ -1,9 +1,25 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import CreatableSelect from "react-select/creatable";
 import CreatableSelectComponent from "../SelectOption/CreatableSelect.component";
 // import { colourOptions } from '../data';
+import CreatableSelect from "react-select/creatable";
+
+interface Option {
+  readonly label: string;
+  readonly value: string;
+}
+
+const createOption = (label: string) => ({
+  label,
+  value: label.toLowerCase().replace(/\W/g, ""),
+});
+
+const defaultOptions = [
+  createOption("Meal"),
+  createOption("Grill"),
+  createOption("Fries"),
+];
 
 type FillProps = {
   open: boolean;
@@ -12,7 +28,7 @@ type FillProps = {
 interface Food {
   name: string;
   desc: string;
-  category: string;
+  category?: string | object;
 }
 
 function Modal(props: FillProps) {
@@ -23,13 +39,25 @@ function Modal(props: FillProps) {
   });
   const dispatch = useDispatch();
 
+  //the react-select component
+  const [isLoading, setIsLoading] = useState(false);
+  const [options, setOptions] = useState(defaultOptions);
+  const [value, setValue] = useState<Option | null>();
+
+  const handleCreate = (inputValue: string) => {
+    setIsLoading(true);
+    setTimeout(() => {
+      const newOption = createOption(inputValue);
+      setIsLoading(false);
+      setOptions((prev) => [...prev, newOption]);
+      setValue(newOption);
+    }, 1000);
+  };
+
   //   const load = useSelector((state) => state.poems?.loading);
   const [image, setImage] = useState<File>();
   const { name, desc, category } = formData;
   const Category = ["Romance", "Fantasy", "Comedy", "Story", "Horror"];
-
-  // const listItems = category.map((item) => item);
-  // console.log(listItems);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;
@@ -46,10 +74,16 @@ function Modal(props: FillProps) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleCategory = (item: any | Option | null) => {
+    setValue(item);
+    setFormData({ ...formData, category: item });
+    console.log(item);
+  };
   //   const { file } = image;
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log(formData);
     // const info = new FormData();
     // info.append("title", title);
     // info.append("category", category);
@@ -116,7 +150,15 @@ function Modal(props: FillProps) {
                             // onChange={(e) => handleChange(e)}
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-200 dark:border-gray-200 dark:placeholder-gray-400 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           ></select> */}
-                          <CreatableSelectComponent />
+                          <CreatableSelect
+                            isClearable
+                            isDisabled={isLoading}
+                            isLoading={isLoading}
+                            onChange={(newValue) => handleCategory(newValue)}
+                            onCreateOption={handleCreate}
+                            options={options}
+                            value={value}
+                          />
                           {/* {Category.map((item) => (
                   // console.log(first)
                   <option name={item} key={item} value={item}>
@@ -151,23 +193,20 @@ function Modal(props: FillProps) {
                             id="message"
                             rows={4}
                             name="desc"
-                            className="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-800 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Leave a comment..."
                             value={desc}
                             onChange={(e) => handleTextAreaChange(e)}
                           ></textarea>
                         </div>
                         <div className="flex items-start mb-6"></div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                  <button
-                    type="button"
-                    className="inline-flex w-full justify-center rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 sm:ml-3 sm:w-auto"
-                  >
-                    {/* {load ? (
+                        <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                          <button
+                            type="submit"
+                            // onClick={(e) => handleSubmit(e)}
+                            className="inline-flex w-full justify-center rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 sm:ml-3 sm:w-auto"
+                          >
+                            {/* {load ? (
                 <svg
                   aria-hidden="true"
                   role="status"
@@ -186,15 +225,19 @@ function Modal(props: FillProps) {
                   ></path>
                 </svg>
               ) : null} */}
-                    Create
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => props.offModal(false)}
-                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                  >
-                    Cancel
-                  </button>
+                            Create
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => props.offModal(false)}
+                            className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

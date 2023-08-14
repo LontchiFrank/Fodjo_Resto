@@ -6,6 +6,9 @@ interface Option {
   readonly label: string;
   readonly value: string;
 }
+// type FillProps = {
+//   handleCategory: any;
+// };
 
 const createOption = (label: string) => ({
   label,
