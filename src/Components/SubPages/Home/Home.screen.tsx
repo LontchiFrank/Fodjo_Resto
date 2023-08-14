@@ -1,15 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Home.module.css";
 import { useSelector } from "react-redux";
 import FoodCardDash from "../../FoodCardDash/FoodCardDash.component";
 import { FoodCardData } from "../../../Components/FoodCards/FoodCard";
 import { BiPlus } from "react-icons/bi";
 import Modal from "../../Modal/Modal.component";
+import {
+  getPrivateFood,
+  getPrivateFoodAsync,
+} from "../../../features/foodSlice";
+import { useDispatch } from "react-redux";
+import { useQuery } from "react-query";
 type FillProps = {
   open: boolean;
 };
 
 function Home(props: FillProps) {
+  // const { data } = useQuery(["cat"], getPrivateFoodAsync());
+
+  // console.log(data);
+  const dispatch = useDispatch();
+  const data = useSelector((state: any) => state.food?.data);
+  useEffect(() => {
+    dispatch(getPrivateFoodAsync());
+    console.log(data);
+  }, []);
+
   const windowSidebar: any = window.innerWidth;
   const [openModal, setOpenModal] = useState(false);
   console.log(windowSidebar);

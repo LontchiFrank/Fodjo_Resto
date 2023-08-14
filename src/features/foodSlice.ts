@@ -163,18 +163,30 @@ export const foodSlide: Slice<Food> = createSlice({
 //   }
 // };
 
-export const getPrivatePoemAsync: any = createAsyncThunk(
-  "food/getPrivateFood",
-  (data) => async (dispatch: any) => {
+// export const getPrivateFoodAsync: any = createAsyncThunk(
+//   "food/getPrivateFood",
+//   (data) => async (dispatch: any) => {
+//     try {
+//       const response: any = await axios.get(`${API_URL}userfood`, config);
+
+//       dispatch(getPrivateFood(response.data));
+//       console.log(response.data);
+//     } catch (error: any) {
+//       throw new Error(error);
+//     }
+//   }
+// );
+
+export const getPrivateFoodAsync: any =
+  (data: any) => async (dispatch: any) => {
     try {
       const response = await axios.get(`${API_URL}userfood`, config);
       dispatch(getPrivateFood(response.data));
-      // console.log(response.data);
+      console.log(response.data);
     } catch (error: any) {
       throw new Error(error);
     }
-  }
-);
+  };
 
 // export const signUpUser = createAsyncThunk("registeruser",
 // export const createPoemAsync = (data) => async (dispatch) => {
