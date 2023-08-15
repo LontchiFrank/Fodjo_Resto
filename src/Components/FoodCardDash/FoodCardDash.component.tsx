@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsPen, BsTrash } from "react-icons/bs";
 import meat from "../../assets/a.jpg";
+import ModalEdit from "../Modal/ModalEdit.component";
 import styles from "./FoodCardDash.module.css";
 
 interface FoodProps {
@@ -15,9 +16,13 @@ interface FoodProps {
 
 // max-w-sm sm:w-full xs:w-full  rounded-xl overflow-hidden hover:translate-y-2 transition duration-300
 function FoodCardDash({ img, title, open, item, icon, icon2 }: FoodProps) {
+  const [show, setShow] = useState(false);
+
   console.log(item);
   return (
     <div className="flex justify-center items-center">
+      <ModalEdit show={show} item={item} />
+
       <div
         className={`${
           open ? "max-w-xs" : "max-w-[21rem]"
