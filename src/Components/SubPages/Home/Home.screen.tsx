@@ -5,12 +5,12 @@ import FoodCardDash from "../../FoodCardDash/FoodCardDash.component";
 import { FoodCardData } from "../../../Components/FoodCards/FoodCard";
 import { BiPlus } from "react-icons/bi";
 import Modal from "../../Modal/Modal.component";
+import load from "../../../assets/cube.svg";
 import {
   getPrivateFood,
   getPrivateFoodAsync,
 } from "../../../features/foodSlice";
 import { useDispatch } from "react-redux";
-import { useQuery } from "react-query";
 type FillProps = {
   open: boolean;
 };
@@ -18,12 +18,12 @@ type FillProps = {
 function Home(props: FillProps) {
   // const { data } = useQuery(["cat"], getPrivateFoodAsync());
 
-  // console.log(data);
   const dispatch = useDispatch();
   const data = useSelector((state: any) => state.food?.data);
+  // const [data, setData] = useState([]);
+  console.log(data);
   useEffect(() => {
     dispatch(getPrivateFoodAsync());
-    console.log(data);
   }, []);
 
   const windowSidebar: any = window.innerWidth;
@@ -115,19 +115,29 @@ function Home(props: FillProps) {
               </div>
             </div>
             <div
-              className={`${
-                props.open ? "p-5" : "p-10"
-              } grid grid-cols-3   mb-4 rounded bg-gray-50 dark:bg-white`}
+              className={`${props.open ? "p-5" : "p-10"} ${
+                data.length == 0
+                  ? "flex  justify-center items-center"
+                  : "grid grid-cols-3"
+              }   mb-4 rounded bg-gray-50 dark:bg-white`}
             >
-              {FoodCardData.map((item, index) => (
-                <FoodCardDash
-                  img={item.image}
-                  title={item.title}
-                  icon={item.icon}
-                  icon2={item.icon2}
-                  open={props.open}
-                />
-              ))}
+              {data.length > 0 ? (
+                data.map((item: any, index: any) => (
+                  <FoodCardDash
+                    key={index}
+                    item={item}
+                    img={item.image}
+                    title={item.title}
+                    icon={item.icon}
+                    icon2={item.icon2}
+                    open={props.open}
+                  />
+                ))
+              ) : (
+                <div className=" h-screen flex justify-center items-center ">
+                  <img src={load} style={{ width: "28%", height: "28%" }} />
+                </div>
+              )}
             </div>
             <div
               className={`${styles.plusColor} cursor-pointer fixed top-[85%] left-[65%] rounded-full bg-white w-[100px] h-[100px] flex justify-center items-center text-orange-400`}
