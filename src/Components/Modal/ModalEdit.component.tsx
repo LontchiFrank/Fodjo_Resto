@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 type FillProps = {
   show: boolean;
   item: any;
+  handleShowOffModal: any;
 };
 interface Food {
   name: string;
@@ -23,7 +24,8 @@ function ModalEdit(props: FillProps) {
     price: "",
     desc: "",
   });
-
+  const [image, setImage] = useState<File>();
+  const { name, desc, price, category } = formData;
   const createOption = (label: string) => ({
     label,
     value: label.toLowerCase().replace(/\W/g, ""),
@@ -60,12 +62,20 @@ function ModalEdit(props: FillProps) {
       });
     }
   }, [props.item]);
-
+  //   const json = JSON.stringify(category);
+  //   const sig = JSON.parse(json);
+  console.log();
   const load = useSelector((state: any) => state.food?.loading);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     // console.log(event);
+  };
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { files } = e.target;
+    const selectedFiles = files as FileList;
+    setImage(selectedFiles?.[0]);
   };
 
   const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -76,6 +86,20 @@ function ModalEdit(props: FillProps) {
     setValue(item);
     setFormData({ ...formData, category: item });
     console.log(item);
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log(formData);
+    const info = new FormData();
+    info.append("name", name);
+    info.append("category", category);
+    info.append("desc", desc);
+    info.append("price", price);
+    info.append("image", image as Blob);
+    console.log(info);
+
+    // dispatch(createFoodAsync(info));
   };
 
   return (
@@ -96,12 +120,12 @@ function ModalEdit(props: FillProps) {
                   <div className="flex ">
                     <div className="mt-3 w-[100%] text-center sm:mt-0 sm:text-left">
                       <h3
-                        className="text-base font-semibold leading-6 text-gray-900"
+                        className="text-xl mb-3 font-semibold leading-6 text-gray-900"
                         id="modal-title"
                       >
                         Edit Food Item
                       </h3>
-                      <form>
+                      <form onSubmit={(e) => handleSubmit(e)}>
                         <div className="mb-6">
                           <label
                             // for="title"
@@ -114,8 +138,8 @@ function ModalEdit(props: FillProps) {
                             id="text"
                             name="name"
                             className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-800 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Title"
-                            // value={name}
+                            placeholder="Name "
+                            value={name}
                             onChange={(e) => handleChange(e)}
                             required
                           />
@@ -132,7 +156,7 @@ function ModalEdit(props: FillProps) {
                             isClearable
                             isDisabled={isLoading}
                             isLoading={isLoading}
-                            // onChange={(newValue) => handleCategory(newValue)}
+                            onChange={(newValue) => handleCategory(newValue)}
                             onCreateOption={handleCreate}
                             options={options}
                             value={value}
@@ -151,8 +175,8 @@ function ModalEdit(props: FillProps) {
                             name="price"
                             className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-800 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Price"
-                            // value={price}
-                            // onChange={(e) => handleChange(e)}
+                            value={price}
+                            onChange={(e) => handleChange(e)}
                             required
                           />
                         </div>
@@ -169,7 +193,7 @@ function ModalEdit(props: FillProps) {
                             name="image"
                             accept="image/*"
                             className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-800 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            // onChange={(e) => handleImageChange(e)}
+                            onChange={(e) => handleImageChange(e)}
                           />
                         </div>
                         <div className="mb-6">
@@ -185,15 +209,14 @@ function ModalEdit(props: FillProps) {
                             name="desc"
                             className="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-800 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Leave a comment..."
-                            // value={desc}
-                            // onChange={(e) => handleTextAreaChange(e)}
+                            value={desc}
+                            onChange={(e) => handleTextAreaChange(e)}
                           ></textarea>
                         </div>
                         <div className="flex items-start mb-6"></div>
                         <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                           <button
                             type="submit"
-                            // onClick={(e) => handleSubmit(e)}
                             className="inline-flex w-full justify-center rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 sm:ml-3 sm:w-auto"
                           >
                             {load ? (
@@ -219,7 +242,7 @@ function ModalEdit(props: FillProps) {
                           </button>
                           <button
                             type="button"
-                            // onClick={() => props.offModal(false)}
+                            onClick={() => props.handleShowOffModal(false)}
                             className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                           >
                             Cancel

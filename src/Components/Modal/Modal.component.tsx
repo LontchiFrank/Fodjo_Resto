@@ -62,7 +62,6 @@ function Modal(props: FillProps) {
   // console.log(data);
   const [image, setImage] = useState<File>();
   const { name, desc, price, category } = formData;
-  const Category = ["Romance", "Fantasy", "Comedy", "Story", "Horror"];
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;
@@ -117,7 +116,7 @@ function Modal(props: FillProps) {
                   <div className="flex ">
                     <div className="mt-3 w-[100%] text-center sm:mt-0 sm:text-left">
                       <h3
-                        className="text-base font-semibold leading-6 text-gray-900"
+                        className="text-xl mb-3 font-semibold leading-6 text-gray-900"
                         id="modal-title"
                       >
                         Create Food Item
@@ -135,7 +134,7 @@ function Modal(props: FillProps) {
                             id="text"
                             name="name"
                             className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-800 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Title"
+                            placeholder="Name of Food"
                             value={name}
                             onChange={(e) => handleChange(e)}
                             required

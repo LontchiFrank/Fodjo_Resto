@@ -18,10 +18,20 @@ interface FoodProps {
 function FoodCardDash({ img, title, open, item, icon, icon2 }: FoodProps) {
   const [show, setShow] = useState(false);
 
+  const handleShowModal = () => {
+    setShow(true);
+  };
+  const handleShowOffModal = (num: boolean) => {
+    setShow(num);
+  };
   console.log(item);
   return (
     <div className="flex justify-center items-center">
-      <ModalEdit show={show} item={item} />
+      <ModalEdit
+        show={show}
+        item={item}
+        handleShowOffModal={handleShowOffModal}
+      />
 
       <div
         className={`${
@@ -57,7 +67,10 @@ function FoodCardDash({ img, title, open, item, icon, icon2 }: FoodProps) {
               </span>
             </p>
             <div className="flex items-center gap-2">
-              <div className="rounded-full bg-blue-100 p-2 cursor-pointer hover:bg-blue-200">
+              <div
+                className="rounded-full bg-blue-100 p-2 cursor-pointer hover:bg-blue-200"
+                onClick={handleShowModal}
+              >
                 <BsPen style={{ fontSize: "22px" }} className="text-blue-700" />
               </div>
               {/* <svg

@@ -34,7 +34,7 @@ export const createFoodAsync: any = createAsyncThunk(
           "auth-token": token,
         },
       });
-      createPoem(res.data);
+      createFood(res.data);
       console.log({ res });
       if (res.status == "200") {
         myAlert(true, "Created successfully");
@@ -89,17 +89,17 @@ export const foodSlide: Slice<Food> = createSlice({
     getFood: (state, action) => {
       state.data = action.payload;
     },
-    createPoem: (state, { payload }) => {
+    createFood: (state, { payload }) => {
       state.data = [{ ...payload }, ...state.data];
     },
     getPrivateFood: (state, action) => {
       state.data = action.payload;
     },
-    // editPoem: (state, action) => {
-    //   state.data = data.map((item) =>
-    //     item.id === action.payload.id ? action.payload : item
-    //   );
-    // },
+    editFood: (state, action) => {
+      state.data = data.map((item: any) =>
+        item.id === action.payload.id ? action.payload : item
+      );
+    },
     // deletePoem: (state, action) => {
     //   state.data = data.filter((item) => item.id !== action.payload.id);
     // },
@@ -212,29 +212,30 @@ export const getPrivateFoodAsync: any =
 //   }
 // };
 
-// export const editPoemAsync = createAsyncThunk(
-//   "poem/editPoem",
-//   (data) => async (dispatch) => {
-//     try {
-//       const response = await axios.put(
-//         `${API_URL}${data.id}`,
-//         data.info,
-//         config
-//       );
-//       dispatch(editPoem(response.data));
-//       if (response.status == "200") {
-//         myAlert(true, "Edited successfully");
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-// );
+export const editPoemAsync = createAsyncThunk(
+  "food/editFood",
+  (data) => async (dispatch: any) => {
+    try {
+      const response: any = await axios.put(
+        `${API_URL}${data.id}`,
+        data.info,
+        config
+      );
+      dispatch(editPoem(response.data));
+      if (response.status == "200") {
+        myAlert(true, "Edited successfully");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 
 export const {
   getPoem,
-  createPoem,
-  //  editPoem, deletePoem
+  createFood,
+  editFood,
+  //  deletePoem
   getPrivateFood,
 } = foodSlide.actions;
 export default foodSlide;
