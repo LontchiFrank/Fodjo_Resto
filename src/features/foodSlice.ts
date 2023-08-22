@@ -53,14 +53,14 @@ export const createFoodAsync: any = createAsyncThunk(
 
 export const editFoodAsync: any = createAsyncThunk(
   "food/editFood",
-  (data: any) => async (dispatch: any) => {
+  async (data: any) => {
     try {
       const response: any = await axios.put(
         `${API_URL}${data.id}`,
         data.info,
         config
       );
-      dispatch(editFood(response.data));
+      editFood(response.data);
       if (response.status == "200") {
         myAlert(true, "Edited successfully");
         window.location.reload();
@@ -70,6 +70,19 @@ export const editFoodAsync: any = createAsyncThunk(
     }
   }
 );
+
+// export const editPoemAsync = createAsyncThunk("poem/editPoem", async (data) => {
+//   try {
+//     const response = await axios.put(`${API_URL}${data.id}`, data.info, config);
+//     editPoem(response.data);
+//     if (response.status == "200") {
+//       myAlert(true, "Edited successfully");
+//       window.location.reload(false);
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 // export const editPoemAsync = createAsyncThunk("poem/editPoem", async (data) => {
 //   try {
