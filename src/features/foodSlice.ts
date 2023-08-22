@@ -154,7 +154,7 @@ export const foodSlide: Slice<Food> = createSlice({
         item.id === action.payload.id ? action.payload : item
       );
     },
-    deletePFood: (state, action) => {
+    deleteFood: (state, action) => {
       state.data = arrays.filter((item) => item.id !== action.payload.id);
     },
   },
@@ -175,14 +175,14 @@ export const foodSlide: Slice<Food> = createSlice({
       state.loading = false;
       state.authenticate = true;
     },
-    // [deletePoemAsync.pending]: (state) => {
-    //   state.loading = true;
-    //   state.authenticate = false;
-    // },
-    // [deletePoemAsync.fulfilled]: (state) => {
-    //   state.loading = false;
-    //   state.authenticate = true;
-    // },
+    [deleteFoodAsync.pending]: (state) => {
+      state.loading = true;
+      state.authenticate = false;
+    },
+    [deleteFoodAsync.fulfilled]: (state) => {
+      state.loading = false;
+      state.authenticate = true;
+    },
   },
 });
 
