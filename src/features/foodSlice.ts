@@ -13,10 +13,12 @@ const config = {
   },
 };
 
+let arrays: any[];
+
 interface Food {
   data: any[];
   loading: boolean;
-  authenticate: null;
+  authenticate: null | boolean;
 }
 const initialState: Food = {
   data: [],
@@ -24,7 +26,7 @@ const initialState: Food = {
   authenticate: null,
 };
 export const createFoodAsync: any = createAsyncThunk(
-  "poem/createPoem",
+  "food/createFood",
   async (data) => {
     try {
       const token = localStorage.getItem("token");
@@ -44,6 +46,26 @@ export const createFoodAsync: any = createAsyncThunk(
     } catch (error) {
       // throw new Error(error);
 
+      console.log(error);
+    }
+  }
+);
+
+export const editFoodAsync: any = createAsyncThunk(
+  "food/editFood",
+  (data: any) => async (dispatch: any) => {
+    try {
+      const response: any = await axios.put(
+        `${API_URL}${data.id}`,
+        data.info,
+        config
+      );
+      dispatch(editFood(response.data));
+      if (response.status == "200") {
+        myAlert(true, "Edited successfully");
+        window.location.reload();
+      }
+    } catch (error) {
       console.log(error);
     }
   }
@@ -96,7 +118,7 @@ export const foodSlide: Slice<Food> = createSlice({
       state.data = action.payload;
     },
     editFood: (state, action) => {
-      state.data = data.map((item: any) =>
+      state.data = arrays.map((item: any) =>
         item.id === action.payload.id ? action.payload : item
       );
     },
@@ -113,14 +135,14 @@ export const foodSlide: Slice<Food> = createSlice({
       state.loading = false;
       state.authenticate = true;
     },
-    // [editPoemAsync.pending]: (state) => {
-    //   state.loading = true;
-    //   state.authenticate = false;
-    // },
-    // [editPoemAsync.fulfilled]: (state) => {
-    //   state.loading = false;
-    //   state.authenticate = true;
-    // },
+    [editFoodAsync.pending]: (state) => {
+      state.loading = true;
+      state.authenticate = false;
+    },
+    [editFoodAsync.fulfilled]: (state) => {
+      state.loading = false;
+      state.authenticate = true;
+    },
     // [deletePoemAsync.pending]: (state) => {
     //   state.loading = true;
     //   state.authenticate = false;
@@ -211,25 +233,6 @@ export const getPrivateFoodAsync: any =
 //     console.log(error);
 //   }
 // };
-
-export const editPoemAsync = createAsyncThunk(
-  "food/editFood",
-  (data) => async (dispatch: any) => {
-    try {
-      const response: any = await axios.put(
-        `${API_URL}${data.id}`,
-        data.info,
-        config
-      );
-      dispatch(editPoem(response.data));
-      if (response.status == "200") {
-        myAlert(true, "Edited successfully");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-);
 
 export const {
   getPoem,

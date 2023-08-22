@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CreatableSelect from "react-select/creatable";
 import { useSelector, useDispatch } from "react-redux";
+import { editFoodAsync } from "../../features/foodSlice";
 
 type FillProps = {
   show: boolean;
@@ -62,14 +63,12 @@ function ModalEdit(props: FillProps) {
       });
     }
   }, [props.item]);
-  //   const json = JSON.stringify(category);
-  //   const sig = JSON.parse(json);
   console.log();
   const load = useSelector((state: any) => state.food?.loading);
-
+  console.log(load);
+  const dispatch = useDispatch();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    // console.log(event);
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -97,9 +96,14 @@ function ModalEdit(props: FillProps) {
     info.append("desc", desc);
     info.append("price", price);
     info.append("image", image as Blob);
-    console.log(info);
 
-    // dispatch(createFoodAsync(info));
+    const finalData = {
+      info,
+      id: props.item._id,
+    };
+    console.log(props.item._id);
+    const res = dispatch(editFoodAsync(finalData));
+    console.log(res);
   };
 
   return (
@@ -238,7 +242,7 @@ function ModalEdit(props: FillProps) {
                                 ></path>
                               </svg>
                             ) : null}
-                            Create
+                            Edit
                           </button>
                           <button
                             type="button"
