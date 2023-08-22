@@ -70,6 +70,25 @@ export const editFoodAsync: any = createAsyncThunk(
     }
   }
 );
+export const deleteFoodAsync: any = createAsyncThunk(
+  "food/deleteFood",
+  async (data: any) => {
+    try {
+      console.log(data);
+      const response: any = await axios.delete(`${API_URL}${data}`, config);
+      deleteFood(response);
+      if (response.status == "200") {
+        myAlert(true, "Deleted successfully");
+        window.location.reload();
+      } else {
+        myAlert(false, "Failed to Delete");
+      }
+      // return true;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 
 // export const editPoemAsync = createAsyncThunk("poem/editPoem", async (data) => {
 //   try {
@@ -135,9 +154,9 @@ export const foodSlide: Slice<Food> = createSlice({
         item.id === action.payload.id ? action.payload : item
       );
     },
-    // deletePoem: (state, action) => {
-    //   state.data = data.filter((item) => item.id !== action.payload.id);
-    // },
+    deletePFood: (state, action) => {
+      state.data = arrays.filter((item) => item.id !== action.payload.id);
+    },
   },
   extraReducers: {
     [createFoodAsync.pending]: (state: any) => {
@@ -247,11 +266,6 @@ export const getPrivateFoodAsync: any =
 //   }
 // };
 
-export const {
-  getPoem,
-  createFood,
-  editFood,
-  //  deletePoem
-  getPrivateFood,
-} = foodSlide.actions;
+export const { getPoem, createFood, editFood, deleteFood, getPrivateFood } =
+  foodSlide.actions;
 export default foodSlide;
