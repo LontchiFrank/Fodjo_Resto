@@ -56,7 +56,7 @@ function Home(props: FillProps) {
               <p className={`${styles.resto_name} text-2xl`}> {adminName}</p>
             </h2>
             <div className="grid grid-cols-3 gap-4 mb-4">
-              <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-green-800">
+              <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-100">
                 <p className="text-2xl text-gray-400 dark:text-gray-500">
                   <svg
                     className="w-3.5 h-3.5"
@@ -75,7 +75,7 @@ function Home(props: FillProps) {
                   </svg>
                 </p>
               </div>
-              <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
+              <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-100">
                 <p className="text-2xl text-gray-400 dark:text-gray-500">
                   <svg
                     className="w-3.5 h-3.5"
@@ -94,7 +94,7 @@ function Home(props: FillProps) {
                   </svg>
                 </p>
               </div>
-              <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
+              <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-100">
                 <p className="text-2xl text-gray-400 dark:text-gray-500">
                   <svg
                     className="w-3.5 h-3.5"
@@ -146,7 +146,7 @@ function Home(props: FillProps) {
               <BiPlus style={{ fontSize: "50px" }} />
             </div>
 
-            <div className="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
+            <div className="flex items-center justify-center h-48 mb-4 rounded bg-gray-100 ">
               <p className="text-2xl text-gray-400 dark:text-gray-500">
                 <svg
                   className="w-3.5 h-3.5"
@@ -171,7 +171,7 @@ function Home(props: FillProps) {
           <div className="pt-10 px-5">
             <h2 className="text-2xl font-bold">Current Order</h2>
           </div>
-          <div className="flex items-center justify-center h-screen rounded "></div>
+          <div className="flex flex-col h-screen rounded mb-5"></div>
         </div>
       </div>
     </div>
