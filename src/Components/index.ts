@@ -9,6 +9,7 @@ import Orders from "./SubPages/Orders/Orders.screen";
 import Analytics from "./SubPages/Analytics/Analytics.screen";
 import Modal from "./Modal/Modal.component";
 import ModalEdit from "./Modal/ModalEdit.component";
+import CardOrder from "./CardOrder/CardOrder.component";
 
 export {
   RouterLoader,
@@ -22,4 +23,5 @@ export {
   FoodCardDash,
   Modal,
   ModalEdit,
+  CardOrder,
 };

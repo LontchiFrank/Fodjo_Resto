@@ -11,6 +11,7 @@ import {
   getPrivateFoodAsync,
 } from "../../../features/foodSlice";
 import { useDispatch } from "react-redux";
+import CardOrder from "../../CardOrder/CardOrder.component";
 type FillProps = {
   open: boolean;
 };
@@ -171,7 +172,9 @@ function Home(props: FillProps) {
           <div className="pt-10 px-5">
             <h2 className="text-2xl font-bold">Current Order</h2>
           </div>
-          <div className="flex flex-col h-screen rounded mb-5"></div>
+          <div className="flex flex-col h-screen p-5 rounded mb-5">
+            <CardOrder />
+          </div>
         </div>
       </div>
     </div>
