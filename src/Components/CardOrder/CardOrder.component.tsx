@@ -1,13 +1,14 @@
 import React from "react";
 import { BsFilePlusFill } from "react-icons/bs";
 import { FaRegEye } from "react-icons/fa";
+import styles from "./CardOrder.module.css";
 
 function CardOrder() {
   return (
     <div className=" ">
       <a
         href="#"
-        className="flex flex-col items-center bg-white rounded-lg md:flex-row    "
+        className="flex flex-col items-center bg-white rounded-lg md:flex-row"
       >
         <img
           className=" w-full rounded-t-lg h-32 md:h-28 md:w-32 md:rounded-none md:rounded-l-lg"
@@ -37,7 +38,7 @@ function CardOrder() {
               />
               3 plates{" "}
             </p>
-            <div className="rounded-full bg-orange-100 p-2 cursor-pointer hover:bg-blue-200">
+            <div className="rounded-full bg-orange-100 p-2 cursor-pointer hover:bg-orange-200">
               <FaRegEye
                 style={{ fontSize: "22px" }}
                 className="text-orange-700"
