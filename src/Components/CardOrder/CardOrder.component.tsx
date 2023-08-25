@@ -33,7 +33,7 @@ function CardOrder() {
             <p className="mb-1 flex font-bold text-md text-black m-0 p-0">
               <BsFilePlusFill
                 style={{ fontSize: "22px" }}
-                className="text-orange-700"
+                className="text-orange-400"
               />
               3 plates{" "}
             </p>

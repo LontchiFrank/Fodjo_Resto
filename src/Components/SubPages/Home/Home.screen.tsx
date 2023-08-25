@@ -174,6 +174,8 @@ function Home(props: FillProps) {
           </div>
           <div className="flex flex-col h-screen p-5 rounded mb-5">
             <CardOrder />
+            <CardOrder />
+            <CardOrder />
           </div>
         </div>
       </div>
