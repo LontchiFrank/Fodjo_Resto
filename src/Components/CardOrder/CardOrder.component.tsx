@@ -17,7 +17,9 @@ function CardOrder() {
         />
         <div className="flex flex-col w-[100%]">
           <div className="flex flex-col justify-between pt-3 pl-3 ">
-            <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
+            <h5
+              className={`${styles.fontSec} mb-2 text-xl font-medium pt-2 tracking-tight text-gray-900`}
+            >
               Fries and Chicken
             </h5>
             <p className="mb-1 font-bold text-xl text-orange-700 m-0 p-0">
