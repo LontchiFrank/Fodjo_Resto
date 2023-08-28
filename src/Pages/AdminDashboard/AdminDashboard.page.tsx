@@ -13,13 +13,17 @@ import { FaChevronRight } from "react-icons/fa";
 import { Home, Profile, Search, Analytics, Orders } from "../../Components";
 import { subComponentNames } from "../../Components/SubPages/index";
 import { Link } from "react-router-dom";
+import { GrClose } from "react-icons/gr";
 
 function AdminDashboard() {
   const [currentComponent, setCurrentComponent] = useState(
     subComponentNames.HOME
   );
   const [open, setOpen] = useState(true);
-  const [color, setColor] = useState();
+  const [displaySide, setDisplaySide] = useState(false);
+  const handleDisplaySide: any = () => {
+    setDisplaySide(!displaySide);
+  };
   const Menus: Object[] = [
     {
       title: "Home",
@@ -67,9 +71,15 @@ function AdminDashboard() {
   return (
     <div>
       <Wrapper>
-        <div className={`${windowSidebar < 450 ? " flex-col" : "flex"} `}>
-          {windowSidebar < 450 ? (
-            <BiMenu />
+        <div className={`${windowSidebar < 550 ? " flex-col" : "flex"} `}>
+          {windowSidebar < 550 ? (
+            <div onClick={handleDisplaySide}>
+              {displaySide ? (
+                <BiMenu className="cursor-pointer" />
+              ) : (
+                <GrClose className="cursor-pointer" />
+              )}
+            </div>
           ) : (
             <div className="fixed">
               <div

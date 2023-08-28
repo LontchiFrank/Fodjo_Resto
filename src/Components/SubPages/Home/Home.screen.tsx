@@ -20,6 +20,7 @@ function Home(props: FillProps) {
   // const { data } = useQuery(["cat"], getPrivateFoodAsync());
 
   const dispatch = useDispatch();
+  const windowSidebar: any = window.innerWidth;
   const data = useSelector((state: any) => state.food?.data);
   // const [data, setData] = useState([]);
   console.log(data);
@@ -27,7 +28,6 @@ function Home(props: FillProps) {
     dispatch(getPrivateFoodAsync());
   }, []);
 
-  const windowSidebar: any = window.innerWidth;
   const [openModal, setOpenModal] = useState(false);
   console.log(windowSidebar);
   const admin: any = JSON.parse(localStorage.getItem("user") || "");
@@ -119,7 +119,7 @@ function Home(props: FillProps) {
               className={`${props.open ? "p-5" : "p-10"} ${
                 data.length == 0
                   ? "flex  justify-center items-center"
-                  : "grid grid-cols-3"
+                  : "grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1"
               }   mb-4 rounded bg-gray-50 dark:bg-white`}
             >
               {data.length > 0 ? (
