@@ -6,22 +6,6 @@ import CreatableSelectComponent from "../SelectOption/CreatableSelect.component"
 import CreatableSelect from "react-select/creatable";
 import { createFoodAsync } from "../../features/foodSlice";
 
-interface Option {
-  readonly label: string;
-  readonly value: string;
-}
-
-const createOption = (label: string) => ({
-  label,
-  value: label.toLowerCase().replace(/\W/g, ""),
-});
-
-const defaultOptions = [
-  createOption("Meal"),
-  createOption("Grill"),
-  createOption("Fries"),
-];
-
 type FillProps = {
   open: boolean;
   offModal: any;
@@ -42,26 +26,12 @@ function Modal(props: FillProps) {
   });
   const dispatch = useDispatch();
 
-  //the react-select component
-  const [isLoading, setIsLoading] = useState(false);
-  const [options, setOptions] = useState(defaultOptions);
-  const [value, setValue] = useState<Option | null>();
-
-  const handleCreate = (inputValue: string) => {
-    setIsLoading(true);
-    setTimeout(() => {
-      const newOption = createOption(inputValue);
-      setIsLoading(false);
-      setOptions((prev) => [...prev, newOption]);
-      setValue(newOption);
-    }, 1000);
-  };
-
   const load = useSelector((state: any) => state.food?.loading);
   // const data = useSelector((state: any) => state.food?.data);
   // console.log(data);
   const [image, setImage] = useState<File>();
   const { name, desc, price, category } = formData;
+  const Category = ["Meal", "Grill", "Ice Cream", "Fries", "Drinks"];
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;
@@ -74,15 +44,14 @@ function Modal(props: FillProps) {
     // console.log(event);
   };
 
+  const handleCategory = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormData({ ...formData, category: e.target.value });
+  };
+
   const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleCategory = (item: any | Option | null) => {
-    setValue(item);
-    setFormData({ ...formData, category: item });
-    console.log(item);
-  };
   //   const { file } = image;
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -140,35 +109,25 @@ function Modal(props: FillProps) {
                             required
                           />
                         </div>
-                        <div className="   mb-6">
-                          <label
-                            // for="category"
-                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                          >
+                        <div className="mb-6">
+                          <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">
                             Select your Category
                           </label>
-                          {/* <select
+                          <select
                             id="countries"
                             name="category"
                             // onClick={(e) => console.log(e, "select")}
-                            // onChange={(e) => handleChange(e)}
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-200 dark:border-gray-200 dark:placeholder-gray-400 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          ></select> */}
-                          <CreatableSelect
-                            isClearable
-                            isDisabled={isLoading}
-                            isLoading={isLoading}
-                            onChange={(newValue) => handleCategory(newValue)}
-                            onCreateOption={handleCreate}
-                            options={options}
-                            value={value}
-                          />
-                          {/* {Category.map((item) => (
-                  // console.log(first)
-                  <option name={item} key={item} value={item}>
-                    {item}{" "}
-                  </option>
-                ))} */}
+                            onChange={(e) => handleCategory(e)}
+                            className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-800  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          >
+                            <option>Choose Category</option>
+                            {Category.map((item: any) => (
+                              // console.log(first)
+                              <option key={item} value={item}>
+                                {item}{" "}
+                              </option>
+                            ))}
+                          </select>
                         </div>
                         <div className="mb-6">
                           <label
