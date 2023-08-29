@@ -67,9 +67,22 @@ function FoodCardDash({ img, title, open, item, icon, icon2 }: FoodProps) {
         <div className="mt-4 px-5 pb-5">
           <a href="#">
             <div
-              className={`${styles.fontSec} font-bold text-xl mb-2 text-orange-400`}
+              className={`${styles.fontSec} flex justify-between font-bold text-xl mb-2 text-orange-400`}
             >
               {item.name}
+              <p className="text-sm text-gray-600 flex items-center">
+                <svg
+                  className="fill-current text-gray-500 w-3 h-3 mr-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
+                </svg>
+                <span className="bg-orange-200 p-1 text-center rounded-md">
+                  {" "}
+                  {item.category}
+                </span>
+              </p>
             </div>
             <p className="text-gray-700 text-base">{item.desc}</p>
           </a>

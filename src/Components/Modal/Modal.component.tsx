@@ -31,7 +31,7 @@ function Modal(props: FillProps) {
   // console.log(data);
   const [image, setImage] = useState<File>();
   const { name, desc, price, category } = formData;
-  const Category = ["Meal", "Grill", "Ice Cream", "Fries", "Drinks"];
+  const Category = ["Meal", "Grill", "Cream", "Fries", "Drinks"];
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;

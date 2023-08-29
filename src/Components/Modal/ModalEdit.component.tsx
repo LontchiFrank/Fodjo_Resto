@@ -24,7 +24,7 @@ function ModalEdit(props: FillProps) {
   });
   const [image, setImage] = useState<File>();
   const { name, desc, price, category } = formData;
-  const Category = ["Meal", "Grill", "Ice Cream", "Fries", "Drinks"];
+  const Category = ["Meal", "Grill", "Cream", "Fries", "Drinks"];
 
   useEffect(() => {
     //   console.log(item, "dsatat");
