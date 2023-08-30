@@ -17,12 +17,9 @@ type FillProps = {
 };
 
 function Home(props: FillProps) {
-  // const { data } = useQuery(["cat"], getPrivateFoodAsync());
-
   const dispatch = useDispatch();
   const windowSidebar: any = window.innerWidth;
   const data = useSelector((state: any) => state.food?.data);
-  // const [data, setData] = useState([]);
   console.log(data);
   useEffect(() => {
     dispatch(getPrivateFoodAsync());
