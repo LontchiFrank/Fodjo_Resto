@@ -29,14 +29,11 @@ function FoodCardDash({ img, title, open, item, icon, icon2 }: FoodProps) {
 
   const handleShowDeleteModal = () => {
     setShowDelete(true);
-    console.log("hello");
   };
   const handleShowOffDeleteModal = (num: boolean) => {
     setShowDelete(num);
-    console.log("Modal off");
   };
 
-  console.log(item);
   return (
     <div className="flex justify-center items-center">
       <ModalEdit

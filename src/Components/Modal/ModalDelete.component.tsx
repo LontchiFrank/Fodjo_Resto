@@ -11,7 +11,6 @@ interface Items {
 function ModalDelete(props: Items) {
   const load = useSelector((state: any) => state.food?.loading);
   const dispatch = useDispatch();
-  console.log(props.item._id);
   const handleDelete = (id: string) => {
     dispatch(deleteFoodAsync(id));
     console.log("Deleted");

@@ -11,12 +11,15 @@ type FillProps = {
 
 function Search(props: FillProps) {
   const windowSidebar: any = window.innerWidth;
-  console.log(windowSidebar);
+  const [formData, setFormData] = useState("");
   const dispatch = useDispatch();
   const data = useSelector((state: any) => state.food?.data);
   useEffect(() => {
     dispatch(getPrivateFoodAsync());
   }, []);
+  // const handleChange=(e: React.ChangeEvent<HTMLInputElement>)=>{
+  //   setFormData(formData:e.target.value)
+  // }
 
   return (
     <div
@@ -30,10 +33,10 @@ function Search(props: FillProps) {
             props.open ? "lg:w-[100%]" : " lg:w-[100%]"
           } p-4  md:w-[100%] sm:w-[100%] xs:w-[100%] `}
         >
-          <div className="text-2xl">
+          <div className="lg:text-2xl md:text-lg sm:text-md ">
             Search
             <div className=" rounded-lg dark:border-gray-700 bg-gray-200">
-              <div className="w-full md:w-full shadow p-5 px-40 bg-white">
+              <div className="w-full md:w-full shadow p-5 lg:px-40 md:px-24 sm:px-28 bg-white">
                 <div className="relative">
                   <div className="absolute flex items-center ml-2 h-full">
                     <svg
@@ -48,6 +51,8 @@ function Search(props: FillProps) {
 
                   <input
                     type="text"
+                    value={formData}
+                    onChange={(event) => setFormData(event.target.value)}
                     placeholder="Search by listing, Food Item"
                     className="px-8 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                   />

@@ -77,7 +77,10 @@ function AdminDashboard() {
               {displaySide ? (
                 <GrClose className="cursor-pointer" />
               ) : (
-                <BiMenu className="cursor-pointer" />
+                <BiMenu
+                  className="cursor-pointer"
+                  style={{ fontSize: "22px" }}
+                />
               )}
               {displaySide ? (
                 <div

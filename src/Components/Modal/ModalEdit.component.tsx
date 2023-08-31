@@ -37,9 +37,9 @@ function ModalEdit(props: FillProps) {
       });
     }
   }, [props.item]);
-  console.log();
+
   const load = useSelector((state: any) => state.food?.loading);
-  console.log(load);
+
   const dispatch = useDispatch();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
