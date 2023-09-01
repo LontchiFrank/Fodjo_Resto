@@ -14,12 +14,44 @@ function Search(props: FillProps) {
   const [formData, setFormData] = useState("");
   const dispatch = useDispatch();
   const data = useSelector((state: any) => state.food?.data);
+  const [filteredList, setFilteredList] = useState(data);
+  const Category = ["Meal", "Grill", "Cream", "Fries", "Drinks"];
+
   useEffect(() => {
     dispatch(getPrivateFoodAsync());
   }, []);
-  // const handleChange=(e: React.ChangeEvent<HTMLInputElement>)=>{
-  //   setFormData(formData:e.target.value)
-  // }
+  const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Access input value
+    const query = event.target.value;
+    //   // Include all elements which includes the search query
+    var updatedList = [...data];
+    const updatedLists = updatedList.filter((item: any) => {
+      return (
+        String(item.name).toLowerCase().indexOf(query.toLowerCase()) !== -1
+      );
+      //   // Trigger render with updated values
+    });
+    setFilteredList(updatedLists);
+    console.log(filteredList);
+  };
+  const handleSelectCategoryChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    //Accept Input value from select
+    const query = event.target.value;
+    //Include all elements which includes the select query
+    var updatedList = [...data];
+    const updatedLists = updatedList.filter((item: any) => {
+      return item.category == query;
+    });
+    setFilteredList(updatedLists);
+    console.log(filteredList);
+  };
+
+  const resetSelect = () => {
+    setFilteredList(data);
+    console.log(filteredList);
+  };
 
   return (
     <div
@@ -51,8 +83,8 @@ function Search(props: FillProps) {
 
                   <input
                     type="text"
-                    value={formData}
-                    onChange={(event) => setFormData(event.target.value)}
+                    // value={formData}
+                    onChange={handleFilterChange}
                     placeholder="Search by listing, Food Item"
                     className="px-8 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                   />
@@ -61,38 +93,49 @@ function Search(props: FillProps) {
                 <div className="flex items-center justify-between mt-4">
                   <p className="font-medium">Filters</p>
 
-                  <button className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
+                  <button
+                    onClick={resetSelect}
+                    className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md"
+                  >
                     Reset Filter
                   </button>
                 </div>
 
                 <div>
                   <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
-                    <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
-                      <option value="">Category</option>
-                      <option value="for-rent">For Rent</option>
-                      <option value="for-sale">For Sale</option>
+                    <select
+                      className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+                      onChange={(e) => handleSelectCategoryChange(e)}
+                    >
+                      <option value="">Select Category</option>
+                      {Category.map((item) => (
+                        // console.log(first)
+                        <option key={item} value={item}>
+                          {item}{" "}
+                        </option>
+                      ))}
                     </select>
 
                     <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
                       <option value="">Price</option>
-                      <option value="1000">RM 1000</option>
-                      <option value="2000">RM 2000</option>
-                      <option value="3000">RM 3000</option>
-                      <option value="4000">RM 4000</option>
+                      <option value="1000"> 1000 XAF</option>
+                      <option value="1500"> 1500 XAF</option>
+                      <option value="2000"> 2000 XAF</option>
+                      <option value="3000"> 3000 XAF</option>
+                      <option value="4000"> 4000 XAF</option>
                     </select>
                   </div>
                 </div>
               </div>
               <div
                 className={`${props.open ? "p-5" : "p-10"} ${
-                  data.length == 0
+                  filteredList.length == 0
                     ? "flex  justify-center items-center"
                     : " grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 xs:grid-cols-1 lg:px-36 md:px-12 sm:12"
                 }   mb-4 rounded bg-gray-50 dark:bg-white`}
               >
-                {data.length > 0 ? (
-                  data.map((item: any, index: any) => (
+                {filteredList.length > 0 ? (
+                  filteredList.map((item: any, index: any) => (
                     <FoodCardDash
                       key={index}
                       item={item}
@@ -104,7 +147,7 @@ function Search(props: FillProps) {
                     />
                   ))
                 ) : (
-                  <div className=" h-screen flex justify-center items-center ">
+                  <div className=" h-screen  flex justify-center items-center ">
                     <img src={load} style={{ width: "28%", height: "28%" }} />
                   </div>
                 )}
