@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getPrivateFoodAsync } from "../../../features/foodSlice";
 import FoodCardDash from "../../FoodCardDash/FoodCardDash.component";
-import load from "../../../assets/cube.svg";
+import load from "../../../assets/not.png";
 
 type FillProps = {
   open: boolean;
@@ -50,6 +50,18 @@ function Search(props: FillProps) {
 
   const resetSelect = () => {
     setFilteredList(data);
+    console.log(filteredList);
+  };
+
+  const handleSelectPriceChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const query = event.target.value;
+    var updatedList = [...data];
+    const updatedLists = updatedList.filter((item: any) => {
+      return item.price == query;
+    });
+    setFilteredList(updatedLists);
     console.log(filteredList);
   };
 
@@ -116,8 +128,11 @@ function Search(props: FillProps) {
                       ))}
                     </select>
 
-                    <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
-                      <option value="">Price</option>
+                    <select
+                      onChange={(e) => handleSelectPriceChange(e)}
+                      className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+                    >
+                      <option>Price</option>
                       <option value="1000"> 1000 XAF</option>
                       <option value="1500"> 1500 XAF</option>
                       <option value="2000"> 2000 XAF</option>
@@ -147,8 +162,9 @@ function Search(props: FillProps) {
                     />
                   ))
                 ) : (
-                  <div className=" h-screen  flex justify-center items-center ">
-                    <img src={load} style={{ width: "28%", height: "28%" }} />
+                  <div className=" h-screen  flex flex-col justify-center items-center ">
+                    <img src={load} style={{ width: "78%", height: "18%" }} />
+                    <h3 className="">Not Found</h3>
                   </div>
                 )}
               </div>
