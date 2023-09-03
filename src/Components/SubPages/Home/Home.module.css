@@ -14,3 +14,9 @@
 .pendingCard {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+.back {
+  background: url(../../../assets/cim.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
