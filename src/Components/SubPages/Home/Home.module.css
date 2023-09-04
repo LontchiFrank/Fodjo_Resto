@@ -3,10 +3,11 @@
 }
 .wel {
   font-family: "Borel", cursive;
+  color: "white";
 }
 .resto_name {
   font-family: "Borel", cursive;
-  color: #d9401f;
+  color: #ed3b13;
 }
 .plusColor {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -15,7 +16,45 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .back {
-  background: url(../../../assets/cim.jpg);
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.284),
+      rgba(0, 0, 0, 0.481),
+      rgba(0, 0, 0, 0.269)
+    ),
+    url(../../../assets/cim.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.ham {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.16),
+      rgba(0, 0, 0, 0.171),
+      rgba(0, 0, 0, 0.168)
+    ),
+    url(../../../assets/fil.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.gril {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.16),
+      rgba(0, 0, 0, 0.171),
+      rgba(0, 0, 0, 0.168)
+    ),
+    url(../../../assets/slim.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.cream {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.16),
+      rgba(121, 88, 88, 0.171),
+      rgba(0, 0, 0, 0.168)
+    ),
+    url(../../../assets/cream.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
