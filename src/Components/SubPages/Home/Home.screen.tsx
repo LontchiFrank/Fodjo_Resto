@@ -63,42 +63,40 @@ function Home(props: FillProps) {
                 </h2>
               </p>
             </div>
-            <div className="w-[100%]">
-              <div className="flex flex-row   gap-4 mb-4">
-                <div
-                  className={`${styles.ham} flex items-center justify-center h-36 rounded bg-gray-50 dark:bg-orange-800`}
-                >
-                  <p className="text-2xl text-gray-400 dark:text-gray-500">
-                    <svg
-                      className="w-3.5 h-3.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 18 18"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 1v16M1 9h16"
-                      />
-                    </svg>
-                  </p>
-                </div>
-                <div
-                  className={`${styles.gril} flex items-center justify-center h-36 rounded bg-gray-50 dark:bg-orange-800`}
-                >
-                  <p className="text-2xl text-gray-400 dark:text-gray-500"></p>
-                </div>
-                <div
-                  className={`${styles.cream} flex items-center justify-center h-36 rounded bg-gray-50 dark:bg-orange-800`}
-                >
-                  <p className="text-2xl text-gray-400 dark:text-gray-500"></p>
-                </div>
+            <div className="grid grid-cols-3 w-full gap-4 mb- 4">
+              <div
+                className={`${styles.ham} flex items-center justify-center h-36 rounded bg-gray-50 dark:bg-orange-800`}
+              >
+                <p className="text-2xl text-gray-400 dark:text-gray-500">
+                  <svg
+                    className="w-3.5 h-3.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 1v16M1 9h16"
+                    />
+                  </svg>
+                </p>
+              </div>
+              <div
+                className={`${styles.gril} flex items-center justify-center h-36 rounded bg-gray-50 dark:bg-orange-800`}
+              >
+                <p className="text-2xl text-gray-400 dark:text-gray-500"></p>
+              </div>
+
+              <div
+                className={`${styles.cream} flex items-center justify-center h-36 rounded bg-gray-50 dark:bg-orange-800`}
+              >
+                <p className="text-2xl text-gray-400 dark:text-gray-500"></p>
               </div>
             </div>
-
             <div
               className={`${props.open ? "p-5" : "p-10"} ${
                 data.length == 0
@@ -130,7 +128,6 @@ function Home(props: FillProps) {
             >
               <BiPlus style={{ fontSize: "50px" }} />
             </div>
-
             <div className="flex items-center justify-center h-48 mb-4 rounded bg-gray-100 ">
               <p className="text-2xl text-gray-400 dark:text-gray-500">
                 <svg
