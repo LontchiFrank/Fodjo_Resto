@@ -198,28 +198,6 @@ function SignIn() {
                           <span className="text-center ">Or Sign In with</span>
                         </div>
                       </div>
-                      {/* <div className="px-4 py-2 border flex gap-2 border-slate-200 rounded-lg text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
-                        <img
-                          className="w-6 h-6"
-                          src="https://www.svgrepo.com/show/475656/google-color.svg"
-                          loading="lazy"
-                          alt="google logo"
-                        /> */}
-                      {/* <span>Login with Google</span> */}
-                      <GoogleLogin
-                        clientId={clientId}
-                        buttonText="Google"
-                        onSuccess={onSuccess}
-                        onFailure={onFailure}
-                        cookiePolicy={"single_host_policy"}
-                        isSignedIn={true}
-                        disabledStyle={{
-                          width: "100%",
-                          boxShadow: "none",
-                          border: "2px solid #eee",
-                        }}
-                      />
-                      {/* </div> */}
                     </form>
 
                     <p className="mt-10 text-center text-sm text-gray-500">
