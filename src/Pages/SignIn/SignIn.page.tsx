@@ -194,9 +194,6 @@ function SignIn() {
                           ) : null}
                           Sign in
                         </button>
-                        <div className="mt-4 w-100 text-center ">
-                          <span className="text-center ">Or Sign In with</span>
-                        </div>
                       </div>
                     </form>
 
