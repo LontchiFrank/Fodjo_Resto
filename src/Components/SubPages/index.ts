@@ -3,5 +3,5 @@ export const subComponentNames = {
   SEARCH: "Search",
   ORDERS: "Orders",
   PROFILE: "Profile",
-  ANALYTICS: "Analytics",
+  SIGNOUT: "Signout",
 };

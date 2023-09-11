@@ -3,14 +3,14 @@ import Wrapper from "../../Components/Wrapper/Wrapper.component";
 import logo from "../../assets/Calendar.png";
 import Navbar from "../../Components/DashboardNavbar/Navbar.component";
 import { GoHome } from "react-icons/go";
-import { BsFillChatSquareFill } from "react-icons/bs";
+import { GoSignOut } from "react-icons/go";
 import { AiOutlineUser } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 import { GrAnalytics } from "react-icons/gr";
 import { BsFolder } from "react-icons/bs";
 import { BiMenu } from "react-icons/bi";
 import { FaChevronRight } from "react-icons/fa";
-import { Home, Profile, Search, Analytics, Orders } from "../../Components";
+import { Home, Profile, Search, Orders } from "../../Components";
 import { subComponentNames } from "../../Components/SubPages/index";
 import { Link } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
@@ -42,8 +42,8 @@ function AdminDashboard() {
       src: <AiOutlineUser style={{ fontSize: "22px" }} />,
     },
     {
-      title: "Analytics",
-      src: <GrAnalytics style={{ fontSize: "22px" }} />,
+      title: <Link to="/">SignOut</Link>,
+      src: <GoSignOut style={{ fontSize: "22px" }} />,
     },
   ];
   const renderCurrentComponent = () => {
@@ -57,8 +57,8 @@ function AdminDashboard() {
         return <Orders open={open} />;
       case subComponentNames.PROFILE:
         return <Profile open={open} />;
-      case subComponentNames.ANALYTICS:
-        return <Analytics open={open} />;
+      case subComponentNames.SIGNOUT:
+        return <Link to="/"></Link>;
     }
   };
 
@@ -186,7 +186,7 @@ function AdminDashboard() {
                       onClick={() => subPageChangeHandler(Menu.title)}
                       className={`flex
                    
-                      rounded-md p-2 cursor-pointer hover:bg-light-white text-black text-sm items-center gap-x-4 
+                      rounded-md p-2 cursor-pointer hover:bg-light-white text-black text-sm items-center gap-x-4 hover:text-orange-200
           ${Menu.gap ? "mt-9" : "mt-2"} ${index === 0 && "bg-light-white"} `}
                     >
                       {Menu.src}
