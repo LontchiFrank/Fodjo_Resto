@@ -24,6 +24,9 @@ function AdminDashboard() {
   const handleDisplaySide: any = () => {
     setDisplaySide(!displaySide);
   };
+  const signOut: any = () => {
+    localStorage.removeItem("token");
+  };
   const Menus: Object[] = [
     {
       title: "Home",
@@ -42,7 +45,11 @@ function AdminDashboard() {
       src: <AiOutlineUser style={{ fontSize: "22px" }} />,
     },
     {
-      title: <Link to="/">SignOut</Link>,
+      title: (
+        <Link to="/" onClick={() => signOut()}>
+          SignOut
+        </Link>
+      ),
       src: <GoSignOut style={{ fontSize: "22px" }} />,
     },
   ];

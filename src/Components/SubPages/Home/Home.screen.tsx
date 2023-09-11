@@ -26,7 +26,7 @@ function Home(props: FillProps) {
   }, []);
 
   const [openModal, setOpenModal] = useState(false);
-  const admin: any = JSON.parse(localStorage.getItem("user") || "");
+  const admin: any = JSON.parse(localStorage.getItem("admin") || "");
   const adminName: string = admin.restaurant_name;
   const onModal: any = () => {
     setOpenModal(true);
