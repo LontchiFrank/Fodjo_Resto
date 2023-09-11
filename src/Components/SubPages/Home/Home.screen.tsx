@@ -34,6 +34,8 @@ function Home(props: FillProps) {
   const offModal: any = (num: boolean) => {
     setOpenModal(num);
   };
+  const figure: number = data.length;
+  console.log(figure);
   return (
     <div
       className={`${
@@ -63,38 +65,28 @@ function Home(props: FillProps) {
                 </h2>
               </p>
             </div>
-            <div className="grid grid-cols-3 w-full gap-4 mb- 4">
+            <div className="grid grid-cols-3 w-full gap-4 mb-4">
               <div
-                className={`${styles.ham} flex items-center justify-center h-36 rounded bg-gray-50 dark:bg-orange-800`}
+                className={`${styles.ham} flex  pl-5 pb-5 justify-left items-end h-36 rounded bg-gray-50 dark:bg-orange-800`}
               >
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
+                <p className="text-3xl text-gray-400 dark:text-white font-bold">
+                  {figure} Food Items
                 </p>
               </div>
               <div
-                className={`${styles.gril} flex items-center justify-center h-36 rounded bg-gray-50 dark:bg-orange-800`}
+                className={`${styles.gril} flex  pl-5 pb-5 justify-left items-end  h-36 rounded bg-gray-50 dark:bg-orange-800`}
               >
-                <p className="text-2xl text-gray-400 dark:text-gray-500"></p>
+                <p className="text-3xl text-gray-400 dark:text-white font-bold">
+                  2 Grill
+                </p>
               </div>
 
               <div
-                className={`${styles.cream} flex items-center justify-center h-36 rounded bg-gray-50 dark:bg-orange-800`}
+                className={`${styles.cream} flex  pl-5 pb-5 justify-left items-end  h-36 rounded bg-gray-50 dark:bg-orange-800`}
               >
-                <p className="text-2xl text-gray-400 dark:text-gray-500"></p>
+                <p className="text-3xl text-gray-400 dark:text-white font-bold">
+                  1 Cream
+                </p>
               </div>
             </div>
             <div
