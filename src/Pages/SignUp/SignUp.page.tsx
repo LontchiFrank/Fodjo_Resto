@@ -22,6 +22,8 @@ function SignUp() {
     password: "",
     password2: "",
   } as User);
+  const [validation, setValiation] = useState(false);
+  const [error, setError] = useState("");
   const { first_name, last_name, email, password, password2 } = formData;
   const dispatch: any = useDispatch();
   const auth = useSelector((data: any) => data.users?.authenticate);
@@ -32,6 +34,7 @@ function SignUp() {
   const handleSubmitChange = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (password !== password2) {
+      setError("Password do not match");
       console.log("Password do not match");
     } else {
       const newData = { first_name, last_name, email, password };
@@ -190,9 +193,12 @@ function SignUp() {
                             type="password"
                             value={password}
                             required
-                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-400 pl-3 sm:text-sm sm:leading-6"
+                            className={`${
+                              error ? "border-2 border-rose-600" : "border-0"
+                            } block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset pl-3 focus:ring-orange-400 sm:text-sm sm:leading-6`}
                           />
                         </div>
+                        <span className="text-red-600 text-xs ">{error} </span>
                       </div>
 
                       <div>
@@ -212,9 +218,12 @@ function SignUp() {
                             onChange={(e) => handleInputChange(e)}
                             type="password"
                             required
-                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset pl-3 focus:ring-orange-400 sm:text-sm sm:leading-6"
+                            className={`${
+                              error ? "border-2 border-rose-600" : "border-0"
+                            } block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset pl-3 focus:ring-orange-400 sm:text-sm sm:leading-6`}
                           />
                         </div>
+                        <span className="text-red-600 text-xs ">{error} </span>
                       </div>
 
                       <div>
