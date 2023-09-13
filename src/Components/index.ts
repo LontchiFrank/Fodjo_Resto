@@ -6,6 +6,7 @@ import Home from "./SubPages/Home/Home.screen";
 import Profile from "./SubPages/Profile/Profile.screen";
 import Search from "./SubPages/Search/Search.screen";
 import Orders from "./SubPages/Orders/Orders.screen";
+import HomeComponent from "./SubDashboardpages/Home/HomeComponent.component";
 import Analytics from "./SubPages/Analytics/Analytics.screen";
 import Modal from "./Modal/Modal.component";
 import ModalEdit from "./Modal/ModalEdit.component";
@@ -24,4 +25,5 @@ export {
   Modal,
   ModalEdit,
   CardOrder,
+  HomeComponent,
 };

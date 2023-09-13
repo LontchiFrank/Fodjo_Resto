@@ -10,20 +10,22 @@ import { GrAnalytics } from "react-icons/gr";
 import { BsFolder } from "react-icons/bs";
 import { BiMenu } from "react-icons/bi";
 import { FaChevronRight } from "react-icons/fa";
-import { Home, Profile, Search, Orders } from "../../Components";
-import { subComponentNames } from "../../Components/SubPages/index";
-import { Link } from "react-router-dom";
+import { HomeComponent, Profile, Search, Orders } from "../../Components";
+import { subDashboardComponentNames } from "../../Components/SubDashboardpages/index";
+import { Link, useNavigate } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
 
 function Dashboard() {
   const [currentComponent, setCurrentComponent] = useState(
-    subComponentNames.HOME
+    subDashboardComponentNames.HOME
   );
   const [open, setOpen] = useState(true);
   const [displaySide, setDisplaySide] = useState(false);
   const handleDisplaySide: any = () => {
     setDisplaySide(!displaySide);
   };
+  const navigate = useNavigate();
+
   const signOut: any = () => {
     localStorage.removeItem("token");
   };
@@ -55,16 +57,15 @@ function Dashboard() {
   ];
   const renderCurrentComponent = () => {
     switch (currentComponent) {
-      case subComponentNames.HOME:
-        return <Home open={open} />;
-      case subComponentNames.SEARCH:
+      case subDashboardComponentNames.HOME:
+        return <HomeComponent open={open} />;
+      case subDashboardComponentNames.SEARCH:
         return <Search open={open} />;
-      case subComponentNames.ORDERS:
-        console.log(currentComponent, "hello");
+      case subDashboardComponentNames.ORDERHISTORY:
         return <Orders open={open} />;
-      case subComponentNames.PROFILE:
+      case subDashboardComponentNames.PROFILE:
         return <Profile open={open} />;
-      case subComponentNames.SIGNOUT:
+      case subDashboardComponentNames.SIGNOUT:
         return <Link to="/"></Link>;
     }
   };
