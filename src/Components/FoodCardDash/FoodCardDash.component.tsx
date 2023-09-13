@@ -75,10 +75,10 @@ function FoodCardDash({ img, title, open, item, icon, icon2 }: FoodProps) {
                 >
                   <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
                 </svg>
-                <span className="bg-orange-200 p-1 text-center rounded-md">
+                {/* <span className="bg-orange-200 p-1 text-center rounded-md">
                   {" "}
                   {item.category}
-                </span>
+                </span> */}
               </p>
             </div>
             <p className="text-gray-700 text-base">{item.desc}</p>

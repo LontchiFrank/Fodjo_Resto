@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./HomeComponents.module.css";
+import { useSelector } from "react-redux";
 
 type FillProps = {
   open: boolean;
@@ -7,6 +8,9 @@ type FillProps = {
 
 function HomeComponent(props: FillProps) {
   const windowSidebar: any = window.innerWidth;
+  const data = useSelector((state: any) => state.food?.data);
+  console.log(data);
+
   console.log(windowSidebar);
   return (
     <div
@@ -265,7 +269,7 @@ function HomeComponent(props: FillProps) {
             </div>
           </div>
         </div>
-        <div className="h-screen lg:w-[30%] lg:block md:hidden sm:hidden fixed left-[84rem]  dark:bg-orange-800">
+        <div className="h-screen lg:w-[30%] lg:block md:hidden sm:hidden fixed left-[84rem]  dark:bg-white">
           <div className="flex items-center justify-center h-screen rounded "></div>
         </div>
       </div>
