@@ -25,6 +25,7 @@ const initialState: Food = {
   loading: false,
   authenticate: null,
 };
+
 export const createFoodAsync: any = createAsyncThunk(
   "food/createFood",
   async (data) => {
@@ -144,7 +145,6 @@ export const getPrivateFoodAsync: any =
     try {
       const response = await axios.get(`${API_URL}userfood`, config);
       dispatch(getPrivateFood(response.data));
-      console.log(response.data);
     } catch (error: any) {
       throw new Error(error);
     }

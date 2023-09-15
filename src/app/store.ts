@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import adminAuthSlide from "../features/adminAuthSlice";
 import authSlide from "../features/authSlice";
+import categorySlide from "../features/CategorySlice";
 import foodSlide from "../features/foodSlice";
 
 // ...
@@ -9,6 +10,7 @@ export const store = configureStore({
   reducer: {
     users: authSlide.reducer,
     admins: adminAuthSlide.reducer,
+    categoryList: categorySlide.reducer,
     food: foodSlide.reducer,
   },
 });

@@ -12,6 +12,7 @@ import {
 } from "../../../features/foodSlice";
 import { useDispatch } from "react-redux";
 import CardOrder from "../../CardOrder/CardOrder.component";
+import { getCategoriesAsync } from "../../../features/CategorySlice";
 type FillProps = {
   open: boolean;
 };
@@ -20,11 +21,15 @@ function Home(props: FillProps) {
   const dispatch = useDispatch();
   const windowSidebar: any = window.innerWidth;
   const data = useSelector((state: any) => state.food?.data);
-  console.log(data);
+  // console.log(data);
+
   useEffect(() => {
     dispatch(getPrivateFoodAsync());
+    dispatch(getCategoriesAsync());
   }, []);
 
+  const sec = useSelector((state: any) => state.catetegory?.data);
+  console.log(sec);
   const [openModal, setOpenModal] = useState(false);
   const admin: any = JSON.parse(localStorage.getItem("admin") || "");
   const adminName: string = admin.restaurant_name;
@@ -35,7 +40,6 @@ function Home(props: FillProps) {
     setOpenModal(num);
   };
   const figure: number = data.length;
-  console.log(figure);
   return (
     <div
       className={`${
@@ -56,8 +60,11 @@ function Home(props: FillProps) {
               <p className="text-2xl text-gray-400 dark:text-gray-500">
                 <h2 className="lg:text-2xl font-normal px-12 pt-12">
                   <h3 className={`${styles.wel} text-white text-3xl`}>
-                    Welcome
+                    Buhari
                   </h3>{" "}
+                  <div className="text-white">
+                    <p>Buhari says hello!</p>
+                  </div>
                   <p className={`${styles.resto_name} text-3xl`}>
                     {" "}
                     {adminName}
