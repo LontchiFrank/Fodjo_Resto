@@ -150,6 +150,15 @@ export const getPrivateFoodAsync: any =
     }
   };
 
-export const { getPoem, createFood, editFood, deleteFood, getPrivateFood } =
+export const getAllFoodAsync: any = (data: any) => async (dispatch: any) => {
+  try {
+    const response = await axios.get(`${API_URL}`);
+    dispatch(getFood(response.data));
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};
+
+export const { getFood, createFood, editFood, deleteFood, getPrivateFood } =
   foodSlide.actions;
 export default foodSlide;

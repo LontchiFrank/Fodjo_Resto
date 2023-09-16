@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./HomeComponents.module.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Item from "../../ItemCate/Item.component";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import load from "../../../assets/cube.svg";
+import FoodUserCard from "../../FoodUserCard/FoodUserCard.component";
+import { getAllFoodAsync } from "../../../features/foodSlice";
 
 type FillProps = {
   open: boolean;
@@ -13,7 +16,12 @@ type FillProps = {
 function HomeComponent(props: FillProps) {
   const windowSidebar: any = window.innerWidth;
   const data = useSelector((state: any) => state.food?.data);
+  const dispatch = useDispatch();
   console.log(data);
+  console.log(data);
+  useEffect(() => {
+    dispatch(getAllFoodAsync());
+  }, []);
 
   console.log(windowSidebar);
 
@@ -66,7 +74,7 @@ function HomeComponent(props: FillProps) {
         <div
           className={`${
             props.open ? "lg:w-[65%]" : " lg:w-[69%]"
-          } p-4 h-screen md:w-[100%] sm:w-[100%] xs:w-[100%] `}
+          } p-4  md:w-[100%] sm:w-[100%] xs:w-[100%] `}
         >
           {/* <div className="text-center text-2xl">Home </div> */}
           <div className=" rounded-lg dark:border-gray-700 bg-gray-200">
@@ -110,83 +118,30 @@ function HomeComponent(props: FillProps) {
               {/* </Carousel> */}
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mb-4">
-              <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
-              <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
-              <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
-              <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
+            <div
+              className={`${props.open ? "p-5" : "p-10"} ${
+                data.length == 0
+                  ? "flex  justify-center items-center"
+                  : "grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1"
+              }   mb-4 rounded bg-gray-50 dark:bg-white `}
+            >
+              {data.length > 0 ? (
+                data.map((item: any, index: any) => (
+                  <FoodUserCard
+                    key={index}
+                    item={item}
+                    img={item.image}
+                    title={item.title}
+                    icon={item.icon}
+                    icon2={item.icon2}
+                    open={props.open}
+                  />
+                ))
+              ) : (
+                <div className=" h-screen flex justify-center items-center ">
+                  <img src={load} style={{ width: "28%", height: "28%" }} />
+                </div>
+              )}
             </div>
             <div className="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
               <p className="text-2xl text-gray-400 dark:text-gray-500">

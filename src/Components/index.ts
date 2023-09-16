@@ -12,6 +12,7 @@ import Modal from "./Modal/Modal.component";
 import ModalEdit from "./Modal/ModalEdit.component";
 import CardOrder from "./CardOrder/CardOrder.component";
 import Item from "./ItemCate/Item.component";
+import FoodUserCard from "./FoodUserCard/FoodUserCard.component";
 
 export {
   RouterLoader,
@@ -28,4 +29,5 @@ export {
   CardOrder,
   HomeComponent,
   Item,
+  FoodUserCard,
 };
