@@ -1,6 +1,10 @@
 import React from "react";
 import styles from "./HomeComponents.module.css";
 import { useSelector } from "react-redux";
+import Item from "../../ItemCate/Item.component";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 type FillProps = {
   open: boolean;
@@ -12,6 +16,42 @@ function HomeComponent(props: FillProps) {
   console.log(data);
 
   console.log(windowSidebar);
+
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <div
       className={`${
@@ -53,121 +93,21 @@ function HomeComponent(props: FillProps) {
             <div className={`${styles.fontSec1} mt-3 text-left text-2xl`}>
               Category{" "}
             </div>
-            <div className="grid grid-cols-6 gap-4 mb-4">
-              <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-white">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
-              <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-white">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
-              <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-white">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
-              <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-white">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
-              <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-white">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
-              <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-white">
-                <p className="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </p>
-              </div>
+            <div className={`${styles.slick}  gap-4 mb-4`}>
+              <Slider {...settings}>
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+              </Slider>
+              {/* </Carousel> */}
             </div>
 
             <div className="grid grid-cols-2 gap-4 mb-4">

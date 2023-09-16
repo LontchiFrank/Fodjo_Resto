@@ -11,6 +11,7 @@ import Analytics from "./SubPages/Analytics/Analytics.screen";
 import Modal from "./Modal/Modal.component";
 import ModalEdit from "./Modal/ModalEdit.component";
 import CardOrder from "./CardOrder/CardOrder.component";
+import Item from "./ItemCate/Item.component";
 
 export {
   RouterLoader,
@@ -26,4 +27,5 @@ export {
   ModalEdit,
   CardOrder,
   HomeComponent,
+  Item,
 };
