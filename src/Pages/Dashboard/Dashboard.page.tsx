@@ -211,7 +211,7 @@ function Dashboard() {
               </div>
             </div>
           )}
-          <div className=" w-[100%]">
+          <div className=" w-screen">
             <div className="">
               {/* <Navbar open={open} /> */}
               <div>{renderCurrentComponent()}</div>
