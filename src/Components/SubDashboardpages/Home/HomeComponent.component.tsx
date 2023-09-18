@@ -70,14 +70,14 @@ function HomeComponent(props: FillProps) {
           : "ml-0"
       } `}
     >
-      <div className=" flex gap-4 ">
+      <div className=" w-[100vw] flex gap-4 ">
         <div
           className={`${
-            props.open ? "lg:w-[65%]" : " lg:w-[69%]"
+            props.open ? "lg:w-[65%] " : " lg:w-[69%]"
           } p-4  md:w-[100%] sm:w-[100%] xs:w-[100%] `}
         >
           {/* <div className="text-center text-2xl">Home </div> */}
-          <div className=" rounded-lg dark:border-gray-700 bg-gray-200">
+          <div className=" flex justify-center  rounded-lg dark:border-gray-700 bg-gray-200">
             <div
               className={`${styles.hero} flex flex-col items-start justify-left h-80 mb-4 rounded bg-gray-50 dark:bg-gray-800`}
             >
@@ -164,7 +164,7 @@ function HomeComponent(props: FillProps) {
             </div>
           </div>
         </div>
-        <div className="h-screen lg:w-[30%] lg:block md:hidden sm:hidden fixed left-[84rem]  dark:bg-white">
+        <div className="h-screen lg:block lg:w-[35%]  md:hidden sm:hidden fixed left-[84rem] bg-white">
           <div className="flex items-center justify-center h-screen rounded "></div>
         </div>
       </div>

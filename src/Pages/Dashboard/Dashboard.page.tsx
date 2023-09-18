@@ -102,7 +102,7 @@ function Dashboard() {
                     {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
                     <a
                       href="#"
-                      className="flex  text-gray-700 block px-4 py-2 text-sm"
+                      className="flex  text-gray-700  px-4 py-2 text-sm"
                       role="menuitem"
                       tabIndex={-1}
                       id="menu-item-0"
@@ -111,7 +111,7 @@ function Dashboard() {
                     </a>
                     <a
                       href="#"
-                      className="flex text-gray-700 block px-4 py-2 text-sm"
+                      className="flex text-gray-700  px-4 py-2 text-sm"
                       role="menuitem"
                       tabIndex={-1}
                       id="menu-item-1"
@@ -122,7 +122,7 @@ function Dashboard() {
                   <div className="py-1" role="none">
                     <a
                       href="#"
-                      className="flex text-gray-700 block px-4 py-2 text-sm"
+                      className="flex text-gray-700  px-4 py-2 text-sm"
                       role="menuitem"
                       tabIndex={-1}
                       id="menu-item-2"
@@ -131,7 +131,7 @@ function Dashboard() {
                     </a>
                     <a
                       href="#"
-                      className="flex text-gray-700 block px-4 py-2 text-sm"
+                      className="flex text-gray-700  px-4 py-2 text-sm"
                       role="menuitem"
                       tabIndex={-1}
                       id="menu-item-3"
@@ -142,7 +142,7 @@ function Dashboard() {
                   <div className="py-1" role="none">
                     <a
                       href="#"
-                      className="flex text-gray-700 block px-4 py-2 text-sm"
+                      className="flex text-gray-700  px-4 py-2 text-sm"
                       role="menuitem"
                       tabIndex={-1}
                       id="menu-item-4"
