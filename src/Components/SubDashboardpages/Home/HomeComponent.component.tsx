@@ -164,7 +164,7 @@ function HomeComponent(props: FillProps) {
             </div>
           </div>
         </div>
-        <div className="h-screen lg:block lg:w-[35%]  md:hidden sm:hidden fixed left-[79rem] xl:left-[84rem] bg-orange-500">
+        <div className="h-screen lg:block lg:w-[35%]  md:hidden sm:hidden fixed left-[79rem] xl:left-[84rem] bg-white">
           <div className="flex items-center justify-center h-screen rounded "></div>
         </div>
       </div>
