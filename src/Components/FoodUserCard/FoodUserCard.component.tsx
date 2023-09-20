@@ -12,7 +12,8 @@ interface FoodProps {
 
 function FoodUserCard({ img, title, open, item, icon, icon2 }: FoodProps) {
   return (
-    <div
+    <div className="flex justify-center items-center">
+ <div
       className={`${
         open ? "max-w-xs" : "max-w-[21rem]"
       } relative mb-8 flex  w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md`}
@@ -90,6 +91,8 @@ function FoodUserCard({ img, title, open, item, icon, icon2 }: FoodProps) {
         </a>
       </div>
     </div>
+    </div>
+   
   );
 }
 
