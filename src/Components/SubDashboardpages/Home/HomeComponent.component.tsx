@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import styles from "./HomeComponents.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import Item from "../../ItemCate/Item.component";
@@ -24,6 +24,7 @@ function HomeComponent(props: FillProps) {
   }, []);
 
   console.log(windowSidebar);
+
 
   const settings = {
     dots: true,

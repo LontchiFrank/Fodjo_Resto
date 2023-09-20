@@ -1,5 +1,6 @@
-import React from "react";
+import React,{useState} from "react";
 import styles from "./FoodUserCard.module.css";
+import ModalOrder from "../../Components/Modal/ModalOrder.component";
 
 interface FoodProps {
   img?: JSX.Element;
@@ -11,8 +12,31 @@ interface FoodProps {
 }
 
 function FoodUserCard({ img, title, open, item, icon, icon2 }: FoodProps) {
+  // const [openModal, setOpenModal] = useState(false);
+  const [show, setShow] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
+  const handleShowModal = () => {
+    setShow(true);
+  };
+
+  const handleShowOffModal = (num: boolean) => {
+    setShow(num);
+  };
+
+  const handleShowDeleteModal = () => {
+    setShowDelete(true);
+  };
+  const handleShowOffDeleteModal = (num: boolean) => {
+    setShowDelete(num);
+  };
   return (
     <div className="flex justify-center items-center">
+      <ModalOrder 
+       show={show}
+        item={item}
+        // handleShowOffModal={handleShowOffModal}
+        />
+
  <div
       className={`${
         open ? "max-w-xs" : "max-w-[21rem]"
@@ -71,6 +95,7 @@ function FoodUserCard({ img, title, open, item, icon, icon2 }: FoodProps) {
         </div>
         <a
           href="#"
+          onClick={handleShowModal}
           className="flex items-center justify-center rounded-md bg-orange-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
         >
           <svg
