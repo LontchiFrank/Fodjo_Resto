@@ -34,7 +34,7 @@ function FoodUserCard({ img, title, open, item, icon, icon2 }: FoodProps) {
       <ModalOrder 
        show={show}
         item={item}
-        // handleShowOffModal={handleShowOffModal}
+        handleShowOffModal={handleShowOffModal}
         />
 
  <div
