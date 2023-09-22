@@ -9,25 +9,20 @@ type FillProps = {
   };
   interface Amount {
     quantity:any;
-    newPrice:number;
   }
 
 function ModalOrder(props:FillProps) {
-    const[formData,setFormData]=useState<Amount>({ quantity:1,
-    newPrice:props.item.price
-
-    })
-    const {quantity,newPrice} =formData;
+    const[quantity,setQuantity]=useState('')
     
-const newSomme:number = props.item.price * quantity;
-    const handleChangePrice:any =(e: React.ChangeEvent<HTMLInputElement>)=>{
-        
-        setFormData({ ...formData,[e.target.name]: e.target.value });
-setFormData({...formData, newPrice:props.item.price * quantity})
-console.log(formData)
+const changeStringToNumber:any=parseInt(quantity)
+    const handleChangeQty:any =(e: React.ChangeEvent<HTMLInputElement>)=>{
+   
+      setQuantity(e.target.value)
+    // setQuantity(e.target.name:e.target.value)
 
     }
-
+const newSomme:any =  changeStringToNumber * props.item.price;
+console.log(newSomme)
 
   return (
   <div>
@@ -72,25 +67,21 @@ console.log(formData)
                           <input
                             type="number"
                             id="quantity"
-                            name="quantity"
                             value={quantity}
-                            onChange={(e)=>handleChangePrice(e)}
+                            onChange={(e)=>handleChangeQty(e)}
                             className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-800 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Quantity "
+                            placeholder="1 "
                             required
                           />
                         </div>
-                        <div className="mb-6 flex  justify-between">
-                          <label
-                            // for="title"
-                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                          >
-                            Price
-                          </label>
-                   <label className='text-xl font-bold text-orange-600'>
-                   {newSomme}
-                   </label>
-                        </div>
+                     <div className='mb-6 flex justify-between'>
+                      <label>
+                        Price
+                      </label>
+                      <label  className='text-orange-700 text-xl'>
+                        {Number.isNaN(newSomme)?"1500":newSomme } XAF
+                      </label>
+                     </div>
                        
                       </form>
                 </div>
@@ -100,7 +91,7 @@ console.log(formData)
               <button
                 type="button"
               //   onClick={() => handleDelete(props.item._id)}
-                className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+                className="inline-flex w-full justify-center rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
               >
               
                   {/* <svg
@@ -121,7 +112,7 @@ console.log(formData)
                     ></path>
                   </svg> */}
                 {/* ) : null} */}
-                Delete
+                Next
               </button>
               <button
                 type="button"
