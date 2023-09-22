@@ -79,7 +79,7 @@ console.log(newSomme)
                         Price
                       </label>
                       <label  className='text-orange-700 text-xl'>
-                        {Number.isNaN(newSomme)?"1500":newSomme } XAF
+                        {Number.isNaN(newSomme)?props.item.price:newSomme } XAF
                       </label>
                      </div>
                        
