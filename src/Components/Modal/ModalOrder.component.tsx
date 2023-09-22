@@ -1,4 +1,6 @@
-import React from 'react'
+import React,{useState} from 'react'
+import Item from '../ItemCate/Item.component';
+import { useHref } from 'react-router-dom';
 
 type FillProps = {
     show: boolean;
@@ -7,6 +9,22 @@ type FillProps = {
   };
 
 function ModalOrder(props:FillProps) {
+    const[formData,setFormData]=useState(
+{
+    quantity:'',
+    newPrice:''
+}
+    )
+    console.log(props.item)
+
+    const handleChangePrice =(e: React.ChangeEvent<HTMLInputElement>)=>{
+        
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+setFormData({...formData})
+
+    }
+
+
   return (
   <div>
     {props.show ?
@@ -23,37 +41,52 @@ function ModalOrder(props:FillProps) {
         <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
           <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
             <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-              <div className="sm:flex sm:items-start">
-                <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                  <svg
-                    className="h-6 w-6 text-red-600"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-                    />
-                  </svg>
-                </div>
+              <div className="">
+            
                 <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                   <h3
-                    className="text-base font-semibold leading-6 text-gray-900"
+                    className="text-lg font-semibold leading-6 text-orange-600 mb-3"
                     id="modal-title"
                   >
-                    Delete Food
+                    Add to Cart
                   </h3>
-                  <div className="mt-2">
+                
+                  <form 
+                //   onSubmit={(e) => handleSubmit(e)}
+                  >
+                        <div className="mb-6">
+                          <label
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                          >
+                           Quantity
+                          </label>
+                          <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      Are you sure you want to delete your food Item? All of
-                      the food data will be permanently removed. This action
-                      cannot be undone.
+                      Enter the precise number of pieces that you want to Order
                     </p>
                   </div>
+                          <input
+                            type="number"
+                            id="number"
+                            name="name"
+                            className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-800 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Quantity "
+                            required
+                          />
+                        </div>
+                        <div className="mb-6 flex  justify-between">
+                          <label
+                            // for="title"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                          >
+                            Price
+                          </label>
+                   <label className='text-xl font-bold text-orange-600'>
+                   {props.item.price}
+                   </label>
+                        </div>
+                       
+                      </form>
                 </div>
               </div>
             </div>
