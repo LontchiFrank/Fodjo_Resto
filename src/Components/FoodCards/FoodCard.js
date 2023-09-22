@@ -12,7 +12,7 @@ import { FaStar } from "react-icons/fa";
 export const FoodCardData = [
   {
     image: (
-      <img className="w-full h-48" src={meat} alt="Sunset in the mountains" />
+      <img className="w-full " src={meat} alt="Sunset in the mountains" />
     ),
     title: "Fried Rice",
     icon: (
@@ -25,7 +25,7 @@ export const FoodCardData = [
   {
     image: (
       <img
-        className="w-full h-48"
+        className="w-full "
         src={i}
         alt="Sunset in the mountains"
         // style={{ width: "100%", height: "30%" }}
@@ -41,7 +41,7 @@ export const FoodCardData = [
   },
   {
     image: (
-      <img className="w-full h-48" src={b} alt="Sunset in the mountains" />
+      <img className="w-full " src={b} alt="Sunset in the mountains" />
     ),
     title: "Flaked Rice",
     icon: (
@@ -53,7 +53,7 @@ export const FoodCardData = [
   },
   {
     image: (
-      <img className="w-full h-48" src={c} alt="Sunset in the mountains" />
+      <img className="w-full " src={c} alt="Sunset in the mountains" />
     ),
     title: "Spirited Chicken ",
     icon: (
@@ -65,7 +65,7 @@ export const FoodCardData = [
   },
   {
     image: (
-      <img className="w-full h-48" src={e} alt="Sunset in the mountains" />
+      <img className="w-full " src={e} alt="Sunset in the mountains" />
     ),
     title: "Jollof Meat",
     icon: (
@@ -77,7 +77,7 @@ export const FoodCardData = [
   },
   {
     image: (
-      <img className="w-full h-48" src={g} alt="Sunset in the mountains" />
+      <img className="w-full " src={g} alt="Sunset in the mountains" />
     ),
     title: "Roast Sate",
     icon: (
