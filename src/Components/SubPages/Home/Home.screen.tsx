@@ -60,11 +60,9 @@ function Home(props: FillProps) {
               <p className="text-2xl text-gray-400 dark:text-gray-500">
                 <h2 className="lg:text-2xl font-normal px-12 pt-12">
                   <h3 className={`${styles.wel} text-white text-3xl`}>
-                    Buhari
+                    Welcome
                   </h3>{" "}
-                  <div className="text-white">
-                    <p>Buhari says hello!</p>
-                  </div>
+                
                   <p className={`${styles.resto_name} text-3xl`}>
                     {" "}
                     {adminName}
@@ -148,7 +146,7 @@ function Home(props: FillProps) {
             </div>
           </div>
         </div>
-        <div className="h-screen lg:w-[30%] lg:block md:hidden sm:hidden fixed left-[84rem]  dark:bg-white">
+        <div className="h-screen lg:w-[35%]  lg:block md:hidden sm:hidden fixed left-[79rem] xl:left-[82rem]  bg-white">
           <div className="pt-10 px-5">
             <h2 className="text-2xl font-bold">Current Order</h2>
           </div>
