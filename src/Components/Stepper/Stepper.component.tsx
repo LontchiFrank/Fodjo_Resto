@@ -36,6 +36,7 @@ console.log(newSomme)
 const renderStepper:any = () => {
   switch (currentStep) {
     case 1:
+    return(
       <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
       <h3
         className="text-lg font-semibold leading-6 text-orange-600 mb-3"
@@ -68,18 +69,28 @@ const renderStepper:any = () => {
                 required
               />
             </div>
+            <div className='mb-6 flex justify-between'>
+                      <label>
+                        Price
+                      </label>
+                      <label  className='text-orange-700 text-xl'>
+                        {Number.isNaN(newSomme)?props.item.price:newSomme } XAF
+                      </label>
+                     </div>
          
            
           </form>
     </div>
+    )
       break;
       case 2:
+       return(
         <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
         <h3
           className="text-lg font-semibold leading-6 text-orange-600 mb-3"
           id="modal-title"
         >
-          Add to Cart
+         Shipping Info
         </h3>
       
         <form 
@@ -89,7 +100,7 @@ const renderStepper:any = () => {
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                 >
-                 Shipping Info
+                Location
                 </label>
                 <div className="mt-2">
           <p className="text-sm text-gray-500">
@@ -102,7 +113,7 @@ const renderStepper:any = () => {
                   // value={quantity}
                   // onChange={(e)=>handleChangeQty(e)}
                   className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-800 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="1 "
+                  placeholder="Mayor Street "
                   required
                 />
               </div>
@@ -110,44 +121,47 @@ const renderStepper:any = () => {
              
             </form>
       </div>
+       )
         break;
         case 3:
-          <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-          <h3
-            className="text-lg font-semibold leading-6 text-orange-600 mb-3"
-            id="modal-title"
-          >
-           User Info
-          </h3>
-        
-          <form 
-        //   onSubmit={(e) => handleSubmit(e)}
-          >
-                <div className="mb-6">
-                  <label
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                  >
-                   Shipping Info
-                  </label>
-                  <div className="mt-2">
-            <p className="text-sm text-gray-500">
-              Enter the Precise Location
-            </p>
-          </div>
-                  <input
-                    type="text"
-                    id="location"
-                    // value={quantity}
-                    // onChange={(e)=>handleChangeQty(e)}
-                    className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-800 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="1 "
-                    required
-                  />
-                </div>
-             
-               
-              </form>
+       return(
+        <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+        <h3
+          className="text-lg font-semibold leading-6 text-orange-600 mb-3"
+          id="modal-title"
+        >
+         User Info
+        </h3>
+      
+        <form 
+      //   onSubmit={(e) => handleSubmit(e)}
+        >
+              <div className="mb-6">
+                <label
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                >
+                Phone Number
+                </label>
+                <div className="mt-2">
+          <p className="text-sm text-gray-500">
+            Enter the Phone Number
+          </p>
         </div>
+                <input
+                  type="number"
+                  id="number"
+                  // value={quantity}
+                  // onChange={(e)=>handleChangeQty(e)}
+                  className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-800 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="+237682996677 "
+                  required
+                />
+              </div>
+           
+             
+            </form>
+      </div>
+       )
           break;
   
   
