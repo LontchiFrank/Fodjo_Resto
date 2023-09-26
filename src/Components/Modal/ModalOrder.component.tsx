@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import Item from '../ItemCate/Item.component';
 import { useHref } from 'react-router-dom';
+import ModalAddToCart from './ModalAddToCart.component';
+import Stepper from '../Stepper/Stepper.component';
 
 type FillProps = {
     show: boolean;
@@ -13,7 +15,13 @@ type FillProps = {
 
 function ModalOrder(props:FillProps) {
     const[quantity,setQuantity]=useState('')
-    
+    const [show1,setShow1 ]=useState(false)
+    const onModal =()=>{
+      setShow1(true)
+    }
+    const offModal =()=>{
+      setShow1(false)
+    }
 const changeStringToNumber:any=parseInt(quantity)
     const handleChangeQty:any =(e: React.ChangeEvent<HTMLInputElement>)=>{
    
@@ -26,6 +34,7 @@ console.log(newSomme)
 
   return (
   <div>
+    <ModalAddToCart show={show1} offModal={offModal}/>
     {props.show ?
       <div
       className="relative z-10"
@@ -40,6 +49,9 @@ console.log(newSomme)
         <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
           <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
             <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+
+
+
               <div className="">
             
                 <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
@@ -90,7 +102,7 @@ console.log(newSomme)
             <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
               <button
                 type="button"
-              //   onClick={() => handleDelete(props.item._id)}
+                onClick={onModal}
                 className="inline-flex w-full justify-center rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
               >
               
@@ -125,7 +137,8 @@ console.log(newSomme)
           </div>
         </div>
       </div>
-    </div> : null}
+    </div>
+     : null}
   </div>
   )
 }

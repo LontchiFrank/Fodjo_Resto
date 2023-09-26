@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import styles from "./FoodUserCard.module.css";
 import ModalOrder from "../../Components/Modal/ModalOrder.component";
+import Stepper from "../Stepper/Stepper.component";
 
 interface FoodProps {
   img?: JSX.Element;
@@ -31,11 +32,10 @@ function FoodUserCard({ img, title, open, item, icon, icon2 }: FoodProps) {
   };
   return (
     <div className="flex justify-center items-center">
-      <ModalOrder 
-       show={show}
+        <Stepper       
+         show={show}
         item={item}
-        handleShowOffModal={handleShowOffModal}
-        />
+        handleShowOffModal={handleShowOffModal}/>
 
  <div
       className={`${
