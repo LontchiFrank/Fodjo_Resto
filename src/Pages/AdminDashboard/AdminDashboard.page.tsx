@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useMemo, useState } from "react";
 import Wrapper from "../../Components/Wrapper/Wrapper.component";
 import logo from "../../assets/Calendar.png";
 import Navbar from "../../Components/DashboardNavbar/Navbar.component";
@@ -74,7 +74,7 @@ function AdminDashboard() {
     setCurrentComponent(item);
   };
 
-  const windowSidebar: any = window.innerWidth;
+  const windowSidebar: any =useMemo(()=>window.innerWidth,[]) ;
   return (
     <div>
       <Wrapper>
