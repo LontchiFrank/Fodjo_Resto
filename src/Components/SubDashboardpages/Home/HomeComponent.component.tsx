@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect,useMemo,useState } from "react";
 import styles from "./HomeComponents.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import Item from "../../ItemCate/Item.component";
@@ -14,11 +14,9 @@ type FillProps = {
 };
 
 function HomeComponent(props: FillProps) {
-  const windowSidebar: any = window.innerWidth;
+  const windowSidebar: any =useMemo(()=> window.innerWidth,[]);
   const data = useSelector((state: any) => state.food?.data);
   const dispatch = useDispatch();
-  console.log(data);
-  console.log(data);
   useEffect(() => {
     dispatch(getAllFoodAsync());
   }, []);
@@ -123,7 +121,7 @@ function HomeComponent(props: FillProps) {
               className={`${props.open ? "p-5" : "p-10"} ${
                 data.length == 0
                   ? "flex  justify-center items-center"
-                  : "grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1"
+                  : "grid gap-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 xs:grid-cols-1"
               }   mb-4 rounded bg-gray-50 dark:bg-white `}
             >
               {data.length > 0 ? (
