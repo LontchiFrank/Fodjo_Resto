@@ -1,8 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore,getDefaultMiddleware } from "@reduxjs/toolkit";
 import adminAuthSlide from "../features/adminAuthSlice";
 import authSlide from "../features/authSlice";
 import categorySlide from "../features/CategorySlice";
 import foodSlide from "../features/foodSlice";
+import  {foodApi} from "../services/apiFood"
 
 // ...
 
@@ -12,7 +13,10 @@ export const store = configureStore({
     admins: adminAuthSlide.reducer,
     categoryList: categorySlide.reducer,
     food: foodSlide.reducer,
+    [foodApi.reducerPath]:foodApi.reducer
   },
+     middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(foodApi.middleware)
+
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

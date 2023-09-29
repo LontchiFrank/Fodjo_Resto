@@ -8,22 +8,17 @@ import "slick-carousel/slick/slick-theme.css";
 import load from "../../../assets/cube.svg";
 import FoodUserCard from "../../FoodUserCard/FoodUserCard.component";
 import { getAllFoodAsync } from "../../../features/foodSlice";
+import { useGetFoodsQuery } from "../../../services/apiFood";
+import { myAlert } from "../../Alert/myAlert";
 
 type FillProps = {
   open: boolean;
 };
 
 function HomeComponent(props: FillProps) {
+  const {data,isLoading,error,isFetching,isSuccess } =useGetFoodsQuery();
   const windowSidebar: any =useMemo(()=> window.innerWidth,[]);
-  const data = useSelector((state: any) => state.food?.data);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllFoodAsync());
-  }, []);
-
-  console.log(windowSidebar);
-
-
   const settings = {
     dots: true,
     infinite: false,
@@ -119,28 +114,53 @@ function HomeComponent(props: FillProps) {
 
             <div
               className={`${props.open ? "p-5" : "p-10"} ${
-                data.length == 0
+                data?.length == 0
                   ? "flex  justify-center items-center"
                   : "grid gap-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 xs:grid-cols-1"
               }   mb-4 rounded bg-gray-50 dark:bg-white `}
             >
-              {data.length > 0 ? (
-                data.map((item: any, index: any) => (
-                  <FoodUserCard
-                    key={index}
-                    item={item}
-                    img={item.image}
-                    title={item.title}
-                    icon={item.icon}
-                    icon2={item.icon2}
-                    open={props.open}
-                  />
-                ))
-              ) : (
-                <div className=" h-screen flex justify-center items-center ">
-                  <img src={load} style={{ width: "28%", height: "28%" }} />
+              {isLoading &&  <div
+      className="relative z-10"
+      aria-labelledby="modal-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      
+      <div className="fixed inset-0 bg-white transition-opacity"></div>
+  
+      <div className="fixed inset-0 z-10 overflow-y-auto">
+        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <div className="relative transform overflow-hidden rounded-lg bg-white-50 text-left  transition-all sm:my-8 sm:w-full sm:max-w-lg">
+            <div className="bg-white-50 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+            <div className="  flex flex-col justify-center items-center ">
+                  <img src={load} style={{ width: "28%", height: "26%" }} />
+               <p className={`${styles.fontSec} font-semibold`}>   Loading...</p>
                 </div>
-              )}
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>  
+            
+                }
+                {error && <>{myAlert(false,'Something went wrong')}</> }
+                {/* {isFetching&& <>{alert('Fetching')} </>} */}
+                {isSuccess && (
+                   
+                    data?.map((item: any, index: any) => (
+                      <FoodUserCard
+                        key={index}
+                        item={item}
+                        img={item.image}
+                        title={item.title}
+                        icon={item.icon}
+                        icon2={item.icon2}
+                        open={props.open}
+                      />
+                    ))
+                       
+                ) }
+             
             </div>
             <div className="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
               <p className="text-2xl text-gray-400 dark:text-gray-500">
