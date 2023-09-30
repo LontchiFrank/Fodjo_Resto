@@ -62,9 +62,9 @@ function HomeComponent(props: FillProps) {
               </button>
             </div>
             <div className={`${styles.fontSec1} mt-3 text-left text-2xl`}>
-              Category{" "}
+              Categories{" "}
             </div>
-         
+         <Category/>
 
             <div
               className={`${props.open ? "p-5" : "p-10"} ${
@@ -148,8 +148,7 @@ function HomeComponent(props: FillProps) {
 export default HomeComponent;
 
 export const Category =()=>{
-const {} =useGetCategoryQuery();
-
+const {data,isLoading,isSuccess} =useGetCategoryQuery();
   const settings = {
     dots: true,
     infinite: false,
@@ -187,17 +186,12 @@ const {} =useGetCategoryQuery();
   return(
     <div className={`${styles.slick}  gap-4 mb-4`}>
     <Slider {...settings}>
-      <Item />
-      <Item />
-      <Item />
-      <Item />
-      <Item />
-      <Item />
-      <Item />
-      <Item />
-      <Item />
-      <Item />
-      <Item />
+     {
+      isLoading && <div>Loading</div>
+     }
+     {isSuccess&& (
+      data?.map((item)=><Item item={item}/>)
+     )}
     </Slider>
     {/* </Carousel> */}
   </div>
