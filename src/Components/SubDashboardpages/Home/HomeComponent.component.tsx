@@ -10,6 +10,7 @@ import FoodUserCard from "../../FoodUserCard/FoodUserCard.component";
 import { getAllFoodAsync } from "../../../features/foodSlice";
 import { useGetFoodsQuery } from "../../../services/apiFood";
 import { myAlert } from "../../Alert/myAlert";
+import { useGetCategoryQuery } from "../../../services/apiCategories";
 
 type FillProps = {
   open: boolean;
@@ -17,42 +18,10 @@ type FillProps = {
 
 function HomeComponent(props: FillProps) {
   const {data,isLoading,error,isFetching,isSuccess } =useGetFoodsQuery();
+  // const {das=data,loader=isLoading} =useGetCategoryQuery()
   const windowSidebar: any =useMemo(()=> window.innerWidth,[]);
   const dispatch = useDispatch();
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+
 
   return (
     <div
@@ -95,22 +64,7 @@ function HomeComponent(props: FillProps) {
             <div className={`${styles.fontSec1} mt-3 text-left text-2xl`}>
               Category{" "}
             </div>
-            <div className={`${styles.slick}  gap-4 mb-4`}>
-              <Slider {...settings}>
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-              </Slider>
-              {/* </Carousel> */}
-            </div>
+         
 
             <div
               className={`${props.open ? "p-5" : "p-10"} ${
@@ -192,3 +146,60 @@ function HomeComponent(props: FillProps) {
 }
 
 export default HomeComponent;
+
+export const Category =()=>{
+const {} =useGetCategoryQuery();
+
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+  return(
+    <div className={`${styles.slick}  gap-4 mb-4`}>
+    <Slider {...settings}>
+      <Item />
+      <Item />
+      <Item />
+      <Item />
+      <Item />
+      <Item />
+      <Item />
+      <Item />
+      <Item />
+      <Item />
+      <Item />
+    </Slider>
+    {/* </Carousel> */}
+  </div>
+  )
+}

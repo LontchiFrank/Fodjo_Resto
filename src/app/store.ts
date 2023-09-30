@@ -4,6 +4,7 @@ import authSlide from "../features/authSlice";
 import categorySlide from "../features/CategorySlice";
 import foodSlide from "../features/foodSlice";
 import  {foodApi} from "../services/apiFood"
+import { categoryApi } from "../services/apiCategories";
 
 // ...
 
@@ -13,9 +14,10 @@ export const store = configureStore({
     admins: adminAuthSlide.reducer,
     categoryList: categorySlide.reducer,
     food: foodSlide.reducer,
-    [foodApi.reducerPath]:foodApi.reducer
+    [foodApi.reducerPath]:foodApi.reducer,
+    [categoryApi.reducerPath]:categoryApi.reducer,
   },
-     middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(foodApi.middleware)
+     middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(foodApi.middleware,categoryApi.middleware)
 
 });
 
