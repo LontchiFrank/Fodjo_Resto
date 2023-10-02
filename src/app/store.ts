@@ -5,6 +5,7 @@ import categorySlide from "../features/CategorySlice";
 import foodSlide from "../features/foodSlice";
 import  {foodApi} from "../services/apiFood"
 import { categoryApi } from "../services/apiCategories";
+import { postCartApi } from "../services/apiAddCart";
 
 // ...
 
@@ -16,8 +17,9 @@ export const store = configureStore({
     food: foodSlide.reducer,
     [foodApi.reducerPath]:foodApi.reducer,
     [categoryApi.reducerPath]:categoryApi.reducer,
+    [postCartApi.reducerPath]:postCartApi.reducer
   },
-     middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(foodApi.middleware,categoryApi.middleware)
+     middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(foodApi.middleware,categoryApi.middleware,postCartApi.middleware)
 
 });
 

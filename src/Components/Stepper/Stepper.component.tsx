@@ -2,6 +2,7 @@ import React,{useMemo, useState} from 'react';
 import "./Stepper.css";
 import { TiTick } from "react-icons/ti";
 import { myAlert } from '../Alert/myAlert';
+import { useAddCartMutation } from '../../services/apiAddCart';
 
 type FillProps = {
     show: boolean;
@@ -23,13 +24,15 @@ function Stepper(props:FillProps) {
     const [currentStep, setCurrentStep] = useState(1);
     const [complete, setComplete] = useState(false);
     const [formData, setFormData] = useState({
+      id:'',
       quantity:'',
       location:'',
       tel:'',
-      price:'',
+      price:Number(),
     })
     const [show1,setShow1 ]=useState(false)
     const {quantity,tel,location}= formData;
+    const [addCart]=useAddCartMutation();
 
     const changeStringToNumber:number=parseInt(quantity);
    
@@ -39,13 +42,16 @@ function Stepper(props:FillProps) {
       setFormData({...formData,[e.target.name]:e.target.value })
       console.log(formData)
     }
-    const handleSubmit:any=(event: React.FormEvent<HTMLFormElement>)=>{
+    const handleSubmit:any=async(event: React.FormEvent<HTMLFormElement>)=>{
       event.preventDefault();
       setFormData({...formData,price:newSomme })
       setComplete(true)
+      await addCart(formData)
       myAlert(true,"Added to Cart Successfully")
       props.handleShowOffModal()
       console.log("money",formData);
+      
+
     }
 
 
