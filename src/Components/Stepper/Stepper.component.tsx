@@ -25,24 +25,29 @@ function Stepper(props:FillProps) {
     const [formData, setFormData] = useState({
       quantity:'',
       location:'',
-      tel:''
+      tel:'',
+      price:'',
     })
     const [show1,setShow1 ]=useState(false)
-    const {quantity,tel,location}= formData
+    const {quantity,tel,location}= formData;
+
+    const changeStringToNumber:number=parseInt(quantity);
+   
+    const newSomme:any = changeStringToNumber * props.item.price;
+
     const handleChange=(e: React.ChangeEvent<HTMLInputElement>)=>{
       setFormData({...formData,[e.target.name]:e.target.value })
       console.log(formData)
     }
     const handleSubmit:any=(event: React.FormEvent<HTMLFormElement>)=>{
       event.preventDefault();
+      setFormData({...formData,price:newSomme })
       setComplete(true)
       myAlert(true,"Added to Cart Successfully")
       props.handleShowOffModal()
-      console.log("money");
+      console.log("money",formData);
     }
-const changeStringToNumber:number=useMemo(()=>parseInt(quantity),[])
-   
-const newSomme:any =useMemo(()=>  changeStringToNumber * props.item.price,[]);
+
 
 const renderStepper:any = () => {
   switch (currentStep) {

@@ -18,7 +18,6 @@ type FillProps = {
 
 function HomeComponent(props: FillProps) {
   const {data,isLoading,error,isFetching,isSuccess } =useGetFoodsQuery();
-  // const {das=data,loader=isLoading} =useGetCategoryQuery()
   const windowSidebar: any =useMemo(()=> window.innerWidth,[]);
   const dispatch = useDispatch();
 
@@ -39,7 +38,6 @@ function HomeComponent(props: FillProps) {
             props.open ? "lg:w-[65%] " : " lg:w-[69%]"
           } p-4  md:w-[100%] sm:w-[100%] xs:w-[100%] `}
         >
-          {/* <div className="text-center text-2xl">Home </div> */}
           <div className=" rounded-lg dark:border-gray-700 bg-gray-200">
             <div
               className={`${styles.hero} flex flex-col items-start justify-left h-80 mb-4 rounded bg-gray-50 dark:bg-gray-800`}
