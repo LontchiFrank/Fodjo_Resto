@@ -25,8 +25,8 @@ export const postCartApi = createApi({
         url:'/add-cart',
         method:'POST',
         headers:{
-            "Content-Type": "application/json",
-            "auth-token": `${getTokenFromLocalStorage}`,
+            // "Content-Type": "application/json",
+            Authorization: `${getTokenFromLocalStorage}`,
           },
         body:cart
        })
