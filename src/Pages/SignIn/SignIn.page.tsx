@@ -45,7 +45,8 @@ function SignIn() {
   return (
     <>
       {auth === true ? (
-        window.location.replace("/dashboard")
+        // window.location.replace("/dashboard")
+        <div>dashboard</div>
       ) : (
         <div
           className={`${styles.view} w-full h-screen flex  flex-col justify-center items-center `}

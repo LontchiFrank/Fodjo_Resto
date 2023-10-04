@@ -45,7 +45,7 @@ export const signUpAdmin: any = createAsyncThunk(
   }
 );
 
-export const signInAdmin: any = createAsyncThunk("LoginUser", async (data) => {
+export const signInAdmin: any = createAsyncThunk("LoginAdmin", async (data) => {
   try {
     const config = {
       headers: {

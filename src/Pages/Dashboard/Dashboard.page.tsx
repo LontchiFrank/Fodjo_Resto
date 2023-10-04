@@ -66,7 +66,7 @@ function Dashboard() {
       case subDashboardComponentNames.PROFILE:
         return <Profile open={open} />;
       case subDashboardComponentNames.SIGNOUT:
-        return <Link to="/"></Link>;
+        return <Link to="/"onClick={clearStorage} ></Link>;
     }
   };
 
@@ -74,7 +74,9 @@ function Dashboard() {
     // console.log(item);
     setCurrentComponent(item);
   };
-
+const clearStorage=()=>{
+  localStorage.clear()
+}
   const windowSidebar: any = window.innerWidth;
   return (
     <div>

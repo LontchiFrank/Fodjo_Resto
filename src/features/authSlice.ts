@@ -37,15 +37,19 @@ export const signUpUser: any = createAsyncThunk(
       return res;
     } catch (error: any) {
       if (error.response && error.response.data.message) {
-        return error.response.data.message;
+        return (
+        myAlert(false,`${error.response.data.message}`)
+        )
       } else {
-        return error.message;
+        return (
+          myAlert(false,`${error.message}`)
+        );
       }
     }
   }
 );
 
-export const signInUser: any = createAsyncThunk("auth/login", async (data) => {
+export const signInUser: any = createAsyncThunk("LoginUser", async (data) => {
   try {
     const config = {
       headers: {
@@ -56,6 +60,7 @@ export const signInUser: any = createAsyncThunk("auth/login", async (data) => {
     const res: any = await axios.post(`${API_URL}/login`, body, config);
     console.log(res, "res");
     const result = await res;
+    console.log(res)
     if (res.status == "200") {
       myAlert(true, "Created successfully");
     }
