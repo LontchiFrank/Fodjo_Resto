@@ -17,7 +17,6 @@ function SignIn() {
   } as User);
   const { email, password } = formData;
   const dispatch: any = useDispatch();
-  const auth = useSelector((data: any) => data.users?.authenticate);
   const loader = useSelector((data: any) => data.users?.loading);
   let token = undefined
   if(localStorage.getItem('token') !== 'undefined') token = localStorage.getItem('token')

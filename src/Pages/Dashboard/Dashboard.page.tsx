@@ -14,6 +14,7 @@ import { HomeComponent, Profile, Search, Orders } from "../../Components";
 import { subDashboardComponentNames } from "../../Components/SubDashboardpages/index";
 import { Link, useNavigate } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
+import { useDispatch, useSelector } from "react-redux";
 
 function Dashboard() {
   const [currentComponent, setCurrentComponent] = useState(
@@ -24,7 +25,9 @@ function Dashboard() {
   const handleDisplaySide: any = () => {
     setDisplaySide(!displaySide);
   };
-  const navigate = useNavigate();
+  
+  const dispatch=useDispatch();
+  const auth = useSelector((data: any) => data.users?.authenticate);
 
   const signOut: any = () => {
     localStorage.removeItem("token");
@@ -79,6 +82,7 @@ const clearStorage=()=>{
 }
   const windowSidebar: any = window.innerWidth;
   return (
+  <>
     <div>
       <Wrapper>
         <div className={`${windowSidebar < 550 ? " flex-col" : "flex"} `}>
@@ -222,6 +226,7 @@ const clearStorage=()=>{
         </div>
       </Wrapper>
     </div>
+  </>
   );
 }
 

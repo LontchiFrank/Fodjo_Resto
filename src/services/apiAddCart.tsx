@@ -10,27 +10,29 @@ export interface PostCart {
 }
 export const API_URL = "http://localhost:8080/api/addCart";
 
-export const getTokenFromLocalStorage = () => {
-    return localStorage.getItem('token');
-};
+const getTokenFromLocalStorage = localStorage.getItem('token');
 
 
 export const postCartApi = createApi({
     reducerPath: 'postsCartApi',
-    baseQuery: fetchBaseQuery({ baseUrl: `${API_URL}` }),
+    baseQuery: fetchBaseQuery({ baseUrl: `${API_URL}`,prepareHeaders:(headers,{getState})=>{
+const token = JSON.stringify(localStorage.getItem('token'));
+
+console.log(token)
+if(token){
+  headers.set('auth-token', `Bearer ${token}`)
+  return headers
+} 
+} }),
     tagTypes: ['Posts'],
     endpoints: (build) => ({
       addCart: build.mutation<void  , PostCart>({
        query: cart=>({
         url:'/add-cart',
         method:'POST',
-        headers:{
-            // "Content-Type": "application/json",
-            Authorization: `${getTokenFromLocalStorage}`,
-          },
         body:cart
        })
-      }),
+      } ),
       updateCart: build.mutation<void  , PostCart>({
         
         query: ({id,...rest})=>({
