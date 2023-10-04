@@ -40,9 +40,10 @@ export const signUpUser: any = createAsyncThunk(
         return (
         myAlert(false,`${error.response.data.message}`)
         )
-      } else {
+      }
+       else {
         return (
-          myAlert(false,`${error.message}`)
+          myAlert(false,`${error.response.data.message}`)
         );
       }
     }
@@ -62,16 +63,15 @@ export const signInUser: any = createAsyncThunk("LoginUser", async (data) => {
     const result = await res;
     console.log(res)
     if (res.status == "200") {
-      myAlert(true, "Created successfully");
+      myAlert(true, "Login successfully");
+      
     }
     console.log(result);
     return result;
-  } catch (error: any) {
-    if (error.response && error.response.data.message) {
-      return error.response.data.message;
-    } else {
-      return error.message;
-    }
+  } 
+  catch (error: any) {
+console.log(error.response.data)
+    myAlert(false,`${error.response.data}`)
   }
 });
 
@@ -90,12 +90,12 @@ export const authSlide: Slice<Customer> = createSlice({
     [signInUser.fulfilled]: (state, { payload }) => {
       state.loading = false;
       state.authenticate = true;
-      state.userToken = payload.data?.token;
-      state.userInfo = payload.data?.user;
+      state.userToken = payload?.data?.token;
+      state.userInfo = payload?.data?.user;
 
       // localStorage.setItem("msg", msg);
-      localStorage.setItem("user", JSON.stringify(state.userInfo));
-      localStorage.setItem("token", state.userToken);
+      if(state.userInfo) localStorage.setItem("user", JSON.stringify(state.userInfo));
+      if(state.userToken) localStorage.setItem("token", state.userToken);
     },
     [signInUser.rejected]: (state, { payload }) => {
       state.loading = false;
@@ -108,7 +108,6 @@ export const authSlide: Slice<Customer> = createSlice({
       state.loading = true;
     },
     [signUpUser.fulfilled]: (state, { payload }) => {
-      console.log(payload, "hey nigga");
       state.loading = false;
       state.authenticate = true;
       state.userInfo = payload.data;

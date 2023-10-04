@@ -19,6 +19,9 @@ function SignIn() {
   const dispatch: any = useDispatch();
   const auth = useSelector((data: any) => data.users?.authenticate);
   const loader = useSelector((data: any) => data.users?.loading);
+  let token = undefined
+  if(localStorage.getItem('token') !== 'undefined') token = localStorage.getItem('token')
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
     console.log(formData);
@@ -42,11 +45,13 @@ function SignIn() {
     console.log(sign);
   };
 
+  console.log(token);
+  
+
   return (
     <>
-      {auth === true ? (
-        // window.location.replace("/dashboard")
-        <div>dashboard</div>
+      {token ? (
+        window.location.replace("/dashboard")
       ) : (
         <div
           className={`${styles.view} w-full h-screen flex  flex-col justify-center items-center `}

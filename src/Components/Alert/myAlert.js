@@ -7,7 +7,7 @@ export const myAlert = async (res, title, type = "normal") => {
       sAlert.fire({
         position: "center",
         icon: "success",
-        title: "success",
+        title: title,
         showConfirmButton: false,
         timer: 1500,
       });
@@ -16,7 +16,7 @@ export const myAlert = async (res, title, type = "normal") => {
       sAlert.fire({
         position: "center",
         icon: "error",
-        title: "Failed",
+        title: title,
         showConfirmButton: false,
         timer: 1500,
       });

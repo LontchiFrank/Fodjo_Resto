@@ -89,7 +89,7 @@ export const adminAuthSlide: Slice<Admin> = createSlice({
 
       // localStorage.setItem("msg", msg);
       localStorage.setItem("admin", JSON.stringify(state.adminInfo));
-      localStorage.setItem("token", state.adminToken);
+      if(state.adminToken) localStorage.setItem("token", state.adminToken);
     },
     [signInAdmin.rejected]: (state, { payload }) => {
       state.loading = false;
