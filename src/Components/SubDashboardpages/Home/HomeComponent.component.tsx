@@ -177,6 +177,7 @@ export const Category = () => {
 	};
 	return (
 		<div className={`${styles.slick}  gap-4 mb-4`}>
+			{/* @ts-expect-error */}
 			<Slider {...settings}>
 				{isLoading && <div>Loading</div>}
 				{isSuccess && data?.map((item) => <Item item={item} />)}
